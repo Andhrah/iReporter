@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./assests/css/styles.css">
+  <link rel="stylesheet" href="./assests/css/reponsive.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <title>Sign Up | iReporter</title>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <!-- -------------------------------------- -->
+      <!-- site brand -->
+      <!-- -------------------------------------- -->
+      <div class="branding">
+        <a href="./index.html"><img src="./assests/images/logo2.png" alt="iReporter logo"></a> 
+      </div>
+
+      <!-- --------------------------------------- -->
+      <!-- navigation bar -->
+      <!-- --------------------------------------- -->
+      <nav class="navbar" id="topnav">
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./signup.html">Sign Up</a></li>
+          <li><a href="./signin.html">Sign In</a></li>
+          <li><a href="#">About Us</a></li>
+          <li>
+            <button href="javascript:void(0);" class="icon" onclick="toggle()">
+              <i class="fa fa-bars"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+     <!-- --------------------------------------- -->
+      <!-- sign in form -->
+    <!-- --------------------------------------- -->
+    <div class="form-container" id="signin-wrapper">
+
+      <h1>Sign In</h1>
+
+      <form action="">
+        
+        <div class="input-container">
+          <label>Email/Username</label>
+          <input type="text" class="text-input" />
+        </div>
+
+        <div class="input-container">
+          <label>Password</label>
+          <input type="password" class="text-input" />
+        </div>
+
+        <button type="submit" class="form-primary-btn">
+          Sign In
+        </button>
+
+      </form>
+
+      <div class="second-btn">
+        <h4 class="form-h4">Don't have an account?</h4>
+      </div>
+
+      <a href="./signup.html" class="form-secondary-btn">
+        Sign Up
+      </a>
+
+    </div>
+
+    <footer class="center">
+      <p>&copy; Andela 2018 All Rights Reserved.</p>
+      <p>Designed By Alexandra Collins</p>
+    </footer>
+  </div>
+
+  <script src="./assests/js/main.js"></script>
+</body>
+</html>

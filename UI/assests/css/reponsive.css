@@ -7,9 +7,13 @@
   .form-container-grid {
     grid-template-columns: 1fr;
   }
-  #signup-wrapper {
-    margin-right: 24%;
-    margin-left: 24%
+  #signup-wrapper, #signin-wrapper {
+    margin-right: 20%;
+    margin-left: 20%;
+  }
+  #signin-wrapper {
+    margin-top: 10%;
+    margin-bottom: 18%;
   }
 
 @media screen and (max-width: 650px) {
@@ -73,6 +77,10 @@
   }
   .grid-container {
     grid-template-columns: 1fr;
+  }
+  #signin-wrapper {
+    margin-right: 10%;
+    margin-left: 10%;
   }
  
 }
