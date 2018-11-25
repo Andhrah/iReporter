@@ -38,8 +38,13 @@ header {
 }
 
 nav {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  overflow: hidden;
+  justify-content: space-between;
   float: right;
-  margin: 0px;
+
 }
 
 nav li {
@@ -53,6 +58,10 @@ nav a {
   text-transform: uppercase;
   line-height: 60px;
   font-weight: bold;
+}
+
+nav .icon {
+  display: none;
 }
 
 nav a:hover {
@@ -94,7 +103,7 @@ nav a:hover {
   position: absolute;
   z-index: 1;
   top: 25%;
-  left: 40%;
+  left: 50%;
   margin-top: 105px;
   margin-left: -145px;
   width: 38%;
