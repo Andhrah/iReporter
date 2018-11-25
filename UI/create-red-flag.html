@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./assests/css/styles.css">
+  <link rel="stylesheet" href="./assests/css/reponsive.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <title>Create Red-Flag | iReporter</title>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <!-- -------------------------------------- -->
+      <!-- site brand -->
+      <!-- -------------------------------------- -->
+      <div class="branding">
+        <a href="homepage.html"><img src="./assests/images/logo2.png" alt="iReporter logo"></a> 
+      </div>
+
+      <!-- --------------------------------------- -->
+      <!-- navigation bar -->
+      <!-- --------------------------------------- -->
+      <nav class="navbar" id="topnav">
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./create-red-flag.html">Report Red-Flag</a></li>
+          <li><a href="./create-intervention.html">Call For Intervention</a></li>
+          <li><a href="#">Dashboard</a></li>
+          <li>
+            <button href="javascript:void(0);" class="icon" onclick="toggle()">
+              <i class="fa fa-bars"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ------------------------------------------------------ -->
+    <!-- Form for creating red-flag incident/corruption -->
+    <!-- ------------------------------------------------------ -->
+    <div class="report-form-container">
+      <h3>Report <span>Red-flag</span> incident or corruption (alleged)</h3>
+      <form class="report-form">
+        <p>Type Of Incident/Corruption (choose all that relate)</p>
+        <div class="first-checkbox-container">
+          <div class="checkbox-container">
+              <input type="checkbox">
+              <label>Corruption at home</label>
+            </div>
+            <div class="checkbox-container">
+              <input type="checkbox">
+              <label>Fake or Ghost worker</label>
+            </div>
+    
+            <div class="checkbox-container">
+              <input type="checkbox">
+              <label>Bribery</label>
+            </div>
+    
+            <div class="checkbox-container">
+              <input type="checkbox">
+              <label for="scales">Embbezzlement, Fraud</label>
+            </div>
+    
+            <div class="checkbox-container">
+              <input type="checkbox">
+              <label for="scales">Theft</label>
+            </div>
+    
+            <div class="checkbox-container">
+              <input type="checkbox">
+              <label for="scales">Drug dealers (cocaine etc)</label>
+            </div>
+    
+            <div class="checkbox-container">
+              <input type="checkbox">
+              <label for="scales">Abuse of power</label>
+            </div>
+    
+            <div class="checkbox-container">
+              <input type="checkbox">
+              <label>Others</label>
+            </div>
+        </div>
+        <div class="checkbox-container">
+          <label>If others, please specify</label>
+          <input type="text">
+        </div>
+
+        <!-- ------------------------------------------------------ -->
+        <!-- Entity or body involved -->
+        <!-- ------------------------------------------------------ -->
+        <p>Entity or people involved (include all that are involved)</p>
+        <div class="first-checkbox-container">
+          <div class="checkbox-container">
+            <input type="checkbox">
+            <label>Public/government hospital</label>
+          </div>
+
+          <div class="checkbox-container">
+            <input type="checkbox">
+            <label>Police</label>
+          </div>
+
+          <div class="checkbox-container">
+            <input type="checkbox">
+            <label>Custom Officer</label>
+          </div>
+
+          <div class="checkbox-container">
+            <input type="checkbox">
+            <label>Magistrate or Judge</label>
+          </div>
+
+          <div class="checkbox-container">
+            <input type="checkbox">
+            <label>Private hospital</label>
+          </div>
+
+          <div class="checkbox-container">
+            <input type="checkbox">
+            <label>Public/state nusery/primary school</label>
+          </div>
+
+          <div class="checkbox-container">
+            <input type="checkbox">
+            <label>Public/state secondary school</label>
+          </div>
+
+          <div class="checkbox-container">
+            <input type="checkbox">
+            <label>Private nusery/primary school</label>
+          </div>
+          
+          <div class="checkbox-container">
+            <input type="checkbox">
+            <label>Private secondary school</label>
+          </div>
+
+          <div class="checkbox-container">
+            <input type="checkbox">
+            <label>Federal/national government department</label>
+          </div>
+
+          <div class="checkbox-container">
+            <input type="checkbox">
+            <label>State government department</label>
+          </div>
+
+          <div class="checkbox-container">
+            <input type="checkbox">
+            <label>Local government department</label>
+          </div>
+
+          <div class="checkbox-container">
+              <input type="checkbox">
+              <label>Others</label>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <label>If other, please specify</label>
+          <input type="text">
+        </div>
+
+        <!-- ---------------------------------------------------------------->
+        <!-- what happened -->
+        <!-- --------------------------------------------------------------->
+        <div class="checkbox-container">
+          <p>Please describe what happened?</p>
+          <textarea name="" id="" cols="50" rows="10" placeholder="Enter text here"></textarea>
+        </div>
+
+        <!-- ----------------------------------------------------------------------- -->
+        <!-- where it happened -->
+        <!-- --------------------------------------------------------------------- -->
+        <p>Where did it happen?</p>
+        <div class="checkbox-container">
+          <label>Country</label>
+          <input type="text" placeholder="E.g. Nigeria">
+        </div>
+
+        <div class="checkbox-container">
+          <label>State/County</label>
+          <input type="text">
+        </div>
+
+        <div class="checkbox-container">
+          <label>City/Town</label>
+          <input type="text">
+        </div>
+        <div class="checkbox-container">
+          <label>Street</label>
+          <input type="text">
+        </div>
+
+        <!-- ----------------------------------------------------- -->
+        <!-- when did it happen -->
+        <!-- ----------------------------------------------------- -->
+        <div class="checkbox-container">
+          <label>When did it happen?</label>
+          <input type="text">
+        </div>
+
+        <!-- ----------------------------------------------------- -->
+        <!-- Names of those involved -->
+        <!-- ----------------------------------------------------- -->
+        <div class="checkbox-container">
+          <label>Provide name(s) of those involved</label>
+          <textarea name="" id="" cols="50" rows="10"></textarea>
+        </div>
+
+        <!-- ----------------------------------------------------- -->
+        <!-- Add image(s) or Video -->
+        <!-- ----------------------------------------------------- -->
+        <div class="checkbox-container">
+          <p>Add image or video related to the incident/corruption</p>
+          <input type="file" class="custom-file-input">
+        </div>
+
+        <button class="report-button">Report Red-flag</button>
+        
+      </form>
+    </div>
+
+    <!-- ----------------------------------------------------- -->
+      <!-- Footer -->
+    <!-- ----------------------------------------------------- -->
+    <footer>
+      <p>&copy; Andela 2018 All Rights Reserved.</p>
+      <p>Designed By Alexandra Collins</p>
+    </footer>
+  </div>
+
+  <script src="./assests/js/main.js"></script>
+</body>
+</html>
