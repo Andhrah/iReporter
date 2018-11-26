@@ -1,4 +1,6 @@
 @media screen and (max-width: 960px){
+}
+@media screen and (max-width: 768px){
   .navbar a {
     display: none;
   }
@@ -34,9 +36,6 @@
     margin: 0 auto;
     line-height: 35px;
   }
-}
-@media screen and (max-width: 768px){
-  
   .grid-container {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -54,6 +53,10 @@
   .report-form-container {
     margin-right: 15%;
     margin-left: 15%;
+  }
+  .first-incident-container {
+    margin-left: 16%;
+    margin-right: 16%;
   }
 
 @media screen and (max-width: 650px) {
@@ -95,6 +98,10 @@
   .report-form-container {
     margin-right: 8%;
     margin-left: 8%;
+  }
+  .first-incident-container {
+    margin-left: 6%;
+    margin-right: 6%;
   }
 
 }
