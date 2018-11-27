@@ -58,6 +58,10 @@
     margin-left: 16%;
     margin-right: 16%;
   }
+  .all-red-flag-list-container {
+    margin-right: 9%;
+    margin-left: 9%;
+  }
 
 @media screen and (max-width: 650px) {
   nav {
@@ -103,7 +107,16 @@
     margin-left: 6%;
     margin-right: 6%;
   }
-
+  .all-red-flag-list-container .title-container {
+    font-size: 20px;
+  }
+  .red-flag-list {
+    flex-direction: column;
+  }
+  .red-flag-list p {
+    margin: 2%;
+  }
+  
 }
 @media screen and (max-width: 320px){
   .report-form-container {

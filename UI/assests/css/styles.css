@@ -563,13 +563,99 @@ nav a:hover {
 /* all-red-flag  and intervention style*/
 /* ***************************************************** */
 
+.all-red-flag-list-container {
+  border: 3px solid rgb(247, 172, 10);
+  margin: 0px 18%;
+  margin-top: 7%;
+  margin-bottom: 7%;
+  border-radius: 10px;
+}
+
+.all-red-flag-list-container .title-container {
+  background: rgb(78, 136, 11);
+  text-align: center;
+  border-radius: 10px;
+  margin: 0;
+  font-weight: bold;
+  padding-bottom: 3px;
+}
+.all-red-flag-list-container h2 {
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+}
+
+.all-red-flag-list-container .title-container a {
+  text-decoration: none;
+  font-size: 14px;
+  color: rgb(255, 255, 255)
+}
+
+.all-red-flag-list-container .title-container a:hover {
+  border-bottom: 3px solid rgb(255, 255, 255);
+}
+.list-anchor {
+  text-decoration: none;
+}
+ .red-flag-list:hover {
+  background: rgba(247, 172, 10, 0.897);
+}
+
+.red-flag-list {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(255, 255, 255);
+  background: rgba(247, 172, 10, 0.657);
+  margin-bottom: 8px;
+  padding: 15px 4px;
+  border-radius: 10px;
+}
+
+.red-flag-list p {
+  margin: 0;
+}
+
+.group .name span {
+  color: rgb(78, 136, 11);
+  font-weight: bold;
+}
+
+.red-flag-list .group {
+  margin-left: 5px;
+}
+
+.red-flag-list .group .location {
+  color: rgb(65, 40, 2);
+  font-weight: bold;
+}
+
+.draft {
+  color: rgba(255, 255, 255, 0.582);
+  font-weight: bold;
+}
+
+.resolved {
+  color: rgb(78, 136, 11);
+  font-weight: bold;
+}
+
+.none {
+  color: rgb(156, 247, 10);
+  font-weight: bold;
+}
+
+.rejected {
+  color: rgb(236, 19, 12);
+  font-weight: bold;
+}
+
 /* ****************************************************** */
 /* Footer styles */
 /* ***************************************************** */
 
 footer {
   text-align: center;
-  font-size: 18px;
+  font-size: 14px;
   background-color: rgb(247, 172, 10);
   padding: 10px 0px;
 }
