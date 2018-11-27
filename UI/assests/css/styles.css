@@ -734,6 +734,46 @@ nav a:hover {
 }
 
 /* ****************************************************** */
+/* User Red-Flag and Intervention Styles */
+/* ***************************************************** */
+.user-profile .h2-div {
+ display: flex;
+ justify-content: center;
+}
+.user-profile h2 {
+  text-align: center;
+  background: rgb(247, 172, 10);
+  width: 50%;
+  padding: 10px;
+  border-radius: 10px;
+  
+}
+.profile-record .user-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(78, 136, 11);
+  border: 2px solid rgb(78, 136, 11);
+  border-radius: 5px;
+}
+
+.user-list a .current {
+  background: rgb(247, 172, 10);
+}
+
+.user-list a .list-1 {
+  padding: 10px;
+}
+
+.user-list a .list-1:hover {
+  border-bottom: 3px solid rgb(255, 255, 255);
+}
+
+.red-flag-list:hover {
+  background: rgba(78, 136, 11, 0.561);
+}
+
+/* ****************************************************** */
 /* Footer styles */
 /* ***************************************************** */
 
