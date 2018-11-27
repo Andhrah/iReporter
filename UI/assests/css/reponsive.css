@@ -1,4 +1,9 @@
 @media screen and (max-width: 960px){
+  .profile {
+    width: 35%;
+    padding: 5px;
+    padding-right: 8px; 
+  }
 }
 @media screen and (max-width: 768px){
   .navbar a {
@@ -62,7 +67,25 @@
     margin-right: 9%;
     margin-left: 9%;
   }
+  .user-profile {
+    margin: 7% 1%;
+  }
+  .histroy h3 {
+    font-size: 15px;
+  }
 
+  @media screen and (max-width: 700px) {
+    .user-profile {
+      display: flex;
+      flex-direction: column;
+      margin-left: 20%;
+      margin-right: 20%;
+    }
+    .profile, .profile-record {
+     width: 100%;
+     margin-top: 2%
+    }
+  }
 @media screen and (max-width: 650px) {
   nav {
     width: 245px;
@@ -116,6 +139,10 @@
   .red-flag-list p {
     margin: 2%;
   }
+  .user-profile {
+    margin-left: 10%;
+    margin-right: 10%;
+   }
   
 }
 @media screen and (max-width: 320px){
@@ -123,6 +150,16 @@
     margin-right: 5%;
     margin-left: 5%;
   }
+  .user-profile {
+    margin-left: 2%;
+    margin-right: 2%;
+   }
+   .profile, .profile-record {
+     width: 95%;
+   }
+   .histroy h3 {
+     font-size: 13px;
+   }
 }
 @media screen and (max-device-width: 400px) {
 }
