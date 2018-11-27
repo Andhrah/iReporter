@@ -163,13 +163,13 @@ nav a:hover {
 }
 
 .read-more, .btn .edit {
-  background: rgb(78, 136, 11);
-  border: 3px solid rgb(78, 136, 11);
+  background: rgb(255, 176, 29);
+  border: 3px solid rgb(255, 176, 29);
 }
 
 .read-more:hover, .btn .edit:hover {
-  background: rgb(119, 199, 28);
-  border: 3px solid rgb(119, 199, 28);
+  background: rgb(207, 139, 13);
+  border: 3px solid rgb(207, 139, 13);
 }
 
 .grid-container {
@@ -647,6 +647,90 @@ nav a:hover {
 .rejected {
   color: rgb(236, 19, 12);
   font-weight: bold;
+}
+
+/* ****************************************************** */
+/* Profile */
+/* ***************************************************** */
+.user-profile {
+  margin: 7% 2%;
+}
+
+.profile {
+  width: 30%;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(78, 136, 11);
+  padding: 10px;
+  padding-right: 20px;
+  border-radius: 10px;
+}
+
+.profile .details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile .user-icon {
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.profile-record {
+  display: flex;
+  float: right;
+  flex-direction: column;
+  background-color: rgb(247, 172, 10);
+  padding: 10px;
+  border-radius: 10px;
+  width: 60%;
+}
+
+.profile-record a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.total-record a .circle:hover {
+  background: rgb(119, 199, 28);
+}
+.profile-record h4 a:hover {
+  color: rgb(78, 136, 11);
+}
+
+.profile-record .total-record{
+  align-self: center;
+  text-align: center;
+}
+
+.profile-record .total-record .circle {
+  background-color: rgb(78, 136, 11);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 50px;
+  padding: 5px;
+}
+
+.profile-record h4 {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.profile-record .histroy {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-record .histroy h3 {
+  margin: 0;
+}
+
+.profile-record .histroy .centered {
+  text-align: center;
 }
 
 /* ****************************************************** */
