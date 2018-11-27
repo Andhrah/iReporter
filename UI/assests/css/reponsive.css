@@ -9,6 +9,9 @@
   .navbar a {
     display: none;
   }
+  nav a:hover {
+    border-bottom: 0px;
+  }
   .navbar button.icon {
     float: right;
     display: block;

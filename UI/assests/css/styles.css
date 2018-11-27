@@ -96,8 +96,8 @@ nav a:hover {
   -webkit-filter: blur(0px);
 }
 .showcase:hover .content {
-  filter: blur(5px);
-  -webkit-filter: blur(5px);
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
 }
 
 .content {
@@ -190,8 +190,9 @@ nav a:hover {
 }
 
 .incident-container {
+  background-color: rgb(78, 136, 11);
   border: 3px solid rgb(247, 172, 10);
-  border-radius: 8px;
+  border-radius: 10px;
   padding-bottom: 2%;
 }
 
@@ -222,6 +223,8 @@ nav a:hover {
   background: rgb(78, 136, 11);
   margin: 5px;
   padding: 5px 0px;
+  border-bottom: 3px solid rgb(255, 255, 255);
+  border-radius: 10px;
 }
 
 /*********************************************************/
@@ -234,7 +237,7 @@ nav a:hover {
   align-items: center;
   border-radius: 5px;
   border: 3px solid rgb(247, 172, 10);
-  border-radius: 8px;
+  border-radius: 10px;
   padding-bottom: 10px;
 }
 
@@ -263,6 +266,12 @@ nav a:hover {
   grid-template-columns: repeat(2, 1fr);
 }
 
+.report-form-container h3 {
+  border-bottom: 3px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 15px;
+}
+
 .form-container span {
   color: rgb(204, 10, 10);
   font-weight: bold;
@@ -274,16 +283,17 @@ nav a:hover {
   margin: 0;
   padding: 12px 0px;
   background-color: rgb(78, 136, 11);
+  border-bottom: 3px solid rgb(255, 255, 255);
   width: 100%;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .input-container {
   width: 100%;
 }
 
-.form-containerlabel {
+.form-container label {
   font-size: 18px;
   line-height: 2rem;
   font-weight: 500;
@@ -386,14 +396,14 @@ nav a:hover {
 
 .report-form-container h3 {
   background-color: rgb(78, 136, 11);
-  padding: 3px;
+  padding: 8px;
   font-size: 25px;
   text-align: center;
 }
 
 .report-form-container h3 span {
   background-color: rgb(204, 10, 10);
-  padding: 3px;
+  padding: 5px;
 }
 
 .report-form-container p {
@@ -401,8 +411,9 @@ nav a:hover {
   font-size: 18px;
   font-weight: 700;
   background-color: rgb(78, 136, 11);
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 5px;
+  border-bottom: 3px solid rgb(255, 255, 255);
 }
 
 .first-checkbox-container {
@@ -476,6 +487,9 @@ nav a:hover {
 .first-incident-container h2 {
   text-align: center;
   background-color: rgb(204, 10, 10);
+  border-radius: 10px;
+  padding: 10px;
+  border-bottom: 3px solid rgb(255, 255, 255);
 }
 
 .incident-image-lg img {
@@ -492,8 +506,9 @@ nav a:hover {
 }
 
 .status span {
-  background-color: rgb(78, 136, 11);
-  padding: 3px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(78, 136, 11);
+  padding: 4px;
   margin-left: 5%;
 }
 
@@ -506,8 +521,8 @@ nav a:hover {
 }
 
 .comment {
-  background-color: rgb(78, 136, 11);
-  border-radius: 5px;
+  background-color: rgb(247, 172, 10);
+  border-radius: 10px;
 }
 
 .comment div {
@@ -516,6 +531,8 @@ nav a:hover {
   background: rgb(247, 172, 10);
   margin-top: 5px;
   padding: 8px;
+  border-bottom: 3px solid rgb(255, 255, 255);
+  border-radius: 10px;
 }
 
 .comment p {
@@ -753,6 +770,7 @@ nav a:hover {
   width: 50%;
   padding: 10px;
   border-radius: 10px;
+  border-bottom: 3px solid rgb(255, 255, 255);
   
 }
 .profile-record .user-list {
