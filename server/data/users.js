@@ -1,0 +1,61 @@
+export default [
+  {
+    id: 1,
+    firstname: 'Alexandra',
+    lastname: 'Collins',
+    othernames: 'Chidinma',
+    email: 'alexcollins@gmail.com',
+    phoneNumber: '08160006965',
+    username: 'Andra',
+    registered: newDate(),
+    isAdmin: true,
+  },
+
+  {
+    id: 2,
+    firstname: 'Queeneth',
+    lastname: 'Vine',
+    othernames: 'Uloma',
+    email: 'queenth@gmail.com',
+    phoneNumber: '07053666265',
+    username: 'quinvine',
+    registered: newDate(),
+    isAdmin: true,
+  },
+
+  {
+    id: 3,
+    firstname: 'Tiana',
+    lastname: 'Empire',
+    othernames: 'Tee',
+    email: 'teetiana@gmail.com',
+    phoneNumber: '08160076964',
+    username: 'teettiana',
+    registered: newDate(),
+    isAdmin: true,
+  },
+
+  {
+    id: 4,
+    firstname: 'Jamal',
+    lastname: 'Lyon',
+    othernames: 'Chidi',
+    email: 'mallyon@gmail.com',
+    phoneNumber: '08160806961',
+    username: 'malyon',
+    registered: newDate(),
+    isAdmin: true,
+  },
+
+  {
+    id: 5,
+    firstname: 'Sandra',
+    lastname: 'Franklin',
+    othernames: 'Olachi',
+    email: 'sanola@gmail.com',
+    phoneNumber: '08161066960',
+    username: 'olybabe',
+    registered: newDate(),
+    isAdmin: true,
+  },
+];
