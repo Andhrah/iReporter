@@ -1,6 +1,6 @@
 import db from '../../../models/red-flag';
 
-const createRedflag = (req, res) => {
+const createRedFlag = (req, res) => {
   const {
     createdOn,
     createdBy,
@@ -30,4 +30,4 @@ const createRedflag = (req, res) => {
   });
 };
 
-export default createRedflag;
+export default createRedFlag;
