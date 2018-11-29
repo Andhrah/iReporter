@@ -10,4 +10,7 @@ router.get('/red-flags', controllers.getRedFlags);
 // SHOW - displays more information about a specific red-flag
 router.get('/red-flags/:id', controllers.getSpecificRedFlag);
 
+// CREATE - adds new red-flag record to the DB (data structure)
+router.post('/red-flags', controllers.createRedflag);
+
 export default router;
