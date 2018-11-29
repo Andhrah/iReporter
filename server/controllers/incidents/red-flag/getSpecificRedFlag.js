@@ -10,7 +10,7 @@ const getSpecificRedFlag = (req, res) => {
   }
   res.json({
     status: 200,
-    data: redFlag,
+    data: [redFlag],
   });
 };
 
