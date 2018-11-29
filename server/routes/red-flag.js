@@ -11,6 +11,6 @@ router.get('/red-flags', controllers.getRedFlags);
 router.get('/red-flags/:id', controllers.getSpecificRedFlag);
 
 // CREATE - adds new red-flag record to the DB (data structure)
-router.post('/red-flags', controllers.createRedflag);
+router.post('/red-flags', controllers.createRedFlag);
 
 export default router;
