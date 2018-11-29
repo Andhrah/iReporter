@@ -1,7 +1,7 @@
 // requiring express
 import express from 'express';
 import controllers from '../controllers';
-import middleware from '../middleware';
+
 
 const router = express.Router();
 
@@ -16,5 +16,8 @@ router.post('/red-flags', controllers.createRedFlag);
 
 // EDIT - for editing a particular red-flag location
 router.patch('/red-flags/:id/location', controllers.editLocation);
+
+// EDIT - for editing a particular red-flag record's comment
+router.patch('/red-flags/:id/comment', controllers.editComment);
 
 export default router;
