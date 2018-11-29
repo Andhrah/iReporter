@@ -1,8 +1,11 @@
-// importing express
+// requiring express
 import express from 'express';
+import bodyParser from 'body-parser';
 import router from './routes/red-flag';
 
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/v1', router);
 
