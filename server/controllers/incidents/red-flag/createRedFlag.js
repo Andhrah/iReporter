@@ -13,7 +13,7 @@ const createRedFlag = (req, res) => {
   } = req.body;
   const lastRedFlag = db[db.length - 1];
   const newRedFlag = {
-    id: lastRedFlag + 1,
+    id: lastRedFlag.id + 1,
     createdOn,
     createdBy,
     type,
@@ -26,7 +26,10 @@ const createRedFlag = (req, res) => {
   db.push(newRedFlag);
   res.json({
     state: 201,
-    message: 'Red-Flag created successfully',
+    data: [{
+      id: newRedFlag.id,
+      message: 'Red-Flag created successfully',
+    }],
   });
 };
 
