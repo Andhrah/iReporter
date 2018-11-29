@@ -1,4 +1,5 @@
 export default [
+  // USER SCHEMA SETUP
   {
     id: 1,
     firstname: 'Alexandra',
@@ -7,7 +8,7 @@ export default [
     email: 'alexcollins@gmail.com',
     phoneNumber: '08160006965',
     username: 'Andra',
-    registered: newDate(),
+    registered: new Date().toString(),
     isAdmin: true,
   },
 
@@ -19,7 +20,7 @@ export default [
     email: 'queenth@gmail.com',
     phoneNumber: '07053666265',
     username: 'quinvine',
-    registered: newDate(),
+    registered: new Date().toString(),
     isAdmin: true,
   },
 
@@ -31,7 +32,7 @@ export default [
     email: 'teetiana@gmail.com',
     phoneNumber: '08160076964',
     username: 'teettiana',
-    registered: newDate(),
+    registered: new Date().toString(),
     isAdmin: true,
   },
 
@@ -43,7 +44,7 @@ export default [
     email: 'mallyon@gmail.com',
     phoneNumber: '08160806961',
     username: 'malyon',
-    registered: newDate(),
+    registered: new Date().toString(),
     isAdmin: true,
   },
 
@@ -55,7 +56,7 @@ export default [
     email: 'sanola@gmail.com',
     phoneNumber: '08161066960',
     username: 'olybabe',
-    registered: newDate(),
+    registered: new Date().toString(),
     isAdmin: true,
   },
 ];
