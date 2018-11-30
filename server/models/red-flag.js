@@ -1,5 +1,4 @@
 export default [
-
   // SCHEMA SETUP
   {
     id: 1,
@@ -12,7 +11,6 @@ export default [
     Videos: ['video1', 'video2'],
     comment: 'Political corruption is a persistent phenomenon in Nigeria.',
   },
-
   {
     id: 2,
     createdOn: new Date().toString(),
@@ -24,7 +22,6 @@ export default [
     Videos: ['video1', 'video2'],
     comment: 'Government should do something about corruption in the public hospitals',
   },
-
   {
     id: 3,
     createdOn: new Date().toString(),
@@ -36,7 +33,6 @@ export default [
     Videos: ['video1', 'video2'],
     comment: 'Corruption is the single greatest obstacle preventing Nigeria from achieving its enormous potential.',
   },
-
   {
     id: 4,
     createdOn: new Date().toString(),
@@ -48,7 +44,6 @@ export default [
     Videos: ['video1', 'video2'],
     comment: 'Corruption has become the order of the day in Nigeria',
   },
-
   {
     id: 5,
     createdOn: new Date().toString(),
