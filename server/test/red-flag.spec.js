@@ -31,4 +31,12 @@ describe('Ride-My-Way', () => {
       expect(db.length).to.equal(initialRedFlags + 1);
     });
   });
+
+  describe('should display a specific red-flag record', () => {
+    it('should fetch a specific red-flag record and display it', async () => {
+      const redFlag = db[0];
+      const response = await server.get(`/api/v1/red-flags/${redFlag.id}`);
+      expect(response.body.status).to.equal(200);
+    });
+  });
 });
