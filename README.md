@@ -1,5 +1,7 @@
 # iReporter
 
+[![Build Status](https://travis-ci.com/Andraquin/iReporter.svg?branch=develop)](https://travis-ci.com/Andraquin/iReporter)
+
 ## Application Overview
 Corruption is a huge bane to Africa’s development. African countries must develop novel and
 localised solutions that will curb this menace, hence the birth of iReporter. iReporter enables
