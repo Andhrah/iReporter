@@ -25,7 +25,7 @@ const createRedFlag = (req, res) => {
   };
   db.push(newRedFlag);
   res.json({
-    state: 201,
+    status: 201,
     data: [{
       id: newRedFlag.id,
       message: 'Red-Flag created successfully',
