@@ -47,4 +47,12 @@ describe('Ride-My-Way', () => {
       expect(response.body.status).to.equal(200);
     });
   });
+
+  describe('should edit a specific red-flagrecord\'s comment', () => {
+    it('should get a specific red-flag and delete it\'s location', async () => {
+      const redFlag = db[4];
+      const response = await server.patch(`/api/v1/red-flags/${redFlag.id}/comment`);
+      expect(response.body.status).to.equal(200);
+    });
+  });
 });
