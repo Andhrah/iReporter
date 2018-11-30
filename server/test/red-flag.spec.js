@@ -48,10 +48,18 @@ describe('Ride-My-Way', () => {
     });
   });
 
-  describe('should edit a specific red-flagrecord\'s comment', () => {
+  describe('should edit a specific red-flag record\'s comment', () => {
     it('should get a specific red-flag and delete it\'s location', async () => {
       const redFlag = db[4];
       const response = await server.patch(`/api/v1/red-flags/${redFlag.id}/comment`);
+      expect(response.body.status).to.equal(200);
+    });
+  });
+
+  describe('should delete red-flag', () => {
+    it('should delete a specific red-flag record', async () => {
+      const redFlag = db[3];
+      const response = await server.delete(`/api/v1/red-flags/${redFlag.id}`);
       expect(response.body.status).to.equal(200);
     });
   });
