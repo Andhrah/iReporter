@@ -20,4 +20,7 @@ router.patch('/red-flags/:id/location', controllers.editLocation);
 // EDIT - for editing a particular red-flag record's comment
 router.patch('/red-flags/:id/comment', controllers.editComment);
 
+// DELETE - for deleting a red-flag
+router.delete('/red-flags/:id', controllers.deleteRedFlag);
+
 export default router;
