@@ -4,7 +4,7 @@
   "description": "iReporter enables any/every citizen to bring any form of corruption to the notice of appropriate authorities and the general public. Users can also report on things that needs government  intervention",
   "main": "index.js",
   "scripts": {
-    "test": "mocha server/test/**/**.spec.js --compilers js:babel-core/register",
+    "test": "mocha server/test/**/**.spec.js --compilers js:babel-core/register  --exit",
     "start": "babel-watch server/index.js"
   },
   "repository": {
@@ -25,7 +25,8 @@
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "supertest": "^3.3.0"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
