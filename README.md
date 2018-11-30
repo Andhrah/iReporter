@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.com/Andraquin/iReporter.svg?branch=develop)](https://travis-ci.com/Andraquin/iReporter)
 [![Coverage Status](https://coveralls.io/repos/github/Andraquin/iReporter/badge.svg?branch=develop)](https://coveralls.io/github/Andraquin/iReporter?branch=develop)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/b464a98e4981f9b0a2dc/test_coverage)](https://codeclimate.com/github/Andraquin/iReporter/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/b464a98e4981f9b0a2dc/maintainability)](https://codeclimate.com/github/Andraquin/iReporter/maintainability)
 
 ## Application Overview
 Corruption is a huge bane to Africa’s development. African countries must develop novel and
