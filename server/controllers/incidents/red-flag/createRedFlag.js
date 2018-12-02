@@ -2,11 +2,9 @@ import db from '../../../models/red-flag';
 
 const createRedFlag = (req, res) => {
   const {
-    createdOn,
-    createdBy,
     type,
     location,
-    status,
+
     images,
     video,
     comment,
@@ -14,11 +12,11 @@ const createRedFlag = (req, res) => {
   const lastRedFlag = db[db.length - 1];
   const newRedFlag = {
     id: lastRedFlag.id + 1,
-    createdOn,
-    createdBy,
+    createdOn: new Date(),
+    createdBy: 6,
     type,
     location,
-    status,
+    status: 'Under Investigation',
     images,
     video,
     comment,

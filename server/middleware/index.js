@@ -2,9 +2,8 @@
 const middlewareObj = {};
 
 middlewareObj.checkUserInput = (req, res, next) => {
-  console.log('I\'m a middleware');
+//  checking if the user's input is valid
   if (!req.body.type || req.body.type.toLowerCase() !== 'red-flag') {
-    console.log('I\'m also a middleware, I just started working');
     return res.json({
       status: 400,
       error: 'Incidient type must be \'red-flag\' ',
