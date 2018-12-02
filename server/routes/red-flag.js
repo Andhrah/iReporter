@@ -1,6 +1,7 @@
 // requiring express
 import express from 'express';
 import controllers from '../controllers';
+import middleware from '../middleware';
 
 
 const router = express.Router();
@@ -12,7 +13,7 @@ router.get('/red-flags', controllers.getRedFlags);
 router.get('/red-flags/:id', controllers.getSpecificRedFlag);
 
 // CREATE - adds new red-flag record to the DB (data structure)
-router.post('/red-flags', controllers.createRedFlag);
+router.post('/red-flags', middleware.checkUserInput, controllers.createRedFlag);
 
 // EDIT - for editing a particular red-flag location
 router.patch('/red-flags/:id/location', controllers.editLocation);
