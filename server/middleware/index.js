@@ -2,19 +2,19 @@
 const middlewareObj = {};
 
 middlewareObj.checkUserInput = (req, res, next) => {
-//  checking if the user's input is valid
+  // checking if the user's input is valid
   if (!req.body.type || req.body.type.toLowerCase() !== 'red-flag') {
-    return res.json({
+    res.json({
       status: 400,
       error: 'Incidient type must be \'red-flag\' ',
     });
-  } if (!req.body.location || req.body.location === '') {
-    return res.json({
+  } else if (!req.body.location || req.body.location === '') {
+    res.json({
       status: 400,
       error: 'Location is required',
     });
-  } if (!req.body.comment || req.body.comment === '') {
-    return res.json({
+  } else if (!req.body.comment || req.body.comment === '') {
+    res.json({
       status: 400,
       error: 'comment is required',
     });

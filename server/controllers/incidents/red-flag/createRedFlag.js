@@ -4,7 +4,6 @@ const createRedFlag = (req, res) => {
   const {
     type,
     location,
-
     images,
     video,
     comment,
@@ -12,7 +11,7 @@ const createRedFlag = (req, res) => {
   const lastRedFlag = db[db.length - 1];
   const newRedFlag = {
     id: lastRedFlag.id + 1,
-    createdOn: new Date(),
+    createdOn: new Date().toString(),
     createdBy: 6,
     type,
     location,

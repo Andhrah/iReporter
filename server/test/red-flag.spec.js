@@ -25,8 +25,11 @@ describe('Ride-My-Way', () => {
         Videos: ['video1', 'video2'],
         comment: 'Corruption in the educational system.',
       };
+      console.log(newRedFlag);
       const initialRedFlags = db.length;
+      console.log(initialRedFlags);
       const response = await server.post('/api/v1/red-flags').send(newRedFlag);
+      console.log(response.body);
       expect(response.body.status).to.equal(201);
       expect(db.length).to.equal(initialRedFlags + 1);
     });
