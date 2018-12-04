@@ -5,6 +5,7 @@ import router from './routes/red-flag';
 
 const app = express();
 
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/v1', router);
