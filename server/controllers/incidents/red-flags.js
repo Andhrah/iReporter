@@ -21,7 +21,7 @@ export const createRedFlag = (req, res) => {
     comment,
   };
   db.push(newRedFlag);
-  res.json({
+  res.status(201).json({
     status: 201,
     data: [{
       id: newRedFlag.id,
@@ -41,7 +41,7 @@ export const getRedFlags = (req, res) => {
 export const getSpecificRedFlag = (req, res) => {
   const redFlag = db.find(redflagInDb => redflagInDb.id === Number(req.params.id));
   if (!redFlag) {
-    res.json({
+    res.status(400).json({
       status: 404,
       error: 'Red-flag not found',
     });
@@ -55,7 +55,7 @@ export const getSpecificRedFlag = (req, res) => {
 export const editLocation = (req, res) => {
   const redFlag = db.find(redFlagInDb => redFlagInDb.id === Number(req.params.id));
   if (!redFlag) {
-    res.json({
+    res.status(400).json({
       status: 404,
       error: 'Red-flag Not Found',
     });
@@ -74,13 +74,13 @@ export const editLocation = (req, res) => {
 export const editComment = (req, res) => {
   const redFlag = db.find(redFlagInDb => redFlagInDb.id === Number(req.params.id));
   if (!redFlag) {
-    res.json({
+    res.status(400).json({
       status: 404,
       error: 'Red-flag Not Found',
     });
   }
   redFlag.comment = req.body.comment;
-  return res.json({
+  res.json({
     status: 200,
     data: [{
       id: redFlag.id,
@@ -93,7 +93,7 @@ export const editComment = (req, res) => {
 export const deleteRedFlag = (req, res) => {
   const redFlag = db.find(redFlagInDb => redFlagInDb.id === Number(req.params.id));
   if (!redFlag) {
-    return res.json({
+    res.status(400).json({
       status: 404,
       error: 'Red-flag Not Found',
     });
