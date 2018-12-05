@@ -26,6 +26,7 @@ export const createRedFlag = (req, res) => {
     data: [{
       id: newRedFlag.id,
       message: 'Red-Flag created successfully',
+      newRedFlag,
     }],
   });
 };
@@ -47,7 +48,7 @@ export const getSpecificRedFlag = (req, res) => {
   }
   res.json({
     status: 200,
-    data: [redFlag], 
+    data: [redFlag],
   });
 };
 
@@ -65,6 +66,7 @@ export const editLocation = (req, res) => {
     data: [{
       id: redFlag.id,
       message: 'Updated red-flag record\'s location',
+      redFlag,
     }],
   });
 };
@@ -78,11 +80,12 @@ export const editComment = (req, res) => {
     });
   }
   redFlag.comment = req.body.comment;
-  res.json({
+  return res.json({
     status: 200,
     data: [{
       id: redFlag.id,
       message: 'Updated red-flag record\'s comment',
+      redFlag,
     }],
   });
 };
@@ -90,7 +93,7 @@ export const editComment = (req, res) => {
 export const deleteRedFlag = (req, res) => {
   const redFlag = db.find(redFlagInDb => redFlagInDb.id === Number(req.params.id));
   if (!redFlag) {
-    res.json({
+    return res.json({
       status: 404,
       error: 'Red-flag Not Found',
     });
@@ -102,6 +105,7 @@ export const deleteRedFlag = (req, res) => {
     data: [{
       id: redFlag.id,
       message: 'red-flag record has been deleted',
+      db,
     }],
   });
 };

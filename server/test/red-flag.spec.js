@@ -7,15 +7,19 @@ import db from '../models/red-flag';
 const { expect } = chai;
 const server = supertest(app);
 
-describe('Ride-My-Way', () => {
+describe('iReporter', () => {
   describe('the /red-flags endpoint', () => {
     it('should return a list of all red-flags record', async () => {
       const response = await server.get('/api/v1/red-flags');
+      expect(response.body.status).to.equal(200);
+      expect(response.body.data).to.deep.equal(db);
       expect(db.length).to.equal(response.body.data.length);
     });
 
     it('should create a red-flag and save to the database', async () => {
+      const lastRedFlag = db[db.length - 1];
       const newRedFlag = {
+        id: lastRedFlag.id + 1,
         createdOn: new Date().toString(),
         createdBy: 1,
         type: 'red-flag',
@@ -28,6 +32,8 @@ describe('Ride-My-Way', () => {
       const initialRedFlags = db.length;
       const response = await server.post('/api/v1/red-flags').send(newRedFlag);
       expect(response.body.status).to.equal(201);
+      expect(response.body.data).to.be.an('array');
+      expect(response.body.data[0].message).to.eql('Red-Flag created successfully');
       expect(db.length).to.equal(initialRedFlags + 1);
     });
   });
@@ -37,6 +43,7 @@ describe('Ride-My-Way', () => {
       const redFlag = db[0];
       const response = await server.get(`/api/v1/red-flags/${redFlag.id}`);
       expect(response.body.status).to.equal(200);
+      expect(response.body.data).to.deep.equal([redFlag]);
     });
   });
 
@@ -45,6 +52,7 @@ describe('Ride-My-Way', () => {
       const redFlag = db[2];
       const response = await server.patch(`/api/v1/red-flags/${redFlag.id}/location`);
       expect(response.body.status).to.equal(200);
+      expect(response.body.data[0].message).to.eql('Updated red-flag record\'s location');
     });
   });
 
@@ -53,6 +61,7 @@ describe('Ride-My-Way', () => {
       const redFlag = db[4];
       const response = await server.patch(`/api/v1/red-flags/${redFlag.id}/comment`);
       expect(response.body.status).to.equal(200);
+      expect(response.body.data[0].message).to.eql('Updated red-flag record\'s comment');
     });
   });
 
@@ -61,6 +70,7 @@ describe('Ride-My-Way', () => {
       const redFlag = db[3];
       const response = await server.delete(`/api/v1/red-flags/${redFlag.id}`);
       expect(response.body.status).to.equal(200);
+      expect(response.body.data[0].message).to.eql('red-flag record has been deleted');
     });
   });
 });
