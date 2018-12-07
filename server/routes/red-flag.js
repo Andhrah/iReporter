@@ -16,7 +16,7 @@ router.get('/red-flags/:id', controllers.getSpecificRedFlag);
 router.post('/red-flags', middleware.checkUserInput, controllers.createRedFlag);
 
 // EDIT - for editing a particular red-flag location
-router.patch('/red-flags/:id/location', controllers.editLocation);
+router.patch('/red-flags/:id/location', middleware.validateLocation, controllers.editLocation);
 
 // EDIT - for editing a particular red-flag record's comment
 router.patch('/red-flags/:id/comment', controllers.editComment);

@@ -114,7 +114,6 @@ export const deleteRedFlag = (req, res) => {
       {
         id: redFlag.id,
         message: 'red-flag record has been deleted',
-        db,
       },
     ],
   });
