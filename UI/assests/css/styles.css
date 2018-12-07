@@ -121,14 +121,17 @@ nav a:hover {
 .btn-get-start {
   padding: 15px;
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 20px;
   color: rgb(255, 255, 255);
   background-color: rgb(247, 172, 10);
   border-color: rgb(247, 172, 10);
   font-weight: bold;
+  text-decoration: none;
 }
 
-
+.btn-get-start:hover {
+  background-color: rgb(241, 183, 58);
+}
 
 .content .text {
   line-height: 1.2;
@@ -137,7 +140,7 @@ nav a:hover {
 
 hr {
 	width: 400px;
-	border-top: 1px solid #f8f8f8;
+	border-top: 1px solid rgb(255, 255, 255);
 	border-bottom: 1px solid rbga(0,0,0,0.2);
 }
 
@@ -151,6 +154,7 @@ hr {
 }
 
 .home-h2 {
+  color: rgb(247, 172, 10);
   text-align: center;
   margin-bottom: 0;
 }
@@ -201,7 +205,7 @@ hr {
 }
 
 .incident-container {
-  background-color:  rgb(78, 136, 11);
+  background-color: rgb(78, 136, 11);
   /* border: 3px solid rgb(247, 172, 10); */
   border-radius: 10px;
   padding-bottom: 2%;
@@ -634,7 +638,7 @@ hr {
   display: flex;
   justify-content: space-between;
   color: rgb(255, 255, 255);
-  background: rgba(247, 172, 10, 0.657);
+  background: rgb(247, 172, 10);
   margin-bottom: 8px;
   padding: 15px 4px;
   border-radius: 10px;
@@ -643,6 +647,10 @@ hr {
 
 .red-flag-list p {
   margin: 0;
+}
+
+.group {
+  width: 20%;
 }
 
 .group .name span {
@@ -807,7 +815,7 @@ hr {
 }
 
 .red-flag-list:hover {
-  background: rgba(78, 136, 11, 0.561);
+  background: rgb(221, 153, 6);
 }
 
 /* ****************************************************** */
