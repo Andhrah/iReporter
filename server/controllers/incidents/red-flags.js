@@ -35,9 +35,7 @@ export const getRedFlags = (req, res) => {
 };
 
 export const getSpecificRedFlag = (req, res) => {
-  const redFlag = db.find(
-    redflagInDb => redflagInDb.id === Number(req.params.id)
-  );
+  const redFlag = db.find(redflagInDb => redflagInDb.id === Number(req.params.id));
   if (!redFlag) {
     return res.status(404).json({
       status: 404,
@@ -51,9 +49,7 @@ export const getSpecificRedFlag = (req, res) => {
 };
 
 export const editLocation = (req, res) => {
-  const redFlag = db.find(
-    redFlagInDb => redFlagInDb.id === Number(req.params.id)
-  );
+  const redFlag = db.find(redFlagInDb => redFlagInDb.id === Number(req.params.id));
   if (!redFlag) {
     return res.status(404).json({
       status: 404,
@@ -74,9 +70,7 @@ export const editLocation = (req, res) => {
 };
 
 export const editComment = (req, res) => {
-  const redFlag = db.find(
-    redFlagInDb => redFlagInDb.id === Number(req.params.id)
-  );
+  const redFlag = db.find(redFlagInDb => redFlagInDb.id === Number(req.params.id));
   if (!redFlag) {
     return res.status(404).json({
       status: 404,
@@ -89,7 +83,7 @@ export const editComment = (req, res) => {
     data: [
       {
         id: redFlag.id,
-        message: "Updated red-flag record's comment",
+        message: 'Updated red-flag record\'s comment',
         redFlag,
       },
     ],
@@ -97,9 +91,7 @@ export const editComment = (req, res) => {
 };
 
 export const deleteRedFlag = (req, res) => {
-  const redFlag = db.find(
-    redFlagInDb => redFlagInDb.id === Number(req.params.id)
-  );
+  const redFlag = db.find(redFlagInDb => redFlagInDb.id === Number(req.params.id));
   if (!redFlag) {
     return res.status(404).json({
       status: 404,
