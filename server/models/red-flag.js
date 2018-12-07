@@ -5,7 +5,7 @@ export default [
     createdOn: new Date().toString(),
     createdBy: 1, // represents the user who created this record
     type: 'red-flag', // [red-flag, intervention]
-    location: '6.605874, 3.349149.', // Lat Long coordinates
+    location: '6.605874, 3.349149', // Lat Long coordinates
     status: 'Resolved', // [draft, under investigation, resolved, rejected]
     Images: ['image1', 'image2'],
     Videos: ['video1', 'video2'],
