@@ -211,7 +211,7 @@ hr {
   transition: all 0.2s linear;
 }
 
-.read-more, .btn .edit {
+.read-more {
   border: 3px solid rgb(39, 69, 85);
 }
 
@@ -258,7 +258,7 @@ hr {
 .comment p {
   color: rgb(39, 69, 85);
   text-align: left;
-  padding: 0px 10px; 
+  padding: 0px 15px; 
 }
 
 /*********************************************************/
@@ -525,27 +525,23 @@ hr {
   flex-direction: column;
   margin: 0px 30%;
   margin-top: 3%;
-  margin-bottom: 7%;
+  margin-bottom: 20%;
   font-size: 18px;
-  font-weight: 700;
 }
 
+.first-incident-container .jumbotron h2 {
+  color: rgb(204, 10, 10);
+}
 .incident-container {
-  border-radius: 8px;
-  padding-bottom: 2%;
-}
-
-.first-incident-container h2 {
-  text-align: center;
-  background-color: rgb(204, 10, 10);
+  background-color: rgb(238, 238, 238);
   border-radius: 10px;
-  padding: 10px;
-  border-bottom: 3px solid rgb(255, 255, 255);
+  padding-bottom: 2%;
 }
 
 .incident-image-lg img {
   width: 100%;
   height: 300px;
+  border-radius: 10px;
 }
 
 .location, .status {
@@ -580,16 +576,15 @@ hr {
 .comment div {
   text-align: center;
   font-size: 18px;
-  background: rgb(247, 172, 10);
+  color: rgb(39, 69, 85);
   margin-top: 5px;
   padding: 8px;
-  border-bottom: 3px solid rgb(255, 255, 255);
+  border-bottom: 3px solid rgb(39, 69, 85);
   border-radius: 10px;
 }
 
 .comment p {
-  padding-left: 5px;
-  padding-bottom: 5px;
+  padding-left: 15px;
 }
 
 .author {
@@ -614,7 +609,18 @@ hr {
   margin: 0px 5px;
 }
 
+.btn .edit {
+  color: rgb(255, 255, 255);
+  background-color: rgb(252, 165, 65);
+  border: 3px solid rgb(252, 165, 65);
+}
+
+ .btn .edit:hover {
+  background:  rgb(206, 103, 20); 
+}
+
 .btn .delete {
+  color: rgb(255, 255, 255);
   background: rgb(204, 10, 10);
   border: 3px solid rgb(204, 10, 10);
 }
@@ -639,7 +645,7 @@ hr {
   align-self: center;
   margin-bottom: 10%;
 }
-.section-flex .jumbotron {
+ .jumbotron {
   padding-top: 30px;
   padding-bottom: 30px;
   margin-top: 20px;
@@ -650,7 +656,7 @@ hr {
   border-radius: 6px;
 }
 
-.section-flex .jumbotron .title-container {
+.jumbotron .title-container {
   text-align: center;
   border-radius: 10px;
   margin: 0;
@@ -658,14 +664,14 @@ hr {
   padding-bottom: 3px;
 }
 
-.section-flex .jumbotron h2 {
+.jumbotron h2 {
   text-align: center;
   color: rgb(39, 69, 85);
   padding: 10px;
   margin: 0;
 }
 
-.section-flex .jumbotron .title-container a {
+ .jumbotron .title-container a {
   text-decoration: none;
   font-size: 14px;
   color: rgb(39, 69, 85);
@@ -743,7 +749,7 @@ hr {
 
  .location p {
   /* color: rgb(65, 40, 2); */
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .draft span {
