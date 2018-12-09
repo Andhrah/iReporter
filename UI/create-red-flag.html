@@ -16,7 +16,7 @@
       <!-- site brand -->
       <!-- -------------------------------------- -->
       <div class="branding">
-        <a href="./index.html"><img src="./assests/images/logo2.png" alt="iReporter logo"></a> 
+        <a href="./index.html"><img src="./assests/images/logo.png" alt="iReporter logo"></a> 
       </div>
 
       <!-- --------------------------------------- -->
@@ -176,25 +176,7 @@
         <!-- where it happened -->
         <!-- --------------------------------------------------------------------- -->
         <p>Where did it happen?</p>
-        <div class="checkbox-container">
-          <label>Country</label>
-          <input type="text" placeholder="E.g. Nigeria">
-        </div>
-
-        <div class="checkbox-container">
-          <label>State/County</label>
-          <input type="text">
-        </div>
-
-        <div class="checkbox-container">
-          <label>City/Town</label>
-          <input type="text">
-        </div>
-        <div class="checkbox-container">
-          <label>Street</label>
-          <input type="text">
-        </div>
-
+        <div class="map">Google Map</div>
         <!-- ----------------------------------------------------- -->
         <!-- when did it happen -->
         <!-- ----------------------------------------------------- -->
@@ -234,5 +216,7 @@
   </div>
 
   <script src="./assests/js/main.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+        async defer></script>
 </body>
 </html>

@@ -2,7 +2,6 @@
 
 body {
   font-family: 'Work Sans', sans-serif;
-  /* background-image: url("../images/backgrnd.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
   color: rgb(255, 255, 255);
@@ -12,9 +11,6 @@ body {
 .wrapper {
   display: flex;
   flex-direction: column;
-  /* margin-right: auto;
-  margin-left: auto;
-  width: 100%; */
 }
 
 /* ****************************************************** */
@@ -308,7 +304,7 @@ hr {
 }
 
 .report-form-container h3 {
-  border-bottom: 3px solid rgb(255, 255, 255);
+  border-bottom: 3px solid rgb(39, 69, 85);
   border-radius: 10px;
   padding: 15px;
 }
@@ -432,11 +428,12 @@ hr {
   margin: 0px 26%;
   margin-top: 3%;
   margin-bottom: 7%;
-  border: 3px solid rgb(247, 172, 10);
+  background-color: rgb(238, 238, 238);
   border-radius: 8px;
   padding: 0px 10px;
   align-items: center;
   font-weight: 700;
+  color: rgb(39, 69, 85);
 }
 
 .report-form {
@@ -446,14 +443,16 @@ hr {
 }
 
 .report-form-container h3 {
-  background-color: rgb(78, 136, 11);
   padding: 8px;
   font-size: 25px;
+  color: rgb(255, 255, 255);
   text-align: center;
+  background-color: rgb(39, 69, 85);
 }
 
 .report-form-container h3 span {
   background-color: rgb(204, 10, 10);
+  color: rgb(255, 255, 255);
   padding: 5px;
 }
 
@@ -461,15 +460,9 @@ hr {
   text-align: center;
   font-size: 18px;
   font-weight: 700;
-  background-color: rgb(78, 136, 11);
   border-radius: 10px;
   padding: 5px;
-  border-bottom: 3px solid rgb(255, 255, 255);
-}
-
-.first-checkbox-container {
-  display: flex;
-  flex-wrap: wrap;
+  border-bottom: 3px solid rgb(39, 69, 85);
 }
 
 .checkbox-container {
@@ -479,17 +472,22 @@ hr {
 .checkbox-container input[type=text], textarea {
   width: 60%;
   line-height: 22px;
-  color: #FFEEE4;
+  color: rgb(39, 69, 85);
   margin-bottom: 4%;
-  border: 3px solid rgb(247, 172, 10);
+  border: 3px solid rgb(39, 69, 85);
   border-radius: 10px;
   font-size: 17px;
-  background-color: transparent;
   padding-left: 3px;
 }
 
 ::placeholder{
-  color: rgb(255, 255, 255);
+  color: rgb(39, 69, 85);
+}
+
+.map {
+  height: 200px;
+  text-align: center;
+  margin-top: 100px;
 }
 
 .report-button {
@@ -498,8 +496,8 @@ hr {
   width: 60%;
   line-height: 32px;
   border-radius: 10px;
-  border: 4px solid rgb(78, 136, 11);
-  background-color: rgb(78, 136, 11);
+  border: 4px solid rgb(39, 69, 85);
+  background-color: rgb(39, 69, 85);
   color: rgb(255, 255, 255);
   font-size: 17px;
   cursor: pointer;
