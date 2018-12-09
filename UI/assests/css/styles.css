@@ -637,6 +637,7 @@ hr {
 .section-flex {
   width: 90%;
   align-self: center;
+  margin-bottom: 10%;
 }
 .section-flex .jumbotron {
   padding-top: 30px;
