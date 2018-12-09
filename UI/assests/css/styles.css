@@ -257,20 +257,29 @@ hr {
 
 .comment p {
   color: rgb(39, 69, 85);
+  text-align: left;
+  padding: 0px 10px; 
 }
 
 /*********************************************************/
 /* *********SIGN-UP & SIGN-IN ***************************/
 /********************************************************/
+.form-section {
+  height: 100vh;
+}
 
 .form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 5px;
-  border: 3px solid rgb(247, 172, 10);
+  background-color: rgb(238, 238, 238);
+  /* border: 3px solid rgb(238, 238, 238);; */
   border-radius: 10px;
   padding-bottom: 10px;
+  box-shadow:	
+		0pt 2px 5px rgba(105, 108, 109,  0.7),	
+		0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
 }
 
 #signup-wrapper {
@@ -314,7 +323,7 @@ hr {
   color: rgb(255, 255, 255);
   margin: 0;
   padding: 12px 0px;
-  background-color: rgb(78, 136, 11);
+  background-color: rgb(39, 69, 85);
   border-bottom: 3px solid rgb(255, 255, 255);
   width: 100%;
   text-align: center;
@@ -329,47 +338,47 @@ hr {
   font-size: 18px;
   line-height: 2rem;
   font-weight: 500;
-  color: rgb(255, 255, 255);
+  color: rgb(39, 69, 85);
   font-weight: bold;
 }
 
 .form-container input {
   width: 100%;
   line-height: 30px;
-  color: rgb(255, 255, 255);
+  color: gb(39, 69, 85);
   margin-bottom: 2%;
-  border: 3px solid rgb(247, 172, 10);
+  border: 3px solid rgb(39, 69, 85);
   border-radius: 15px;
   font-size: 20px;
-  background-color: transparent;
   padding-left: 3px;
 }
 
 .form-primary-btn {
   margin-top: 5%;
-  width: 70%;
+  width: 50%;
   line-height: 32px;
+  padding: 5px 0px;
   border-radius: 15px;
-  border: 3px solid rgb(78, 136, 11);
-  background-color: rgb(78, 136, 11);
+  border: 3px solid rgb(17, 158, 36);
+  background-color: rgb(17, 158, 36);
   color: rgb(255, 255, 255);
-  font-size: 19px;
+  font-size: 25px;
   cursor: pointer;
   box-shadow:
   inset 2px 1px 2px 2px rgba(0, 0, 0, 0.07), 
   inset -2px -2px 3px rgba(255, 255, 255, 0.767), 
   inset 2px 2px 0px 0px rgba(255, 255, 255, 0.767);
-  transition: all 0.2s linear;
+  transition: all 0.4s linear;
 }
 
 .form-primary-btn:hover {
-  background-color: rgb(119, 199, 28);
-  border: 2px solid rgb(119, 199, 28);
+  color: rgb(255, 255, 255);
+  background-color:  rgba(17, 158, 36, 0.575);
 }
 
 .form-h4 {
-  margin: 10px 0px;
-  color: rgb(255, 255, 255);
+  margin: 20px 0px;
+  color: rgb(39, 69, 85);
 }
 
 .form-secondary-btn {
@@ -381,26 +390,36 @@ hr {
   border: 3px solid rgb(255, 255, 255);
   border-radius: 15px;
   color: rgb(255, 255, 255);
-  line-height: 32px;
-  background-color: transparent;
-  width: 60%;
-  padding: 2px 0px;
+  line-height: 50px;
+  background-color: rgb(39, 69, 85);
+  border: 2px solid rgb(39, 69, 85);
+  padding: 8px 30px;
+  margin-right: 15px;
   cursor: pointer;
   box-shadow:
   inset 2px 1px 2px 2px rgba(0, 0, 0, 0.07), 
   inset -2px -2px 3px rgba(255, 255, 255, 0.767), 
   inset 2px 2px 0px 0px rgba(255, 255, 255, 0.767);
-  transition: all 0.2s linear;
+  transition: all 0.4s linear;
 }
 
 .form-secondary-btn:hover {
-  border: 2px solid rgb(247, 172, 10);
-  background: rgb(247, 172, 10);
+  border: 2px solid rgb(39, 69, 85);
+  background: rgba(39, 69, 85, 0.575);
 }
 
-.form-h4 {
-  margin: 20px 0px;
-  color: rgb(255, 255, 255);
+.repeating-linear {
+  height: 50px;
+  width: 100%;
+  margin: 0px;
+  text-align: right;
+  background: repeating-linear-gradient(-45deg, 
+	rgb(238, 238, 238),
+	rgb(238, 238, 238) 15px, 
+	rgba(39, 69, 85, 0.479) 15px, 
+	rgba(39, 69, 85, 0.479) 30px, 
+	rgb(238, 238, 238) 30px
+  );
 }
 
 /* ****************************************************** */
