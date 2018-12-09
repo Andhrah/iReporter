@@ -923,6 +923,34 @@ hr {
 }
 
 /* ****************************************************** */
+/* Admin pages */
+/* ***************************************************** */
+
+.btn-status {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.btn .status-resolve {
+  background-color: rgb(17, 158, 36);
+  border-color: rgb(17, 158, 36);
+  margin: 10px;
+}
+
+.btn .status-resolve:hover {
+  background-color: rgba(17, 158, 36, 0.746);
+}
+.btn .status-draft {
+  background-color: burlywood;
+  border-color: burlywood;
+}
+
+.btn .status-draft:hover {
+  background-color: rgba(222, 184, 135, 0.829);
+  border-color: burlywood;
+}
+/* ****************************************************** */
 /* Footer styles */
 /* ***************************************************** */
 
