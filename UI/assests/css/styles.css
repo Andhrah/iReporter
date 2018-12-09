@@ -519,6 +519,7 @@ hr {
 /* ****************************************************** */
 /* Red-flag  and intervention */ 
 /* ***************************************************** */
+
 .first-incident-container {
   display: flex;
   flex-direction: column;
@@ -556,14 +557,16 @@ hr {
 }
 
 .status span {
-  background-color: rgb(255, 255, 255);
   color: rgb(78, 136, 11);
   padding: 4px;
   margin-left: 5%;
+  font-weight: bold;
 }
 
 .status p, .location p {
   margin: 0;
+  color: rgb(39, 69, 85);
+  text-align: left;
 }
 
 .locaton {
@@ -571,7 +574,6 @@ hr {
 }
 
 .comment {
-  /* background-color: rgb(247, 172, 10); */
   border-radius: 10px;
 }
 
@@ -591,8 +593,10 @@ hr {
 }
 
 .author {
+  color: rgb(39, 69, 85);
   text-align: center;
   font-size: 15px;
+  margin-bottom: 3px;  
 }
 
 .btn-container {
@@ -629,6 +633,46 @@ hr {
 /* ****************************************************** */
 /* all-red-flag  and intervention style*/
 /* ***************************************************** */
+
+.section-flex {
+  width: 90%;
+  align-self: center;
+}
+.section-flex .jumbotron {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-top: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-bottom: 30px;
+  background-color: rgb(238, 238, 238);
+  border-radius: 6px;
+}
+
+.section-flex .jumbotron .title-container {
+  text-align: center;
+  border-radius: 10px;
+  margin: 0;
+  font-weight: bold;
+  padding-bottom: 3px;
+}
+
+.section-flex .jumbotron h2 {
+  text-align: center;
+  color: rgb(39, 69, 85);
+  padding: 10px;
+  margin: 0;
+}
+
+.section-flex .jumbotron .title-container a {
+  text-decoration: none;
+  font-size: 14px;
+  color: rgb(39, 69, 85);
+}
+
+.section-flex .jumbotron .title-container a:hover {
+  border-bottom: 3px solid rgb(39, 69, 85);
+}
 
 .all-red-flag-list-container {
   border: 3px solid rgb(247, 172, 10);
@@ -696,27 +740,27 @@ hr {
   margin-left: 5px;
 }
 
-.red-flag-list .group .location {
-  color: rgb(65, 40, 2);
+ .location p {
+  /* color: rgb(65, 40, 2); */
   font-weight: bold;
 }
 
-.draft {
-  color: rgba(255, 255, 255, 0.582);
+.draft span {
+  color: rgb(31, 16, 2);
   font-weight: bold;
 }
 
-.resolved {
+.resolved span {
   color: rgb(78, 136, 11);
   font-weight: bold;
 }
 
-.none {
-  color: rgb(156, 247, 10);
+.none span {
+  color: rgb(247, 164, 10);
   font-weight: bold;
 }
 
-.rejected {
+.rejected span {
   color: rgb(236, 19, 12);
   font-weight: bold;
 }
