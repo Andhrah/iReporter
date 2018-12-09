@@ -270,7 +270,6 @@ hr {
   align-items: center;
   border-radius: 5px;
   background-color: rgb(238, 238, 238);
-  /* border: 3px solid rgb(238, 238, 238);; */
   border-radius: 10px;
   padding-bottom: 10px;
   box-shadow:	
@@ -720,12 +719,12 @@ hr {
 .red-flag-list {
   display: flex;
   justify-content: space-between;
-  color: rgb(255, 255, 255);
-  background: rgb(247, 172, 10);
+  color: rgb(26, 51, 65);
+  background: rgb(238, 238, 238);
   margin-bottom: 8px;
   padding: 15px 4px;
   border-radius: 10px;
-  border-bottom: 3px solid rgb(255, 255, 255);
+  border-bottom: 3px solid rgb(26, 51, 65);
 }
 
 .red-flag-list p {
@@ -743,11 +742,6 @@ hr {
 
 .red-flag-list .group {
   margin-left: 5px;
-}
-
- .location p {
-  /* color: rgb(65, 40, 2); */
-  /* font-weight: bold; */
 }
 
 .draft span {
@@ -782,8 +776,10 @@ hr {
   float: left;
   display: flex;
   flex-direction: column;
-  background-color: rgb(78, 136, 11);
-  padding: 10px;
+  background-color: rgb(39, 69, 85);
+  padding-bottom: 25px;
+  margin-bottom: 10%;
+  padding-left: 10px;
   padding-right: 20px;
   border-radius: 10px;
 }
@@ -798,17 +794,29 @@ hr {
 .profile .user-icon {
   color: rgb(255, 255, 255);
   text-align: center;
+  color: rgb(255, 255, 255);
 }
 
 .profile .edit-profile {
-  margin-top: 10px;
+  margin-top: 20px;
+}
+
+#edit-profile-btn {
+  color: rgb(255, 255, 255);
+  background-color: rgb(252, 165, 65);
+  border: 3px solid rgb(252, 165, 65);
+}
+
+#edit-profile-btn:hover {
+  background:  rgb(206, 103, 20); 
 }
 
 .profile-record {
   display: flex;
   float: right;
   flex-direction: column;
-  background-color: rgb(247, 172, 10);
+  color: rgb(39, 69, 85);
+  background-color: rgb(238, 238, 238);
   padding: 10px;
   border-radius: 10px;
   width: 60%;
@@ -820,10 +828,12 @@ hr {
 }
 
 .total-record a .circle:hover {
-  background: rgb(119, 199, 28);
+  background-color: rgb(255, 255, 255);
+  color: rgb(39, 69, 85);
 }
 .profile-record h4 a:hover {
-  color: rgb(78, 136, 11);
+  color: rgb(26, 51, 65);
+  border-bottom: 3px solid rgb(39, 69, 85);
 }
 
 .profile-record .total-record{
@@ -832,7 +842,8 @@ hr {
 }
 
 .profile-record .total-record .circle {
-  background-color: rgb(78, 136, 11);
+  background-color: rgb(39, 69, 85);
+  color: rgb(255, 255, 255);
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -846,6 +857,10 @@ hr {
   text-align: center;
 }
 
+.profile-record h4 a {
+  color: rgb(39, 69, 85);
+}
+
 .profile-record .histroy {
   display: flex;
   justify-content: space-between;
@@ -853,7 +868,11 @@ hr {
 }
 
 .profile-record .histroy h3 {
+  width: 20%;
   margin: 0;
+}
+.number-status {
+  width: 20%;
 }
 
 .profile-record .histroy .centered {
@@ -869,9 +888,10 @@ hr {
 }
 .user-profile h2 {
   text-align: center;
-  background: rgb(247, 172, 10);
+  background: rgb(238, 238, 238);
   width: 50%;
   padding: 10px;
+  color: rgb(39, 69, 85);
   border-radius: 10px;
   border-bottom: 3px solid rgb(255, 255, 255);
   
@@ -880,13 +900,14 @@ hr {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: rgb(78, 136, 11);
-  border: 2px solid rgb(78, 136, 11);
+  background-color: rgb(39, 69, 85);
+  border: 2px solid rgb(39, 69, 85);
   border-radius: 5px;
 }
 
 .user-list a .current {
-  background: rgb(247, 172, 10);
+  color: rgb(39, 69, 85);
+  background: rgb(238, 238, 238);
 }
 
 .user-list a .list-1 {
@@ -898,7 +919,7 @@ hr {
 }
 
 .red-flag-list:hover {
-  background: rgb(221, 153, 6);
+  background: rgb(255, 255, 255);
 }
 
 /* ****************************************************** */
