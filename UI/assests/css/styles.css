@@ -2,19 +2,16 @@
 
 body {
   font-family: 'Work Sans', sans-serif;
-  background-image: url("../images/backgrnd.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   color: rgb(255, 255, 255);
   margin: 0;
+  outline: none;
 }
 
 .wrapper {
   display: flex;
   flex-direction: column;
-  margin-right: auto;
-  margin-left: auto;
-  width: 100%;
 }
 
 /* ****************************************************** */
@@ -22,7 +19,7 @@ body {
 /* ***************************************************** */
 
 header {
-  background-color: rgb(247, 172, 10);
+  background-color:rgb(39, 69, 85);
   min-height: 40px;
   width: 100%
 }
@@ -35,7 +32,7 @@ header {
 
 .branding img {
   max-width: 100px;
-  height: 70px;
+  height: 60px;
 }
 
 nav {
@@ -54,7 +51,7 @@ nav li {
 }
 
 nav a {
-  color: rgb(78, 136, 11);
+  color: rgb(255, 255, 255);
   text-decoration: none;
   text-transform: uppercase;
   line-height: 40px;
@@ -66,10 +63,8 @@ nav .icon {
 }
 
 nav a:hover {
-  color: rgb(255, 255, 255);
-  border-bottom: 3px solid rgb(78, 136, 11);
+  border-bottom: 3px solid rgb(255, 255, 255);
   font-weight: bold;
-  background-color: transparent;
 }
 
 /*****************************************/
@@ -77,8 +72,10 @@ nav a:hover {
 /****************************************/
 
 /* showcase */
-.showcase::after {
-  content: '';
+.showcase {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   width: 100%;
   background-image: url('../images/handcuffs.jpg');
@@ -86,52 +83,48 @@ nav a:hover {
   background-repeat: no-repeat;
   background-position: center;
   display: block;
-  filter: blur(10px);
-  -webkit-filter: blur(10px);
-  transition: all 1000ms;
 }
-
-.showcase:hover::after {
-  filter: blur(0px);
-  -webkit-filter: blur(0px);
-}
-.showcase:hover .content {
-  filter: blur(1px);
-  -webkit-filter: blur(1px);
-}
-
 .content {
-  position: absolute;
-  z-index: 1;
-  top: 25%;
-  left: 50%;
-  margin-top: 105px;
-  margin-left: -145px;
-  width: 38%;
-  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   text-align: center;
-  transition: all 1000ms;
+  padding-top: 15%;
+  position: relative;
+  z-index: 1;
 }
 
 .title {
-  font-size: 30px;
-  color: rgb(78, 136, 11);
+  font-size: 50px;
+  color: rgb(255, 255, 255);
   font-weight: bold;
   padding: 0px;
   margin: 0px;
 }
 
 .text {
+  width: 50%;
   font-size: 20px;
-  color: rgb(65, 40, 2);
+  color: rgb(255, 255, 255);
   font-weight: bold;
   padding: 2px;
   margin: 0px;
   margin-bottom: 4px;
 }
 
-.text span {
-  color: rgb(204, 10, 10);
+.btn-get-start {
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 20px;
+  color: rgb(238, 238, 238);
+  background-color: rgb(39, 69, 85);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn-get-start:hover {
+  background-color: rgba(26, 51, 65, 0.794);
 }
 
 .content .text {
@@ -139,21 +132,74 @@ nav a:hover {
   margin-top: 1rem
 } 
 
+hr {
+	width: 400px;
+	border-top: 1px solid rgb(255, 255, 255);
+	border-bottom: 1px solid rbga(0,0,0,0.2);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.home-section {
+  width: 90%;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 7%;
+  padding-left: 15px;
+  padding-right: 15px;
+  
+}
+
 .home-h2 {
+  background-color:  rgb(39, 69, 85);
+  color: rgb(255, 255, 255);
   text-align: center;
-  margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.incident-container-all {
+  position: relative;
+  width: 24%;
+  height: 100%;
+  background-color: rgb(238, 238, 238);
+  border-radius: 10px;
+  padding-bottom: 30px;
+  margin-bottom: 10px;
+}
+
+.incident-container-all img {
+  width: 100%;
+  height: 230px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .read-more {
   text-decoration: none;
-  float: right;
-  margin-right: 5px;
+  align-self: center;
 }
 
 .read-more, .btn-container button {
   padding: 10px 12px;
   border-radius: 20px;
-  color: rgb(255, 255, 255);
+  color: rgb(39, 69, 85);
   cursor: pointer;
   box-shadow:
   inset 2px 1px 2px 2px rgba(0, 0, 0, 0.07), 
@@ -162,43 +208,17 @@ nav a:hover {
   transition: all 0.2s linear;
 }
 
-.read-more, .btn .edit {
-  background: rgb(253, 106, 2);
-  border: 3px solid rgb(253, 106, 2);
+.read-more {
+  border: 3px solid rgb(39, 69, 85);
 }
 
 .read-more:hover, .btn .edit:hover {
-  background: rgb(189, 81, 4);
-  border: 3px solid rgb(253, 106, 2);
+  background:  rgb(26, 51, 65);
+  color: rgb(238, 238, 238);
 }
 
-.grid-container {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 96%;
-  padding: 2rem 1rem;
-}
-
-.all-incident-container {
-  display: flex;
-  margin-top: 3%;
-  margin-bottom: 7%;
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0% 5px;
-}
-
-.incident-container {
-  background-color: rgb(78, 136, 11);
-  border: 3px solid rgb(247, 172, 10);
-  border-radius: 10px;
-  padding-bottom: 2%;
-}
-
-.incident-container img {
-  width: 100%;
-  height: 250px;
+.location {
+  color: rgb(39, 69, 85);
 }
 
 .location, .status {
@@ -213,32 +233,49 @@ nav a:hover {
   margin: 0;
 }
 
-.locaton, .comment {
+.locaton {
   margin: 0px 2%;
+}
+
+.comment {
+  height: 60%;
+  margin-bottom: 10px;
 }
 
 .comment h4 {
   text-align: center;
+  color: rgb(39, 69, 85);
   font-size: 20px;
-  background: rgb(78, 136, 11);
-  margin: 5px;
+  border-bottom: 3px solid rgb(39, 69, 85);
+  border-radius: 15px;
   padding: 5px 0px;
-  border-bottom: 3px solid rgb(255, 255, 255);
-  border-radius: 10px;
+  margin: 5px;
+}
+
+.comment p {
+  color: rgb(39, 69, 85);
+  text-align: left;
+  padding: 0px 15px; 
 }
 
 /*********************************************************/
 /* *********SIGN-UP & SIGN-IN ***************************/
 /********************************************************/
+.form-section {
+  height: 100vh;
+}
 
 .form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 5px;
-  border: 3px solid rgb(247, 172, 10);
+  background-color: rgb(238, 238, 238);
   border-radius: 10px;
   padding-bottom: 10px;
+  box-shadow:	
+		0pt 2px 5px rgba(105, 108, 109,  0.7),	
+    0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
 }
 
 #signup-wrapper {
@@ -267,7 +304,7 @@ nav a:hover {
 }
 
 .report-form-container h3 {
-  border-bottom: 3px solid rgb(255, 255, 255);
+  border-bottom: 3px solid rgb(39, 69, 85);
   border-radius: 10px;
   padding: 15px;
 }
@@ -282,7 +319,7 @@ nav a:hover {
   color: rgb(255, 255, 255);
   margin: 0;
   padding: 12px 0px;
-  background-color: rgb(78, 136, 11);
+  background-color: rgb(39, 69, 85);
   border-bottom: 3px solid rgb(255, 255, 255);
   width: 100%;
   text-align: center;
@@ -297,47 +334,49 @@ nav a:hover {
   font-size: 18px;
   line-height: 2rem;
   font-weight: 500;
-  color: rgb(255, 255, 255);
+  color: rgb(39, 69, 85);
   font-weight: bold;
 }
 
 .form-container input {
   width: 100%;
   line-height: 30px;
-  color: rgb(255, 255, 255);
+  color: gb(39, 69, 85);
   margin-bottom: 2%;
-  border: 3px solid rgb(247, 172, 10);
+  border: 1px solid rgb(39, 69, 85);
   border-radius: 15px;
   font-size: 20px;
-  background-color: transparent;
   padding-left: 3px;
+  outline: none;
 }
 
 .form-primary-btn {
   margin-top: 5%;
-  width: 70%;
+  width: 50%;
   line-height: 32px;
+  padding: 5px 0px;
   border-radius: 15px;
-  border: 3px solid rgb(78, 136, 11);
-  background-color: rgb(78, 136, 11);
+  border: 1px solid rgb(17, 158, 36);
+  background-color: rgb(17, 158, 36);
   color: rgb(255, 255, 255);
-  font-size: 19px;
+  font-size: 25px;
   cursor: pointer;
   box-shadow:
   inset 2px 1px 2px 2px rgba(0, 0, 0, 0.07), 
   inset -2px -2px 3px rgba(255, 255, 255, 0.767), 
   inset 2px 2px 0px 0px rgba(255, 255, 255, 0.767);
-  transition: all 0.2s linear;
+  transition: all 0.4s linear;
+  outline: none;
 }
 
 .form-primary-btn:hover {
-  background-color: rgb(119, 199, 28);
-  border: 2px solid rgb(119, 199, 28);
+  color: rgb(255, 255, 255);
+  background-color:  rgba(17, 158, 36, 0.575);
 }
 
 .form-h4 {
-  margin: 10px 0px;
-  color: rgb(255, 255, 255);
+  margin: 20px 0px;
+  color: rgb(39, 69, 85);
 }
 
 .form-secondary-btn {
@@ -349,26 +388,36 @@ nav a:hover {
   border: 3px solid rgb(255, 255, 255);
   border-radius: 15px;
   color: rgb(255, 255, 255);
-  line-height: 32px;
-  background-color: transparent;
-  width: 60%;
-  padding: 2px 0px;
+  line-height: 50px;
+  background-color: rgb(39, 69, 85);
+  border: 1px solid rgb(39, 69, 85);
+  padding: 8px 30px;
+  margin-right: 15px;
   cursor: pointer;
   box-shadow:
   inset 2px 1px 2px 2px rgba(0, 0, 0, 0.07), 
   inset -2px -2px 3px rgba(255, 255, 255, 0.767), 
   inset 2px 2px 0px 0px rgba(255, 255, 255, 0.767);
-  transition: all 0.2s linear;
+  transition: all 0.4s linear;
 }
 
 .form-secondary-btn:hover {
-  border: 2px solid rgb(247, 172, 10);
-  background: rgb(247, 172, 10);
+  border: 2px solid rgb(39, 69, 85);
+  background: rgba(39, 69, 85, 0.575);
 }
 
-.form-h4 {
-  margin: 20px 0px;
-  color: rgb(255, 255, 255);
+.repeating-linear {
+  height: 50px;
+  width: 100%;
+  margin: 0px;
+  text-align: right;
+  background: repeating-linear-gradient(-45deg, 
+	rgb(238, 238, 238),
+	rgb(238, 238, 238) 15px, 
+	rgba(39, 69, 85, 0.479) 15px, 
+	rgba(39, 69, 85, 0.479) 30px, 
+	rgb(238, 238, 238) 30px
+  );
 }
 
 /* ****************************************************** */
@@ -381,11 +430,12 @@ nav a:hover {
   margin: 0px 26%;
   margin-top: 3%;
   margin-bottom: 7%;
-  border: 3px solid rgb(247, 172, 10);
+  background-color: rgb(238, 238, 238);
   border-radius: 8px;
   padding: 0px 10px;
   align-items: center;
   font-weight: 700;
+  color: rgb(39, 69, 85);
 }
 
 .report-form {
@@ -395,14 +445,16 @@ nav a:hover {
 }
 
 .report-form-container h3 {
-  background-color: rgb(78, 136, 11);
   padding: 8px;
   font-size: 25px;
+  color: rgb(255, 255, 255);
   text-align: center;
+  background-color: rgb(39, 69, 85);
 }
 
 .report-form-container h3 span {
   background-color: rgb(204, 10, 10);
+  color: rgb(255, 255, 255);
   padding: 5px;
 }
 
@@ -410,15 +462,9 @@ nav a:hover {
   text-align: center;
   font-size: 18px;
   font-weight: 700;
-  background-color: rgb(78, 136, 11);
   border-radius: 10px;
   padding: 5px;
-  border-bottom: 3px solid rgb(255, 255, 255);
-}
-
-.first-checkbox-container {
-  display: flex;
-  flex-wrap: wrap;
+  border-bottom: 3px solid rgb(39, 69, 85);
 }
 
 .checkbox-container {
@@ -428,17 +474,23 @@ nav a:hover {
 .checkbox-container input[type=text], textarea {
   width: 60%;
   line-height: 22px;
-  color: #FFEEE4;
+  color: rgb(39, 69, 85);
   margin-bottom: 4%;
-  border: 3px solid rgb(247, 172, 10);
+  border: 2px solid rgb(39, 69, 85);
   border-radius: 10px;
   font-size: 17px;
-  background-color: transparent;
   padding-left: 3px;
+  outline: none;
 }
 
 ::placeholder{
-  color: rgb(255, 255, 255);
+  color: rgb(39, 69, 85);
+}
+
+.map {
+  height: 200px;
+  text-align: center;
+  margin-top: 100px;
 }
 
 .report-button {
@@ -447,8 +499,8 @@ nav a:hover {
   width: 60%;
   line-height: 32px;
   border-radius: 10px;
-  border: 4px solid rgb(78, 136, 11);
-  background-color: rgb(78, 136, 11);
+  border: 3px solid rgb(39, 69, 85);
+  background-color: rgb(39, 69, 85);
   color: rgb(255, 255, 255);
   font-size: 17px;
   cursor: pointer;
@@ -468,33 +520,29 @@ nav a:hover {
 /* ****************************************************** */
 /* Red-flag  and intervention */ 
 /* ***************************************************** */
+
 .first-incident-container {
   display: flex;
   flex-direction: column;
   margin: 0px 30%;
   margin-top: 3%;
-  margin-bottom: 7%;
+  margin-bottom: 20%;
   font-size: 18px;
-  font-weight: 700;
 }
 
+.first-incident-container .jumbotron h2 {
+  color: rgb(204, 10, 10);
+}
 .incident-container {
-  border: 3px solid rgb(247, 172, 10);
-  border-radius: 8px;
-  padding-bottom: 2%;
-}
-
-.first-incident-container h2 {
-  text-align: center;
-  background-color: rgb(204, 10, 10);
+  background-color: rgb(238, 238, 238);
   border-radius: 10px;
-  padding: 10px;
-  border-bottom: 3px solid rgb(255, 255, 255);
+  padding-bottom: 2%;
 }
 
 .incident-image-lg img {
   width: 100%;
   height: 300px;
+  border-radius: 10px;
 }
 
 .location, .status {
@@ -506,14 +554,16 @@ nav a:hover {
 }
 
 .status span {
-  background-color: rgb(255, 255, 255);
   color: rgb(78, 136, 11);
   padding: 4px;
   margin-left: 5%;
+  font-weight: bold;
 }
 
 .status p, .location p {
   margin: 0;
+  color: rgb(39, 69, 85);
+  text-align: left;
 }
 
 .locaton {
@@ -521,28 +571,28 @@ nav a:hover {
 }
 
 .comment {
-  background-color: rgb(247, 172, 10);
   border-radius: 10px;
 }
 
 .comment div {
   text-align: center;
   font-size: 18px;
-  background: rgb(247, 172, 10);
+  color: rgb(39, 69, 85);
   margin-top: 5px;
   padding: 8px;
-  border-bottom: 3px solid rgb(255, 255, 255);
+  border-bottom: 3px solid rgb(39, 69, 85);
   border-radius: 10px;
 }
 
 .comment p {
-  padding-left: 5px;
-  padding-bottom: 5px;
+  padding-left: 15px;
 }
 
 .author {
+  color: rgb(39, 69, 85);
   text-align: center;
   font-size: 15px;
+  margin-bottom: 3px;  
 }
 
 .btn-container {
@@ -560,7 +610,18 @@ nav a:hover {
   margin: 0px 5px;
 }
 
+.btn .edit {
+  color: rgb(255, 255, 255);
+  background-color: rgb(252, 165, 65);
+  border: 3px solid rgb(252, 165, 65);
+}
+
+ .btn .edit:hover {
+  background:  rgb(206, 103, 20); 
+}
+
 .btn .delete {
+  color: rgb(255, 255, 255);
   background: rgb(204, 10, 10);
   border: 3px solid rgb(204, 10, 10);
 }
@@ -579,6 +640,47 @@ nav a:hover {
 /* ****************************************************** */
 /* all-red-flag  and intervention style*/
 /* ***************************************************** */
+
+.section-flex {
+  width: 90%;
+  align-self: center;
+  margin-bottom: 10%;
+}
+ .jumbotron {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-top: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-bottom: 30px;
+  background-color: rgb(238, 238, 238);
+  border-radius: 6px;
+}
+
+.jumbotron .title-container {
+  text-align: center;
+  border-radius: 10px;
+  margin: 0;
+  font-weight: bold;
+  padding-bottom: 3px;
+}
+
+.jumbotron h2 {
+  text-align: center;
+  color: rgb(39, 69, 85);
+  padding: 10px;
+  margin: 0;
+}
+
+ .jumbotron .title-container a {
+  text-decoration: none;
+  font-size: 14px;
+  color: rgb(39, 69, 85);
+}
+
+.section-flex .jumbotron .title-container a:hover {
+  border-bottom: 3px solid rgb(39, 69, 85);
+}
 
 .all-red-flag-list-container {
   border: 3px solid rgb(247, 172, 10);
@@ -621,16 +723,20 @@ nav a:hover {
 .red-flag-list {
   display: flex;
   justify-content: space-between;
-  color: rgb(255, 255, 255);
-  background: rgba(247, 172, 10, 0.657);
+  color: rgb(26, 51, 65);
+  background: rgb(238, 238, 238);
   margin-bottom: 8px;
   padding: 15px 4px;
   border-radius: 10px;
-  border-bottom: 3px solid rgb(255, 255, 255);
+  border-bottom: 3px solid rgb(26, 51, 65);
 }
 
 .red-flag-list p {
   margin: 0;
+}
+
+.group {
+  width: 20%;
 }
 
 .group .name span {
@@ -642,27 +748,22 @@ nav a:hover {
   margin-left: 5px;
 }
 
-.red-flag-list .group .location {
-  color: rgb(65, 40, 2);
+.draft span {
+  color: rgb(31, 16, 2);
   font-weight: bold;
 }
 
-.draft {
-  color: rgba(255, 255, 255, 0.582);
-  font-weight: bold;
-}
-
-.resolved {
+.resolved span {
   color: rgb(78, 136, 11);
   font-weight: bold;
 }
 
-.none {
-  color: rgb(156, 247, 10);
+.none span {
+  color: rgb(247, 164, 10);
   font-weight: bold;
 }
 
-.rejected {
+.rejected span {
   color: rgb(236, 19, 12);
   font-weight: bold;
 }
@@ -679,8 +780,10 @@ nav a:hover {
   float: left;
   display: flex;
   flex-direction: column;
-  background-color: rgb(78, 136, 11);
-  padding: 10px;
+  background-color: rgb(39, 69, 85);
+  padding-bottom: 25px;
+  margin-bottom: 10%;
+  padding-left: 10px;
   padding-right: 20px;
   border-radius: 10px;
 }
@@ -695,17 +798,29 @@ nav a:hover {
 .profile .user-icon {
   color: rgb(255, 255, 255);
   text-align: center;
+  color: rgb(255, 255, 255);
 }
 
 .profile .edit-profile {
-  margin-top: 10px;
+  margin-top: 20px;
+}
+
+#edit-profile-btn {
+  color: rgb(255, 255, 255);
+  background-color: rgb(252, 165, 65);
+  border: 3px solid rgb(252, 165, 65);
+}
+
+#edit-profile-btn:hover {
+  background:  rgb(206, 103, 20); 
 }
 
 .profile-record {
   display: flex;
   float: right;
   flex-direction: column;
-  background-color: rgb(247, 172, 10);
+  color: rgb(39, 69, 85);
+  background-color: rgb(238, 238, 238);
   padding: 10px;
   border-radius: 10px;
   width: 60%;
@@ -717,10 +832,12 @@ nav a:hover {
 }
 
 .total-record a .circle:hover {
-  background: rgb(119, 199, 28);
+  background-color: rgb(255, 255, 255);
+  color: rgb(39, 69, 85);
 }
 .profile-record h4 a:hover {
-  color: rgb(78, 136, 11);
+  color: rgb(26, 51, 65);
+  border-bottom: 3px solid rgb(39, 69, 85);
 }
 
 .profile-record .total-record{
@@ -729,7 +846,8 @@ nav a:hover {
 }
 
 .profile-record .total-record .circle {
-  background-color: rgb(78, 136, 11);
+  background-color: rgb(39, 69, 85);
+  color: rgb(255, 255, 255);
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -743,6 +861,10 @@ nav a:hover {
   text-align: center;
 }
 
+.profile-record h4 a {
+  color: rgb(39, 69, 85);
+}
+
 .profile-record .histroy {
   display: flex;
   justify-content: space-between;
@@ -750,7 +872,11 @@ nav a:hover {
 }
 
 .profile-record .histroy h3 {
+  width: 20%;
   margin: 0;
+}
+.number-status {
+  width: 20%;
 }
 
 .profile-record .histroy .centered {
@@ -766,9 +892,10 @@ nav a:hover {
 }
 .user-profile h2 {
   text-align: center;
-  background: rgb(247, 172, 10);
+  background: rgb(238, 238, 238);
   width: 50%;
   padding: 10px;
+  color: rgb(39, 69, 85);
   border-radius: 10px;
   border-bottom: 3px solid rgb(255, 255, 255);
   
@@ -777,13 +904,14 @@ nav a:hover {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: rgb(78, 136, 11);
-  border: 2px solid rgb(78, 136, 11);
+  background-color: rgb(39, 69, 85);
+  border: 2px solid rgb(39, 69, 85);
   border-radius: 5px;
 }
 
 .user-list a .current {
-  background: rgb(247, 172, 10);
+  color: rgb(39, 69, 85);
+  background: rgb(238, 238, 238);
 }
 
 .user-list a .list-1 {
@@ -795,9 +923,37 @@ nav a:hover {
 }
 
 .red-flag-list:hover {
-  background: rgba(78, 136, 11, 0.561);
+  background: rgb(255, 255, 255);
 }
 
+/* ****************************************************** */
+/* Admin pages */
+/* ***************************************************** */
+
+.btn-status {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.btn .status-resolve {
+  background-color: rgb(17, 158, 36);
+  border-color: rgb(17, 158, 36);
+  margin: 10px;
+}
+
+.btn .status-resolve:hover {
+  background-color: rgba(17, 158, 36, 0.746);
+}
+.btn .status-draft {
+  background-color: burlywood;
+  border-color: burlywood;
+}
+
+.btn .status-draft:hover {
+  background-color: rgba(222, 184, 135, 0.829);
+  border-color: burlywood;
+}
 /* ****************************************************** */
 /* Footer styles */
 /* ***************************************************** */
@@ -805,7 +961,7 @@ nav a:hover {
 footer {
   text-align: center;
   font-size: 14px;
-  background-color: rgb(247, 172, 10);
+  background-color: rgb(39, 69, 85);
   padding: 10px 0px;
 }
 
