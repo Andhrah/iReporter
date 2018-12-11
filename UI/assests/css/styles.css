@@ -6,6 +6,7 @@ body {
   background-size: cover;
   color: rgb(255, 255, 255);
   margin: 0;
+  outline: none;
 }
 
 .wrapper {
@@ -274,7 +275,7 @@ hr {
   padding-bottom: 10px;
   box-shadow:	
 		0pt 2px 5px rgba(105, 108, 109,  0.7),	
-		0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+    0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
 }
 
 #signup-wrapper {
@@ -342,10 +343,11 @@ hr {
   line-height: 30px;
   color: gb(39, 69, 85);
   margin-bottom: 2%;
-  border: 3px solid rgb(39, 69, 85);
+  border: 1px solid rgb(39, 69, 85);
   border-radius: 15px;
   font-size: 20px;
   padding-left: 3px;
+  outline: none;
 }
 
 .form-primary-btn {
@@ -354,7 +356,7 @@ hr {
   line-height: 32px;
   padding: 5px 0px;
   border-radius: 15px;
-  border: 3px solid rgb(17, 158, 36);
+  border: 1px solid rgb(17, 158, 36);
   background-color: rgb(17, 158, 36);
   color: rgb(255, 255, 255);
   font-size: 25px;
@@ -364,6 +366,7 @@ hr {
   inset -2px -2px 3px rgba(255, 255, 255, 0.767), 
   inset 2px 2px 0px 0px rgba(255, 255, 255, 0.767);
   transition: all 0.4s linear;
+  outline: none;
 }
 
 .form-primary-btn:hover {
@@ -387,7 +390,7 @@ hr {
   color: rgb(255, 255, 255);
   line-height: 50px;
   background-color: rgb(39, 69, 85);
-  border: 2px solid rgb(39, 69, 85);
+  border: 1px solid rgb(39, 69, 85);
   padding: 8px 30px;
   margin-right: 15px;
   cursor: pointer;
@@ -473,10 +476,11 @@ hr {
   line-height: 22px;
   color: rgb(39, 69, 85);
   margin-bottom: 4%;
-  border: 3px solid rgb(39, 69, 85);
+  border: 2px solid rgb(39, 69, 85);
   border-radius: 10px;
   font-size: 17px;
   padding-left: 3px;
+  outline: none;
 }
 
 ::placeholder{
@@ -495,7 +499,7 @@ hr {
   width: 60%;
   line-height: 32px;
   border-radius: 10px;
-  border: 4px solid rgb(39, 69, 85);
+  border: 3px solid rgb(39, 69, 85);
   background-color: rgb(39, 69, 85);
   color: rgb(255, 255, 255);
   font-size: 17px;
