@@ -4,11 +4,13 @@
   "description": "iReporter enables any/every citizen to bring any form of corruption to the notice of appropriate authorities and the general public. Users can also report on things that needs government  intervention",
   "main": "index.js",
   "scripts": {
-    "test": "nyc mocha server/test/**/**.spec.js --compilers js:babel-core/register  --exit",
-    "build": "babel server/ -d build/",
-    "start": "babel-watch server/index.js",
+    "test": "SET NODE_ENV=test&& nyc mocha server/test/**/**.spec.js --compilers js:babel-core/register  --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "heroku-postbuild": "npm run build"
+    "start": "npm run initDB && babel-node server/index.js",
+    "migrate": "babel-node server/migrations/index.js",
+    "seed": "babel-node server/seeders/seed.js",
+    "initDB": "npm run migrate && npm run seed",
+    "start:dev": "nodemon server/index.js --exec babel-node"
   },
   "repository": {
     "type": "git",
@@ -35,6 +37,8 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.4"
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "pg": "^7.7.1"
   }
 }
