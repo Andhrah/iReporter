@@ -6,6 +6,9 @@ import {
   deleteRedFlag,
 } from './incidents/red-flags';
 
+import {
+  signup,
+} from './users/auth';
 
 export default {
   getRedFlags,
@@ -14,4 +17,5 @@ export default {
   editLocation,
   editComment,
   deleteRedFlag,
+  signup,
 };

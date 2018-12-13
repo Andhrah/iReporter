@@ -1,9 +1,9 @@
-import pool from '../config';
+import db from '../config';
 
 import database from './database';
 
 const seedIncidentTable = async incident => {
-  const client = await pool.connect();
+  const client = await db.connect();
   const sql =
     `INSERT INTO incidents(created_on, 
     created_by, type, location, status, images, 

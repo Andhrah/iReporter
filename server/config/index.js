@@ -17,6 +17,6 @@ const getConnectionString = () => {
   // this is for production environment
 };
 
-const pool = new Pool({ connectionString: getConnectionString() });
+const db = new Pool({ connectionString: getConnectionString() });
 
-export default pool;
+export default db;
