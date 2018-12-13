@@ -1,5 +1,6 @@
 import {
   signup,
+  login,
 } from './users/auth';
 
 import {
@@ -27,6 +28,7 @@ export default {
   editComment,
   deleteRedFlag,
   signup,
+  login,
   createIntervention,
   getInterventions,
   getSpecificIntervention,

@@ -7,14 +7,14 @@ const router = express.Router();
 
 
 // CREATE - adds new red-flag record to the DB (data structure)
-router.post('/interventions', controllers.createIntervention);
+router.post('/interventions', middleware.isLoggedIn, controllers.createIntervention);
 
-router.get('/interventions', controllers.getInterventions);
+router.get('/interventions', middleware.isLoggedIn, controllers.getInterventions);
 
-router.get('/interventions/:id', controllers.getSpecificIntervention);
+router.get('/interventions/:id', middleware.isLoggedIn, controllers.getSpecificIntervention);
 
 // EDIT - for editing a particular intervention location record
-router.patch('/interventions/:id/location', controllers.editLocationIntervention);
+// router.patch('/interventions/:id/location', middleware.isLoggedIn, controllers.editLocationIntervention);
 
 // // EDIT - for editing a particular red-flag record's comment
 // router.patch('/interventions/:id/comment', controllers.editCommentIntervention);
