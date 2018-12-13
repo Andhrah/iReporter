@@ -49,3 +49,22 @@ export const getInterventions = (req, res) => {
       });
     });
 };
+
+export const getSpecificIntervention = (req, res) => {
+  const id = req.params.id;
+  intervention.findById(id).then(results => {
+    if (results.length === 0) {
+      return res.status(404).json({
+        status: 404,
+        error: 'Intervention Not Found',
+      });
+    }
+    return res.status(200).json({
+      status: 200,
+      data: results,
+    });
+  }).catch(err => res.status(404).json({
+    status: 404,
+    error: 'Intervention not found',
+  }));
+};
