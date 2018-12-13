@@ -8,34 +8,61 @@ const createIntervention = async intervention => {
   let response;
   const db = await pool.connect();
   const sql =
-    'INSERT INTO interventions (created_on, created_by, location, status, images, videos, comment) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *';
+    'INSERT INTO interventions(created_on, created_by, location, status, images, videos, comment) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *';
   const values = [
     createdOn,
     createdBy,
     location,
     status,
-    images,
-    video,
+    images.split(','),
+    video.split(','),
     comment,
   ];
   try {
     return await db.query(sql, values).then(data => {
       response = data.rows;
+      return response;
+    });
+  } catch (err) {
+    errors = new Error(err);
+    console.log(errors);
+  } finally {
+    const promise = new Promise((resolve, reject) => {
+      console.log(response);
+      resolve(response);
+      reject(errors);
+      return promise;
+    });
+
+    db.release();
+  }
+};
+
+export const findAll = async () => {
+  let errors;
+  let response;
+  const client = await pool.connect();
+
+  const sql = 'SELECT * FROM interventions';
+  try {
+    return await client.query(sql).then(results => {
+      response = results.rows;
+      return response;
     });
   } catch (e) {
     errors = new Error(e);
   } finally {
-    const promise = new Promise((resolve, reject) => {
-      console.log(response)
+    const myPromise = new Promise((resolve, reject) => {
       resolve(response);
       reject(errors);
     });
 
-    db.release();
-    return promise;
+    client.release();
+    return myPromise;
   }
 };
 
 export default {
   createIntervention,
+  findAll,
 };
