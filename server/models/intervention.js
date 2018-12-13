@@ -1,7 +1,7 @@
 import pool from '../config';
 
 const createIntervention = async intervention => {
-  const { location, images, video, comment, createdBy } = intervention;
+  const { location, images, video, comment, createdBy } = req.body;
   const createdOn = new Date();
   const status = 'Under Investigation';
   let errors;
@@ -87,33 +87,9 @@ const findById = async id => {
   }
 };
 
-const findByIdAndEditLocation = async (id, location) => {
-  let errors;
-  let response;
-  const client = await pool.connect();
-
-  const sql = 'UPDATE interventions SET location = $1 WHERE id = $2 RETURNING *';
-  const values = [location, id];
-  try {
-    return await client.query(sql, values).then(results => {
-      response = results.rows;
-    });
-  } catch (err) {
-    errors = new Error(err);
-  } finally {
-    const promise = new Promise((resolve, reject) => {
-      resolve(response);
-      reject(errors);
-    });
-
-    client.release();
-    return promise;
-  }
-};
 
 export default {
   createIntervention,
   findAll,
   findById,
-  findByIdAndEditLocation,
 };
