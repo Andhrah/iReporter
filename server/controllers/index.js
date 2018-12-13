@@ -12,6 +12,11 @@ import {
 
 import {
   createIntervention,
+  getInterventions,
+  getSpecificIntervention,
+  editLocationIntervention,
+  editCommentIntervention,
+  deleteIntervention,
 } from './incidents/intervention';
 
 export default {
@@ -23,4 +28,9 @@ export default {
   deleteRedFlag,
   signup,
   createIntervention,
+  getInterventions,
+  getSpecificIntervention,
+  editLocationIntervention,
+  editCommentIntervention,
+  deleteIntervention,
 };
