@@ -3,7 +3,7 @@ const db = [
   {
     createdOn: new Date(),
     createdBy: 1, // represents the user who created this record
-    type: 'red-flag', // [red-flag, intervention]
+    // type: 'red-flag', // [red-flag, intervention]
     location: '6.605874, 3.349149', // Lat Long coordinates
     status: 'Resolved', // [draft, under investigation, resolved, rejected]
     Images: ['image1', 'image2'],
@@ -13,7 +13,7 @@ const db = [
   {
     createdOn: new Date(),
     createdBy: 5, // represents the user who created this record
-    type: 'red-flag', // [red-flag, intervention]
+    // type: 'red-flag', // [red-flag, intervention]
     location: '6.605874, 3.349149.', // Lat Long coordinates
     status: 'Draft', // [draft, under investigation, resolved, rejected]
     Images: ['image1', 'image2'],
@@ -24,7 +24,7 @@ const db = [
   {
     createdOn: new Date(),
     createdBy: 4, // represents the user who created this record
-    type: 'red-flag', // [red-flag, intervention]
+    // type: 'red-flag', // [red-flag, intervention]
     location: '6.605874, 3.349149.', // Lat Long coordinates
     status: 'Rejected', // [draft, under investigation, resolved, rejected]
     Images: ['image1', 'image2'],
@@ -35,7 +35,7 @@ const db = [
   {
     createdOn: new Date(),
     createdBy: 3, // represents the user who created this record
-    type: 'red-flag', // [red-flag, intervention]
+    // type: 'red-flag', // [red-flag, intervention]
     location: '6.605874, 3.349149.', // Lat Long coordinates
     status: 'Under Investigation', // [draft, under investigation, resolved, rejected]
     Images: ['image1', 'image2'],
@@ -45,7 +45,7 @@ const db = [
   {
     createdOn: new Date(),
     createdBy: 2, // represents the user who created this record
-    type: 'red-flag', // [red-flag, intervention]
+    // type: 'red-flag', // [red-flag, intervention]
     location: '6.605874, 3.349149.', // Lat Long coordinates
     status: 'Under Investigation', // [draft, under investigation, resolved, rejected]
     Images: ['image1', 'image2'],
