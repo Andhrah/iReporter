@@ -38,7 +38,7 @@ const createIntervention = async intervention => {
   }
 };
 
-export const findAll = async () => {
+const findAll = async () => {
   let errors;
   let response;
   const client = await pool.connect();
@@ -52,15 +52,16 @@ export const findAll = async () => {
   } catch (e) {
     errors = new Error(e);
   } finally {
-    const myPromise = new Promise((resolve, reject) => {
+    const promise = new Promise((resolve, reject) => {
       resolve(response);
       reject(errors);
     });
 
     client.release();
-    return myPromise;
+    return promise;
   }
 };
+
 
 export default {
   createIntervention,

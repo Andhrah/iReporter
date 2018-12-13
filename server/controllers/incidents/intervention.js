@@ -1,7 +1,13 @@
 import intervention from '../../models/intervention';
 
 export const createIntervention = (req, res) => {
-  const { location, images, video, comment } = req.body;
+  const {
+    location,
+    images,
+    video,
+    comment,
+  } = req.body;
+
   const newIntervention = {
     location,
     images,
@@ -10,12 +16,10 @@ export const createIntervention = (req, res) => {
     createdBy: 2,
   };
   // console.log(newIntervention);
-  intervention.createIntervention(newIntervention).then(data => {
-    return res.status(201).json({
-      status: 201,
-      data,
-    });
-  }).catch((err) => {
+  intervention.createIntervention(newIntervention).then(data => res.status(201).json({
+    status: 201,
+    data,
+  })).catch((err) => {
     console.log('>>>>>>>>', err);
     res.status(404).json({
       status: 404,
@@ -30,7 +34,7 @@ export const getInterventions = (req, res) => {
     if (results.length === 0) {
       return res.status(404).json({
         status: 404,
-        error: 'Red-flag Not Found',
+        error: 'Intervention Found',
       });
     }
     return res.status(200).json({
