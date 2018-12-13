@@ -5,6 +5,6 @@ import middleware from '../middleware';
 
 const router = express.Router();
 
-router.post('/signup', controllers.signup);
+router.post('/auth/signup', controllers.signup);
 
 export default router;
