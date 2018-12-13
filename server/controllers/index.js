@@ -1,4 +1,8 @@
 import {
+  signup,
+} from './users/auth';
+
+import {
   createRedFlag,
   getRedFlags,
   getSpecificRedFlag,
@@ -7,8 +11,8 @@ import {
 } from './incidents/red-flags';
 
 import {
-  signup,
-} from './users/auth';
+  createIntervention,
+} from './incidents/intervention';
 
 export default {
   getRedFlags,
@@ -18,4 +22,5 @@ export default {
   editComment,
   deleteRedFlag,
   signup,
+  createIntervention,
 };
