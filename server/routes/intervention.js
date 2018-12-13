@@ -13,8 +13,8 @@ router.get('/interventions', controllers.getInterventions);
 
 router.get('/interventions/:id', controllers.getSpecificIntervention);
 
-// // EDIT - for editing a particular red-flag location
-// router.patch('/interventions/:id/location', controllers.editLocationIntervention);
+// EDIT - for editing a particular intervention location record
+router.patch('/interventions/:id/location', controllers.editLocationIntervention);
 
 // // EDIT - for editing a particular red-flag record's comment
 // router.patch('/interventions/:id/comment', controllers.editCommentIntervention);
