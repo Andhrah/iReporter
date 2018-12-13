@@ -1,62 +1,90 @@
-export default [
-  // USER SCHEMA SETUP
-  {
-    id: 1,
-    firstname: 'Alexandra',
-    lastname: 'Collins',
-    othernames: 'Chidinma',
-    email: 'alexcollins@gmail.com',
-    phoneNumber: '08160006965',
-    username: 'Andra',
-    registered: new Date().toString(),
-    isAdmin: true,
-  },
+import pool from '../config';
 
-  {
-    id: 2,
-    firstname: 'Queeneth',
-    lastname: 'Vine',
-    othernames: 'Uloma',
-    email: 'queenth@gmail.com',
-    phoneNumber: '07053666265',
-    username: 'quinvine',
-    registered: new Date().toString(),
-    isAdmin: true,
-  },
+const findByEmail = async email => {
+  let errors; let response;
+  const db = await pool.connect();
 
-  {
-    id: 3,
-    firstname: 'Tiana',
-    lastname: 'Empire',
-    othernames: 'Tee',
-    email: 'teetiana@gmail.com',
-    phoneNumber: '08160076964',
-    username: 'teettiana',
-    registered: new Date().toString(),
-    isAdmin: true,
-  },
+  const sql = 'SELECT email, username FROM incidents where email = $1';
+  const values = [email];
+  try {
+    return await db.query(sql, email).then(results => {
+      response = results.rows;
+    });
+  } catch (e) {
+    errors = new Error(e);
+  } finally {
+    const promise = new Promise((resolve, reject) => {
+      resolve(response);
+      reject(errors);
+    });
 
-  {
-    id: 4,
-    firstname: 'Jamal',
-    lastname: 'Lyon',
-    othernames: 'Chidi',
-    email: 'mallyon@gmail.com',
-    phoneNumber: '08160806961',
-    username: 'malyon',
-    registered: new Date().toString(),
-    isAdmin: true,
-  },
+    db.release();
+    return promise;
+  }
+};
+const findById = async id => {
+  let errors; let response;
+  const db = await pool.connect();
 
-  {
-    id: 5,
-    firstname: 'Sandra',
-    lastname: 'Franklin',
-    othernames: 'Olachi',
-    email: 'sanola@gmail.com',
-    phoneNumber: '08161066960',
-    username: 'olybabe',
-    registered: new Date().toString(),
-    isAdmin: true,
-  },
-];
+  const sql = 'SELECT * FROM incidents WHERE id = $1';
+  const values = [$1];
+  try {
+    return await db.query(sql, values).then(results => {
+      response = results.rows;
+    });
+  } catch (e) {
+    errors = new Error(e);
+  } finally {
+    const promise = new Promise((resolve, reject) => {
+      resolve(response);
+      reject(errors);
+    });
+
+    db.release();
+    return promise;
+  }
+};
+const register = async userObject => {
+  const {
+    firstname,
+    lastname,
+    othername,
+    email,
+    password,
+    username,
+    phoneNumber,
+  } = userObject;
+  let errors; let response;
+  const db = await pool.connect();
+
+  const sql =
+    'INSERT INTO users (firstname, lastname, othername, email, password, username, phone_number, registered, is_admin) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *';
+  const values = [
+    firstname,
+    lastname,
+    othername,
+    email,
+    password,
+    username,
+    phoneNumber,
+    new Date(),
+    false,
+  ];
+  try {
+    return await db.query(sql, values).then(results => {
+      response = results.rows;
+    });
+  } catch (err) {
+    errors = new Error(err);
+  } finally {
+    const promise = new Promise((resolve, reject) => {
+      resolve(response);
+      reject(errors);
+    });
+
+    db.release();
+    return promise;
+  }
+};
+
+export default { findByEmail, findById, register };
