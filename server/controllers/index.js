@@ -8,6 +8,7 @@ import {
 
 import {
   signup,
+  login,
 } from './users/auth';
 
 export default {
@@ -18,4 +19,5 @@ export default {
   editComment,
   deleteRedFlag,
   signup,
+  login,
 };
