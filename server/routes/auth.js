@@ -5,8 +5,10 @@ import controllers from '../controllers';
 
 const router = express.Router();
 
-router.post('/auth/signup', controllers.signup);
+//  Create user
+router.post('/signup', controllers.signup);
 
-router.post('/auth/login', controllers.login);
+//  login user
+router.post('/login', controllers.login);
 
 export default router;
