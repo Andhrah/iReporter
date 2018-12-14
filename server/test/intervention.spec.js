@@ -134,21 +134,21 @@ import chai from 'chai';
 import supertest from 'supertest';
 
 import app from '../index';
-import db from '../models/red-flag';
+// import db from '../models/red-flag';
 
 const { expect } = chai;
 const server = supertest(app);
 const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJuYW1lIjoiSm9obiBEb2UiLCJpYXQiOjE1MTYyMzkwMjJ9.Os2VErgNllQ8vqvnJfki939ND5x_c28dpckuda4YWjk';
 
 describe('iReporter', () => {
-  describe('the /red-flags endpoint', () => {
-    it('should return a list of all red-flags record', async () => {
-      const response = await server.get('/api/v1/red-flags')
+  describe('the /interventions endpoint', () => {
+    it('should return a list of all interventions record', async () => {
+      const response = await server.get('/api/v1/interventions')
         .set('authorization', token);
       expect(response.body.status).to.equal(200);
     });
 
-    it('should create a red-flag and save to the database', async () => {
+    it('should create a interventions and save to the database', async () => {
       const newRedFlag = {
         createdBy: 6,
         type: 'red-flag',
@@ -157,7 +157,7 @@ describe('iReporter', () => {
         video: 'video1',
         comment: 'Corruption in the educational system.',
       };
-      const response = await server.post('/api/v1/red-flags').set('authorization', token).send(newRedFlag);
+      const response = await server.post('/api/v1/interventions').set('authorization', token).send(newRedFlag);
       expect(response.body.status).to.equal(201);
       // expect(response.body.data).to.be.an('array');
       // expect(response.body.data[0].message).to.eql('Red-Flag created successfully');
@@ -181,7 +181,7 @@ describe('iReporter', () => {
         video: '',
         comment: '',
       };
-      const response = await server.post('/api/v1/red-flags').set('authorization', token).send(newRedFlag);
+      const response = await server.post('/api/v1/interventions').set('authorization', token).send(newRedFlag);
       expect(response.statusCode).to.equal(400);
       // expect(response.body.status).to.equal(400);
       // expect(response.body.error).to.not.be.an('undefined');
@@ -191,24 +191,24 @@ describe('iReporter', () => {
 
   describe('should display a specific red-flag record', () => {
     it('should fetch a specific red-flag record and display it', async () => {
-      const response = await server.get('/api/v1/red-flags/4').set('authorization', token);
+      const response = await server.get('/api/v1/interventions/4').set('authorization', token);
       expect(response.body.status).to.equal(200);
       // expect(response.body.data).to.deep.equal([redFlag]);
     });
 
     it('should return error for wrong red-flag id', async () => {
-      const response = await server.get('/api/v1/red-flags/997667777').set('authorization', token);
+      const response = await server.get('/api/v1/interventions/997667777').set('authorization', token);
       expect(response.statusCode).to.equal(404);
       // expect(response.body.error).to.not.be.an('undefined');
       // expect(response.body.error).to.eql('Red-flag not found');
     });
   });
 
-  describe("should edit a specific red-flagrecord's location", () => {
-    it("should get a specific red-flag and edit it's location", async () => {
+  describe("should edit a specific intervention record's location", () => {
+    it("should get a specific intervention and edit it's location", async () => {
       // const redFlag = db[2];
       const response = await server
-        .patch('/api/v1/red-flags/5/location').set('authorization', token)
+        .patch('/api/v1/interventions/5/location').set('authorization', token)
         .send({ location: '6.605874, 3.349149' });
       // const editedRedFlag = redFlag;
       expect(response.body.status).to.equal(200);
@@ -216,19 +216,19 @@ describe('iReporter', () => {
       // expect(response.body.data[0].redFlag.location).to.eql(editedRedFlag.location);
     });
 
-    it('should return an error message for incorrect red-flag id', async () => {
-      const response = await server.patch('/api/v1/red-flags/888555555/location').set('authorization', token);
+    it('should return an error message for incorrect intervention id', async () => {
+      const response = await server.patch('/api/v1/interventions/888555555/location').set('authorization', token);
       expect(response.statusCode).to.equal(400);
       // expect(response.body.status).to.equal(400);
       // expect(response.body.error).to.not.be.an('undefined');
     });
   });
 
-  describe("should edit a specific red-flag record's comment", () => {
-    it("should get a specific red-flag and edit it's location", async () => {
+  describe("should edit a specific intervention record's comment", () => {
+    it("should get a specific intervention and edit it's location", async () => {
       // const redFlag = db[4];
       const response = await server
-        .patch('/api/v1/red-flags/4/comment').set('authorization', token)
+        .patch('/api/v1/interventions/4/comment').set('authorization', token)
         .send({
           comment: 'Corrution is the order of the day',
         });
@@ -238,8 +238,8 @@ describe('iReporter', () => {
       // expect(response.body.data[0].redFlag.comment).to.eql(editedRedFlag.comment);
     });
 
-    it('should return an error message for incorrect red-flag id', async () => {
-      const response = await server.patch('/api/v1/red-flags/88867/comment').set('authorization', token).send({
+    it('should return an error message for incorrect intervention id', async () => {
+      const response = await server.patch('/api/v1/interventions/88867/comment').set('authorization', token).send({
         comment: 'Corrution is the order of the day',
       });
       expect(response.statusCode).to.equal(404);
@@ -249,16 +249,16 @@ describe('iReporter', () => {
     });
   });
 
-  describe('should delete red-flag', () => {
-    it('should delete a specific red-flag record', async () => {
+  describe('should delete intervention', () => {
+    it('should delete a specific intervention record', async () => {
       // const redFlag = db[3];
-      const response = await server.delete('/api/v1/red-flags/7').set('authorization', token);
+      const response = await server.delete('/api/v1/interventions/7').set('authorization', token);
       expect(response.body.status).to.equal(200);
       // expect(response.body.data[0].message).to.eql('red-flag record has been deleted');
     });
 
-    it('should return an error message for incorrect red-flag id', async () => {
-      const response = await server.delete('/api/v1/red-flags/888').set('authorization', token);
+    it('should return an error message for incorrect intervention id', async () => {
+      const response = await server.delete('/api/v1/interventions/888').set('authorization', token);
       expect(response.statusCode).to.equal(404);
       // expect(response.body.status).to.equal(404);
       // expect(response.body.error).to.not.be.an('undefined');

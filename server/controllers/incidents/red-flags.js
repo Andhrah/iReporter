@@ -1,112 +1,143 @@
-import db from '../../models/red-flag';
+import redFlag from '../../models/red-flag';
+import pool from '../../config';
 
-export const createRedFlag = (req, res) => {
-  const { type, location, images, video, comment } = req.body;
-  const lastRedFlag = db[db.length - 1];
-  const newRedFlag = {
-    id: lastRedFlag.id + 1,
-    createdOn: new Date().toString(),
-    createdBy: 6,
-    type,
+export const createRedFlag = async (req, res) => {
+  const {
     location,
-    status: 'Under Investigation',
     images,
-    video,
+    videos,
     comment,
-  };
-  db.push(newRedFlag);
-  return res.status(201).json({
-    status: 201,
-    data: [
-      {
-        id: newRedFlag.id,
-        message: 'Red-Flag created successfully',
-        newRedFlag,
-      },
-    ],
-  });
+  } = req.body;
+
+  const sql = 'INSERT INTO red_flags(created_on, created_by, location, status, images, videos, comment) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *';
+  const values = [
+    new Date(),
+    req.id,
+    location,
+    'Under Investigation',
+    `{${images}}`,
+    `{${videos}}`,
+    comment,
+  ];
+  try {
+    const data = await pool.query(sql, values);
+    if (data) {
+      return res.status(201).json({
+        status: 201,
+        message: 'Red-flag has been created',
+        data: data.rows,
+      });
+    }
+  } catch (err) {
+    return res.status(500).json({
+      status: 500,
+      error: 'Error occured',
+    });
+  }
 };
 
+
+// Get all the red-flag from the DB(data structure)
 export const getRedFlags = (req, res) => {
-  return res.status(200).json({
-    status: 200,
-    data: db, // Get all the red-flags from the DB(data structure)
-  });
+  redFlag.findAll().then(results => {
+    if (results.length === 0) {
+      return res.status(404).json({
+        status: 404,
+        error: 'Red-flag not Found',
+      });
+    }
+    return res.status(200).json({
+      status: 200,
+      data: results, // Get all the red-flag from the DB
+    });
+  })
+    .catch(err => {
+      console.log('>>>>>>>>', err);
+      return res.status(404).json({
+        status: 404,
+      });
+    });
 };
 
 export const getSpecificRedFlag = (req, res) => {
-  const redFlag = db.find(redflagInDb => redflagInDb.id === Number(req.params.id));
-  if (!redFlag) {
-    return res.status(404).json({
-      status: 404,
-      error: 'Red-flag not found',
+  const { id } = req.params;
+  redFlag.findById(id).then(results => {
+    if (results.length === 0) {
+      return res.status(404).json({
+        status: 404,
+        error: 'Red-flag Not Found',
+      });
+    }
+    return res.status(200).json({
+      status: 200,
+      data: results,
     });
-  }
-  return res.status(200).json({
-    status: 200,
-    data: [redFlag],
-  });
+  }).catch(err => res.status(404).json({
+    status: 404,
+    error: 'Red-flag not found',
+  }));
 };
 
-export const editLocation = (req, res) => {
-  const redFlag = db.find(redFlagInDb => redFlagInDb.id === Number(req.params.id));
-  if (!redFlag) {
-    return res.status(404).json({
-      status: 404,
+export const editLocationRedFlag = (req, res) => {
+  redFlag.findByIdAndEditLocation(req.params.id, req.body.location)
+    .then(results => {
+      if (results.length === 0) {
+        return res.status(404).json({
+          status: 404,
+          error: 'Red-flag Not Found',
+        });
+      }
+      return res.status(200).json({
+        status: 200,
+        data: results,
+      });
+    }).catch(err => res.status(500).json({
+      status: 500,
       error: 'Red-flag Not Found',
-    });
-  }
-  redFlag.location = req.body.location;
-  return res.status(200).json({
-    status: 200,
-    data: [
-      {
-        id: redFlag.id,
-        message: "Updated red-flag record's location",
-        redFlag,
-      },
-    ],
-  });
+    }));
 };
 
-export const editComment = (req, res) => {
-  const redFlag = db.find(redFlagInDb => redFlagInDb.id === Number(req.params.id));
-  if (!redFlag) {
-    return res.status(404).json({
+export const editCommentRedFlag = (req, res) => {
+  redFlag.findByIdAndEditComment(req.params.id, req.body.comment)
+    .then(results => {
+      if (results.length === 0) {
+        return res.status(404).json({
+          status: 404,
+          error: 'Red-flag Not Found',
+        });
+      }
+      return res.status(200).json({
+        status: 200,
+        data: results,
+      });
+    })
+    .catch(err => res.status(404).json({
       status: 404,
-      error: 'Red-flag Not Found',
-    });
-  }
-  redFlag.comment = req.body.comment;
-  return res.status(200).json({
-    status: 200,
-    data: [
-      {
-        id: redFlag.id,
-        message: 'Updated red-flag record\'s comment',
-        redFlag,
-      },
-    ],
-  });
+      error: 'error occured',
+    }));
 };
 
 export const deleteRedFlag = (req, res) => {
-  const redFlag = db.find(redFlagInDb => redFlagInDb.id === Number(req.params.id));
-  if (!redFlag) {
-    return res.status(404).json({
-      status: 404,
-      error: 'Red-flag Not Found',
-    });
-  }
-  const index = db.indexOf(redFlag);
-  db.splice(index, 1);
-  return res.status(200).json({
-    status: 200,
-    data: [
-      {
-        id: redFlag.id,
-        message: 'red-flag record has been deleted',
-      },
-    ],
+  redFlag.findById(req.params.id).then(results => {
+    if (results.length === 0) {
+      return res.status(404).json({
+        status: 404,
+        error: 'Red-flag Not Found',
+      });
+    }
+    redFlag.findByIdAndDelete(req.params.id)
+      .then(result => {
+        return res.status(200).json({
+          status: 200,
+          dataDeleted: result,
+          message: 'deleted successfully',
+        });
+      })
+      .catch(err => {
+        return res.status(404).json({
+          status: 404,
+          error: 'Red-flag Not Found',
+        });
+      });
   });
 };

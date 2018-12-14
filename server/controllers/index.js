@@ -7,7 +7,8 @@ import {
   createRedFlag,
   getRedFlags,
   getSpecificRedFlag,
-  editLocation, editComment,
+  editLocationRedFlag,
+  editCommentRedFlag,
   deleteRedFlag,
 } from './incidents/red-flags';
 
@@ -24,9 +25,9 @@ export default {
   getRedFlags,
   getSpecificRedFlag,
   createRedFlag,
-  editLocation,
-  editComment,
   deleteRedFlag,
+  editLocationRedFlag,
+  editCommentRedFlag,
   signup,
   login,
   createIntervention,

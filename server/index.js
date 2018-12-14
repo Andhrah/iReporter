@@ -17,6 +17,11 @@ app.use('/api/v1', authRoutes);
 app.use('/api/v1', router);
 app.use('/api/v1', interventionRouter);
 
+app.get('*', (req, res) => {
+  res.status(404).json({
+    message: '404, not found',
+  });
+})
 app.listen(process.env.PORT || 3000, () => {
   console.log('App running on port 3000');
 });
