@@ -1,15 +1,4 @@
-env:
-  global:
-    8936491f800272a149fbfea880d313938c904e355565e6409798998e9c9b0d1e
-
 language: node_js
 node_js:
-  - "10.10.0"
-install:
-  - npm install
-
-script:
-  - npm test
-
-after_success:
-  - npm run coverage
+  - 10.10.0 
+after_success: npm run coverage
