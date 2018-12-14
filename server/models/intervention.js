@@ -1,7 +1,7 @@
 import pool from '../config';
 
 const createIntervention = async intervention => {
-  const { location, images, video, comment, createdBy } = req.body;
+  const { location, images, video, comment, createdBy } = intervention;
   const createdOn = new Date();
   const status = 'Under Investigation';
   let errors;
@@ -87,83 +87,9 @@ const findById = async id => {
   }
 };
 
-const findByIdAndEditLocation = async (id, location) => {
-  let errors;
-  let response;
-  const client = await pool.connect();
-
-  const sql = 'UPDATE interventions SET location = $1 WHERE id = $2 RETURNING *';
-  const values = [location, id];
-  try {
-    return await client.query(sql, values).then(results => {
-      response = results.rows;
-    });
-  } catch (err) {
-    errors = new Error(err);
-  } finally {
-    const promise = new Promise((resolve, reject) => {
-      resolve(response);
-      reject(errors);
-    });
-
-    client.release();
-    return promise;
-  }
-};
-
-const findByIdAndEditComment = async (id, comment) => {
-  let errors;
-  let response;
-  const client = await pool.connect();
-
-  const sql = 'UPDATE interventions SET comment = $1 WHERE id = $2 RETURNING *';
-  const values = [comment, id];
-  try {
-    return await client.query(sql, values).then(results => {
-      response = results.rows;
-    });
-  } catch (err) {
-    errors = new Error(err);
-  } finally {
-    const myPromise = new Promise((resolve, reject) => {
-      resolve(response);
-      reject(errors);
-    });
-
-    client.release();
-    return myPromise;
-  }
-};
-
-const findByIdAndDelete = async id => {
-  let errors;
-  let response;
-  const client = await pool.connect();
-
-  const sql = 'DELETE FROM interventions WHERE id = $1 RETURNING *';
-  const values = [id];
-  try {
-    return await client.query(sql, values).then(results => {
-      response = results.rows;
-    });
-  } catch (e) {
-    errors = new Error(e);
-  } finally {
-    const myPromise = new Promise((resolve, reject) => {
-      resolve(response);
-      reject(errors);
-    });
-
-    client.release();
-    return myPromise;
-  }
-};
 
 export default {
   createIntervention,
   findAll,
   findById,
-  findByIdAndEditLocation,
-  findByIdAndEditComment,
-  findByIdAndDelete,
 };

@@ -3,6 +3,80 @@ import jwt from 'jsonwebtoken';
 // All middleware  goes here
 const middlewareObj = {};
 
+middlewareObj.checkSignupInput = (req, res, next) => {
+  // checking if the user's input is valid
+  let errors = [];
+  
+  if (!req.body.firstname || req.body.firstname === '') {
+    const error = {
+      firstname: 'Firstname is required and should not be empty',
+    };
+    errors.push(error);
+  }
+  if (!req.body.lastname || req.body.lastname === '') {
+    const error = {
+      lastname: 'Lastname is required and should not be empty',
+    };
+    errors.push(error);
+  }
+  if (!req.body.email || req.body.email === '') {
+    const error = {
+      email: 'Email is required and should not be empty',
+    };
+    errors.push(error);
+  }
+  if (!req.body.password || req.body.password === '') {
+    const error = {
+      password: 'Password is required and should not be empty',
+    };
+    errors.push(error);
+  }
+  if (!req.body.username || req.body.username === '') {
+    const error = {
+      username: 'Username is required and should not be empty',
+    };
+    errors.push(error);
+  }
+  if (!req.body.phoneNumber || req.body.phoneNumber === '') {
+    const error = {
+      phoneNumber: 'Phone number is required and should not be empty',
+    };
+    errors.push(error);
+  }
+
+  if (errors.length !== 0) {
+    return res.status(400).json({
+      status: 400,
+      error: errors,
+    });
+  }
+  next();
+  errors = [];
+};
+
+middlewareObj.checkSigninInput = (req, res, next) => {
+  const errors = [];
+  if (!req.body.email || req.body.email === '') {
+    const error = {
+      email: 'Email is required and should not be empty',
+    };
+    errors.push(error);
+  }
+  if (!req.body.password || req.body.password === '') {
+    const error = {
+      password: 'Password is required and should not be empty',
+    };
+    errors.push(error);
+  }
+  if (errors.length !== 0) {
+    return res.status(400).json({
+      status: 400,
+      error: errors,
+    });
+  }
+  next();
+};
+
 middlewareObj.checkUserInput = (req, res, next) => {
   //  checking if the user's input is valid
   let errors = [];
@@ -63,6 +137,25 @@ middlewareObj.validateLocation = (req, res, next) => {
   next();
 };
 
+middlewareObj.validateComment = (req, res, next) => {
+  const errors = [];
+
+  if (!req.body.comment || req.body.comment === '') {
+    const error = {
+      comment: 'Comment is required',
+    };
+    errors.push(error);
+  }
+
+  if (errors.length !== 0) {
+    return res.status(400).json({
+      status: 400,
+      error: errors,
+    });
+  }
+  next();
+};
+
 middlewareObj.isLoggedIn = async (req, res, next) => {
   const token = req.headers.authorization;
   if (!token) {
@@ -80,7 +173,7 @@ middlewareObj.isLoggedIn = async (req, res, next) => {
   } catch (error) {
     return res.status(500).json({
       status: 500,
-      error: 'Error occured',
+      error: 'Error occured, wrong token',
     });
   }
 };

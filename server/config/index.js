@@ -10,7 +10,7 @@ const getConnectionString = () => {
   // this is for development environment
   }
   if (process.env.NODE_ENV === 'test') {
-    return process.env.DEV_DATABASE_URL;
+    return process.env.TEST_DATABASE_URL;
     // this is for test environment
   }
   return process.env.DATABASE_URL;

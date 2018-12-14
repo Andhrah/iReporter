@@ -21,7 +21,7 @@ export const signup = async (req, res) => {
   const values = [email];
   try {
     const results = await db.query(sql, values);
-    if (results.rowCount > 0) {
+    if (results.rowCount >= 1) {
       return res.status(409).json({
         status: 409,
         error: 'Email or username is already in use',
@@ -32,9 +32,9 @@ export const signup = async (req, res) => {
       firstname,
       lastname,
       othername,
-      username,
       email,
       password,
+      username,
       phoneNumber,
       new Date(),
       false,
@@ -48,12 +48,14 @@ export const signup = async (req, res) => {
     if (userCreated) {
       return res.status(201).json({
         status: 201,
-        message: 'user created',
-        data: userCreated.rows,
-        token: userToken,
+        data: [{
+          token: userToken,
+          user: userCreated.rows,
+        }],
       });
     }
-  } catch (e) {
+  } catch (err) {
+    console.log(err);
     return res.status(500).json({
       status: 500,
       error: 'Error occured',
@@ -74,7 +76,7 @@ export const login = async (req, res) => {
   const values = [`${email}`];
   try {
     const users = await db.query(sql, values);
-    if (users) {
+    if (users.rowCount >= 1) {
       const userToken = jwt.sign({ id: users.rows[0].id }, process.env.SECRET_KEY, {
         expiresIn: 86400, // expires in 24 hours
       });
@@ -82,17 +84,21 @@ export const login = async (req, res) => {
       if (comparePassword) {
         return res.status(200).json({
           status: 200,
-          message: 'You have successfully login!',
-          data: users.rows,
-          token: userToken,
+          data: [{
+            token: userToken,
+            user: users.rows,
+          }],
         });
       }
       return res.status(401).json({
         status: 401,
         error: 'Wrong credential!',
-        data: users,
       });
     }
+    return res.status(404).json({
+      status: 404,
+      error: 'User not found',
+    });
   } catch (error) {
     return res.status(500).json({
       status: 500,
@@ -100,4 +106,3 @@ export const login = async (req, res) => {
     });
   }
 };
-
