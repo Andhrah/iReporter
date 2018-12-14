@@ -4,8 +4,8 @@
   "description": "iReporter enables any/every citizen to bring any form of corruption to the notice of appropriate authorities and the general public. Users can also report on things that needs government  intervention",
   "main": "index.js",
   "scripts": {
-    "pretest": "SET NODE_ENV=test npm run initDB",
-    "test": "SET NODE_ENV=test&& nyc mocha server/test/**/**.spec.js --compilers js:babel-core/register  --exit",
+    "pretest": "cross-env NODE_ENV=test npm run initDB",
+    "test": "cross-env NODE_ENV=test=test && nyc mocha server/test/**/**.spec.js --compilers js:babel-core/register  --exit",
     "build": "babel server/ -d build/",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "start": "npm run initDB && babel-node server/index.js",
@@ -42,6 +42,7 @@
     "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
+    "cross-env": "^5.2.0",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.4.0",

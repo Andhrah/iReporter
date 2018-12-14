@@ -82,13 +82,6 @@ middlewareObj.checkUserInput = (req, res, next) => {
   let errors = [];
 
   const geolocation = /^[\d]{1,2}.[\d]{3,6}, [\d]{1,2}.[\d]{3,6}$/.test(req.body.location);
-
-  if (!req.body.type || req.body.type.toLowerCase() !== 'red-flag') {
-    const error = {
-      type: "Incident type should be 'red-flag' ",
-    };
-    errors.push(error);
-  }
   if (!req.body.location || req.body.location === '') {
     const error = {
       location: 'Location is required ',
