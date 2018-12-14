@@ -2,13 +2,32 @@ import db from '../config';
 
 import database from './database';
 
-const seedIncidentTable = async incident => {
+// const seedRedFlagTable = async incident => {
+//   const client = await db.connect();
+//   const sql =
+//     `INSERT INTO red-flags(created_on, 
+//     created_by, location, status, images, 
+//     videos, comment) 
+//     VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *;`;
+//   return client
+//     .query(sql, incident)
+//     .then(results => {
+//       console.log(results.rows);
+//       client.release();
+//     })
+//     .catch(e => {
+//       console.log(e);
+//       client.release();
+//     });
+// };
+
+const seedInterventionTable = async incident => {
   const client = await db.connect();
   const sql =
-    `INSERT INTO incidents(created_on, 
-    created_by, type, location, status, images, 
+    `INSERT INTO interventions(created_on, 
+    created_by, location, status, images, 
     videos, comment) 
-    VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *;`;
+    VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *;`;
   return client
     .query(sql, incident)
     .then(results => {
@@ -21,4 +40,6 @@ const seedIncidentTable = async incident => {
     });
 };
 
-database.forEach(incident => seedIncidentTable(incident));
+// database.forEach(incident => seedRedFlagTable(incident));
+
+database.forEach(incident => seedInterventionTable(incident));

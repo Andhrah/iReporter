@@ -3,16 +3,15 @@ import db from '../config';
 (async () => {
   const client = await db.connect();
   try {
-    const incidents = `CREATE TABLE IF NOT EXISTS incidents(id serial PRIMARY KEY, 
+    const redFlag = `CREATE TABLE IF NOT EXISTS red_flags(id serial PRIMARY KEY, 
     created_on DATE NOT NULL,
-    created_by INT NOT NULL,
-    type VARCHAR(255) NOT NULL, 
+    created_by INT NOT NULL, 
     location VARCHAR(255) NOT NULL, 
     status VARCHAR(255) NOT NULL, 
     images text[],
     videos text[],
     comment VARCHAR(1000));`;
-    const results = await client.query(incidents);
+    const results = await client.query(redFlag);
     console.log(results.rows);
   } catch (err) {
     console.log(err.stack);
@@ -20,6 +19,28 @@ import db from '../config';
     client.release();
   }
 })();
+
+
+(async () => {
+  const client = await db.connect();
+  try {
+    const intervention = `CREATE TABLE IF NOT EXISTS interventions(id serial PRIMARY KEY, 
+    created_on DATE NOT NULL,
+    created_by INT NOT NULL,
+    location VARCHAR(255) NOT NULL, 
+    status VARCHAR(255) NOT NULL, 
+    images text[],
+    videos text[],
+    comment VARCHAR(1000));`;
+    const results = await client.query(intervention);
+    console.log(results.rows);
+  } catch (err) {
+    console.log(err.stack);
+  } finally {
+    client.release();
+  }
+})();
+
 
 (async () => {
   const client = await db.connect();
