@@ -20,6 +20,6 @@ router.patch('/interventions/:id/location', controllers.editLocationIntervention
 router.patch('/interventions/:id/comment', controllers.editCommentIntervention);
 
 // // DELETE - for deleting a red-flag
-// router.delete('/interventions/:id', controllers.deleteIntervention);
+router.delete('/interventions/:id', controllers.deleteIntervention);
 
 export default router;
