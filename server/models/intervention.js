@@ -135,10 +135,35 @@ const findByIdAndEditComment = async (id, comment) => {
   }
 };
 
+const findByIdAndDelete = async id => {
+  let errors;
+  let response;
+  const client = await pool.connect();
+
+  const sql = 'DELETE FROM interventions WHERE id = $1 RETURNING *';
+  const values = [id];
+  try {
+    return await client.query(sql, values).then(results => {
+      response = results.rows;
+    });
+  } catch (e) {
+    errors = new Error(e);
+  } finally {
+    const myPromise = new Promise((resolve, reject) => {
+      resolve(response);
+      reject(errors);
+    });
+
+    client.release();
+    return myPromise;
+  }
+};
+
 export default {
   createIntervention,
   findAll,
   findById,
   findByIdAndEditLocation,
   findByIdAndEditComment,
+  findByIdAndDelete,
 };

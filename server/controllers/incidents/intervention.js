@@ -119,3 +119,28 @@ export const editCommentIntervention = (req, res) => {
       error: 'error occured',
     }));
 };
+
+export const deleteIntervention = (req, res) => {
+  intervention.findById(req.params.id).then(results => {
+    if (results.length === 0) {
+      return res.status(404).json({
+        status: 404,
+        error: 'Intervention Not Found',
+      });
+    }
+    intervention.findByIdAndDelete(req.params.id)
+      .then(result => {
+        return res.status(200).json({
+          status: 200,
+          dataDeleted: result,
+          message: 'deleted successfully',
+        });
+      })
+      .catch(err => {
+        return res.status(404).json({
+          status: 404,
+          error: 'Intervention Not Found',
+        });
+      });
+  });
+};
