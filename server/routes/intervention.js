@@ -17,7 +17,7 @@ router.get('/interventions/:id', controllers.getSpecificIntervention);
 router.patch('/interventions/:id/location', controllers.editLocationIntervention);
 
 // // EDIT - for editing a particular red-flag record's comment
-// router.patch('/interventions/:id/comment', controllers.editCommentIntervention);
+router.patch('/interventions/:id/comment', controllers.editCommentIntervention);
 
 // // DELETE - for deleting a red-flag
 // router.delete('/interventions/:id', controllers.deleteIntervention);

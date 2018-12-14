@@ -99,3 +99,23 @@ export const editLocationIntervention = (req, res) => {
     }));
 };
 
+export const editCommentIntervention = (req, res) => {
+  console.log(req.body.comment);
+  intervention.findByIdAndEditComment(req.params.id, req.body.comment)
+    .then(results => {
+      if (results.length === 0) {
+        return res.status(404).json({
+          status: 404,
+          error: 'Intervention Not Found',
+        });
+      }
+      return res.status(200).json({
+        status: 200,
+        data: results,
+      });
+    })
+    .catch(err => res.status(404).json({
+      status: 404,
+      error: 'error occured',
+    }));
+};
