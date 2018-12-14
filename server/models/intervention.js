@@ -111,9 +111,34 @@ const findByIdAndEditLocation = async (id, location) => {
   }
 };
 
+const findByIdAndEditComment = async (id, comment) => {
+  let errors;
+  let response;
+  const client = await pool.connect();
+
+  const sql = 'UPDATE interventions SET comment = $1 WHERE id = $2 RETURNING *';
+  const values = [comment, id];
+  try {
+    return await client.query(sql, values).then(results => {
+      response = results.rows;
+    });
+  } catch (err) {
+    errors = new Error(err);
+  } finally {
+    const myPromise = new Promise((resolve, reject) => {
+      resolve(response);
+      reject(errors);
+    });
+
+    client.release();
+    return myPromise;
+  }
+};
+
 export default {
   createIntervention,
   findAll,
   findById,
   findByIdAndEditLocation,
+  findByIdAndEditComment,
 };
