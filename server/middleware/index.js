@@ -6,7 +6,7 @@ const middlewareObj = {};
 middlewareObj.checkSignupInput = (req, res, next) => {
   // checking if the user's input is valid
   let errors = [];
-  
+
   if (!req.body.firstname || req.body.firstname === '') {
     const error = {
       firstname: 'Firstname is required and should not be empty',
