@@ -2,26 +2,11 @@ import express from 'express';
 
 const router = express.Router();
 
-router.get('*', (req, res) => {
-  res.status(404).json({
-    error: '404 Not Found',
+router.get('/', (req, res) => {
+  res.status(200).json({
+    status: 200,
+    data: 'Welcome to iReporter',
   });
 });
 
-router.post('*', (req, res) => {
-  res.status(404).json({
-    error: '404 Not Found',
-  });
-});
-
-router.patch('*', (req, res) => {
-  res.status(404).json({
-    error: '404 Not Found',
-  });
-});
-
-router.delete('*', (req, res) => {
-  res.status(404).json({
-    error: '404 Not Found',
-  });
-});
+export default router;
