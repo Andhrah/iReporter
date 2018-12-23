@@ -10,8 +10,9 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "start": "npm run initDB && babel-node server/index.js",
     "migrate": "babel-node server/migrations/index.js",
-    "seed": "babel-node server/seeders/seed.js",
-    "initDB": "npm run migrate && npm run seed",
+    "seed": "babel-node server/seeders/intervention.js",
+    "seed2": "babel-node server/seeders/red-flag.js",
+    "initDB": "npm run migrate && npm run seed && npm run seed2",
     "start:dev": "nodemon server/index.js --exec babel-node",
     "heroku-postbuild": "npm run build && npm run initDB"
   },

@@ -10,6 +10,7 @@
     "consistent-return": 0,
     "import/prefer-default-export": "off",
     "arrow-parens": "off",
-    "no-unsafe-finally": "off"
+    "no-unsafe-finally": "off",
+    "no-console": 0
   }
 }
