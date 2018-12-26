@@ -27,6 +27,7 @@ export const createIntervention = async (req, res) => {
   // connect to a postgreSQL server.
   const client = await db.connect();
   try {
+    // querying or requesting information from the database
     const response = await db.query(insertText, insertValues);
     if (response) {
       return res.status(201).json({
@@ -41,10 +42,9 @@ export const createIntervention = async (req, res) => {
     console.log(err);
     return res.status(500).json({
       status: 500,
-      error: 'An Error occured, please try again',
+      error: 'An Error occured while creating intervention record',
     });
-  }
-  finally {
+  } finally {
     client.release();
   }
 };
@@ -54,11 +54,12 @@ export const createIntervention = async (req, res) => {
 export const getAllInterventions = async (req, res) => {
   // connect to a postgreSQL server.
   const client = await db.connect();
-  // SELECT every thing from intervention table
-  const sql = 'SELECT * FROM interventions';
+  // SELECT every thing from intervention table in the database
+  const findAll = 'SELECT * FROM interventions';
   try {
-    const response = await client.query(sql);
-    if(response.rows.length === 0){
+    // querying or requesting information from the database
+    const response = await client.query(findAll);
+    if (response.rows.length === 0){
       return res.status(200).json({
         status: 200,
         error: 'There are no Intervention Record at the moment'
@@ -73,7 +74,7 @@ export const getAllInterventions = async (req, res) => {
     console.log('>>>>>>>>', err);
     return res.status(500).json({
       status: 500,
-      error: `Oop! intervention does not exist, Please try again`,
+      error: 'Oop! intervention does not exist, Please try again',
     });
   }
   finally {
@@ -81,33 +82,50 @@ export const getAllInterventions = async (req, res) => {
   }
 }
 
-
-export const getSpecificIntervention = (req, res) => {
+// Get a specific intervention from the Database
+export const getSpecificIntervention = async (req, res) => {
   const { id } = req.params;
-  intervention.findById(id).then(results => {
-    if (results.length === 0) {
+  // connect to a postgreSQL server.
+  const client = await db.connect();
+  // SELECT every thing from intervention table where id is req.params
+  const findById = 'SELECT * FROM interventions WHERE id = $1';
+  const value = [ id ];
+  try {
+    // querying or requesting information from the database
+    const response = await client.query(findById, value);
+    console.log(response.rows);
+    if (response.rows.length === 0) {
       return res.status(404).json({
         status: 404,
         error: 'Intervention Not Found',
-      });
+      })
     }
     return res.status(200).json({
       status: 200,
-      data: results,
-    });
-  }).catch(err => res.status(500).json({
-    status: 500,
-    error: 'Oop! something went wrong',
-  }));
-};
+      data: response.rows,
+    })
+  } catch (err) {
+    console.log('>>>', err);
+    return res.status(500).json({
+      status: 500,
+      error: 'Oop! intervention does not exist, Please try again'
+    })
+  } finally {
+    client.release();
+  }
+}
 
+// Edit the location of a specific intervention record in the database.
 export const editLocationIntervention = async (req, res) => {
   const { location } = req.body;
   const { id } = req.params;
   try {
-    const sql = 'UPDATE interventions SET location = $1 WHERE id = $2 RETURNING *';
+    // UPDATE location record from intervention table where id is req.params
+    const updateLocation = 'UPDATE interventions SET location = $1 WHERE id = $2 RETURNING *';
     const values = [location, id];
-    const response = await pool.query(sql, values);
+    // querying or requesting information from the database
+    const response = await db.query(updateLocation, values);
+    console.log(response);
     if (response.rowCount < 1) {
       return res.status(404).json({
         status: 404,
@@ -121,11 +139,14 @@ export const editLocationIntervention = async (req, res) => {
         message: 'Updated Intervention record\'s location',
       }],
     });
-  } catch (error) {
+  } catch (err) {
+    console.log(err);
     res.status(500).json({
       status: 500,
-      error: 'Oop! something went wrong',
+      error: 'Oop! Update failed, intervention does not exist, Please try again',
     });
+  } finally {
+    client.release();
   }
 };
 

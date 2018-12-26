@@ -20,33 +20,3 @@ export const interventionSchema = (async () => {
     client.release();
   }
 })();
-
-const findById = async id => {
-  let errors;
-  let response;
-  const client = await pool.connect();
-
-  const sql = 'SELECT * FROM interventions WHERE id = $1';
-  const values = [id];
-  try {
-    return await client.query(sql, values).then(results => {
-      response = results.rows;
-      return response;
-    });
-  } catch (err) {
-    errors = new Error(err);
-  } finally {
-    const promise = new Promise((resolve, reject) => {
-      resolve(response);
-      reject(errors);
-    });
-
-    client.release();
-    return promise;
-  }
-};
-
-
-export default {
-  findById,
-};

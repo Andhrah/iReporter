@@ -1,7 +1,7 @@
 import {
   signup,
   login,
-} from './users/auth';
+} from './user';
 
 import {
   createRedFlag,
@@ -10,16 +10,16 @@ import {
   editLocationRedFlag,
   editCommentRedFlag,
   deleteRedFlag,
-} from './incidents/red-flags';
+} from './red-flags';
 
 import {
   createIntervention,
-  getInterventions,
+  getAllInterventions,
   getSpecificIntervention,
   editLocationIntervention,
   editCommentIntervention,
   deleteIntervention,
-} from './incidents/intervention';
+} from './intervention';
 
 export default {
   getRedFlags,
@@ -31,7 +31,7 @@ export default {
   signup,
   login,
   createIntervention,
-  getInterventions,
+  getAllInterventions,
   getSpecificIntervention,
   editLocationIntervention,
   editCommentIntervention,
