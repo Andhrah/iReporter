@@ -1,66 +1,25 @@
-import pool from '../config';
+import db from '../config';
 
-const createIntervention = async intervention => {
-  const { location, images, video, comment, createdBy } = intervention;
-  const createdOn = new Date();
-  const status = 'Under Investigation';
-  let errors;
-  let response;
-  const db = await pool.connect();
-  const sql =
-    'INSERT INTO interventions(created_on, created_by, location, status, images, videos, comment) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *';
-  const values = [
-    createdOn,
-    createdBy,
-    location,
-    status,
-    images.split(','),
-    video.split(','),
-    comment,
-  ];
+export const interventionSchema = (async () => {
+  const client = await db.connect();
   try {
-    return await db.query(sql, values).then(data => {
-      response = data.rows;
-      return response;
-    });
+    const intervention = `CREATE TABLE IF NOT EXISTS interventions(id serial PRIMARY KEY, 
+    created_on DATE NOT NULL,
+    created_by INT NOT NULL,
+    intervention_reasons text[] NOT NULL,
+    location VARCHAR(255) NOT NULL, 
+    status VARCHAR(255) NOT NULL, 
+    images text[],
+    videos text[],
+    comment VARCHAR(1000));`;
+    const response = await client.query(intervention);
+    console.log('intervention table >>>', response.rows);
   } catch (err) {
-    errors = new Error(err);
-    console.log(errors);
+    console.log(err.stack);
   } finally {
-    const promise = new Promise((resolve, reject) => {
-      console.log(response);
-      resolve(response);
-      reject(errors);
-      return promise;
-    });
-
-    db.release();
-  }
-};
-
-const findAll = async () => {
-  let errors;
-  let response;
-  const client = await pool.connect();
-
-  const sql = 'SELECT * FROM interventions';
-  try {
-    return await client.query(sql).then(results => {
-      response = results.rows;
-      return response;
-    });
-  } catch (e) {
-    errors = new Error(e);
-  } finally {
-    const promise = new Promise((resolve, reject) => {
-      resolve(response);
-      reject(errors);
-    });
-
     client.release();
-    return promise;
   }
-};
+})();
 
 const findById = async id => {
   let errors;
@@ -89,7 +48,5 @@ const findById = async id => {
 
 
 export default {
-  createIntervention,
-  findAll,
   findById,
 };

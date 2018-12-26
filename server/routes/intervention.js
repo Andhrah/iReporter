@@ -9,7 +9,7 @@ const router = express.Router();
 // CREATE - adds new red-flag record to the DB (data structure)
 router.post('/interventions', middleware.isLoggedIn, middleware.checkUserInput, controllers.createIntervention);
 
-router.get('/interventions', controllers.getInterventions);
+router.get('/interventions', controllers.getAllInterventions);
 
 router.get('/interventions/:id', middleware.isLoggedIn, controllers.getSpecificIntervention);
 
