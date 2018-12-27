@@ -119,13 +119,14 @@ export const getSpecificIntervention = async (req, res) => {
 export const editLocationIntervention = async (req, res) => {
   const { location } = req.body;
   const { id } = req.params;
+  // connect to a postgreSQL server.
+  const client = await db.connect();
   try {
     // UPDATE location record from intervention table where id is req.params
     const updateLocation = 'UPDATE interventions SET location = $1 WHERE id = $2 RETURNING *';
     const values = [location, id];
     // querying or requesting information from the database
     const response = await db.query(updateLocation, values);
-    console.log(response);
     if (response.rowCount < 1) {
       return res.status(404).json({
         status: 404,
@@ -143,7 +144,7 @@ export const editLocationIntervention = async (req, res) => {
     console.log(err);
     res.status(500).json({
       status: 500,
-      error: 'Oop! Update failed, intervention does not exist, Please try again',
+      error: 'Oop! intervention does not exist, Failed to update location, Please try again',
     });
   } finally {
     client.release();
@@ -153,10 +154,14 @@ export const editLocationIntervention = async (req, res) => {
 export const editCommentIntervention = async (req, res) => {
   const { comment } = req.body;
   const { id } = req.params;
+  // connect to a postgreSQL server.
+  const client = await db.connect();
   try {
-    const sql = 'UPDATE interventions SET comment = $1 WHERE id = $2 RETURNING *';
+    // UPDATE comment record from intervention table where id is req.params
+    const updateComment = 'UPDATE interventions SET comment = $1 WHERE id = $2 RETURNING *';
     const values = [comment, id];
-    const response = await pool.query(sql, values);
+    // querying or requesting information from the database
+    const response = await client.query(updateComment, values);
     if (response.rowCount < 1) {
       return res.status(404).json({
         status: 404,
@@ -173,18 +178,23 @@ export const editCommentIntervention = async (req, res) => {
   } catch (error) {
     res.status(500).json({
       status: 500,
-      error: 'Oop! something went wrong',
+      error: 'Oop! Intervention does not exist, Failed to update comment, Please try again',
     });
+  } finally {
+    client.release();
   }
 };
 
 export const deleteIntervention = async (req, res) => {
   const { id } = req.params;
+  // connect to a postgreSQL server.
+  const client = await db.connect();
   try {
-    const sql = 'DELETE FROM interventions WHERE id = $1 RETURNING *';
-    const values = [id];
-    const response = await pool.query(sql, values);
-    console.log(response);
+    // DELETE intervention record from intervention table where id is req.params
+    const deleteIntervention = 'DELETE FROM interventions WHERE id = $1';
+    const value = [id];
+    // querying or requesting information from the database
+    const response = await client.query(deleteIntervention, value);
     if (response.rowCount < 1) {
       return res.status(404).json({
         status: 404,
@@ -197,10 +207,12 @@ export const deleteIntervention = async (req, res) => {
         message: 'Intervention record has been deleted',
       }],
     });
-  } catch (error) {
+  } catch (err) {
     res.status(500).json({
       status: 500,
-      error: 'Oop! something went wrong',
+      error: 'Oop! Intervention does not exist, Failed to delete intervention record, Please try again',
     });
+  } finally {
+    client.release();
   }
 };
