@@ -5,10 +5,10 @@ import {
 
 import {
   createRedFlag,
-  getRedFlags,
+  getAllRedFlags,
   getSpecificRedFlag,
-  editLocationRedFlag,
-  editCommentRedFlag,
+  editRedFlagLocation,
+  editRedFlagComment,
   deleteRedFlag,
 } from './red-flags';
 
@@ -16,24 +16,24 @@ import {
   createIntervention,
   getAllInterventions,
   getSpecificIntervention,
-  editLocationIntervention,
-  editCommentIntervention,
+  editInterventionLocation,
+  editInterventionComment,
   deleteIntervention,
 } from './intervention';
 
 export default {
-  getRedFlags,
+  getAllRedFlags,
   getSpecificRedFlag,
   createRedFlag,
   deleteRedFlag,
-  editLocationRedFlag,
-  editCommentRedFlag,
+  editRedFlagLocation,
+  editRedFlagComment,
   signup,
   login,
   createIntervention,
   getAllInterventions,
   getSpecificIntervention,
-  editLocationIntervention,
-  editCommentIntervention,
+  editInterventionLocation,
+  editInterventionComment,
   deleteIntervention,
 };

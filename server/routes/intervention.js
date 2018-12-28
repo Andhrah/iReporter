@@ -14,10 +14,10 @@ router.get('/interventions', controllers.getAllInterventions);
 router.get('/interventions/:id', middleware.isLoggedIn, controllers.getSpecificIntervention);
 
 // EDIT - for editing a particular intervention location record
-router.patch('/interventions/:id/location', middleware.isLoggedIn, middleware.validateLocation, controllers.editLocationIntervention);
+router.patch('/interventions/:id/location', middleware.isLoggedIn, middleware.validateLocation, controllers.editInterventionLocation);
 
 // // EDIT - for editing a particular red-flag record's comment
-router.patch('/interventions/:id/comment', middleware.isLoggedIn, middleware.validateComment, controllers.editCommentIntervention);
+router.patch('/interventions/:id/comment', middleware.isLoggedIn, middleware.validateComment, controllers.editInterventionComment);
 
 // // DELETE - for deleting a red-flag
 router.delete('/interventions/:id', middleware.isLoggedIn, controllers.deleteIntervention);

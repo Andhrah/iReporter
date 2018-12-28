@@ -7,7 +7,7 @@ import middleware from '../middleware';
 const router = express.Router();
 
 // INDEX - displays a list of Red-Flag records
-router.get('/red-flags', middleware.isLoggedIn, controllers.getRedFlags);
+router.get('/red-flags', middleware.isLoggedIn, controllers.getAllRedFlags);
 
 // SHOW - displays more information about a specific red-flag
 router.get('/red-flags/:id', middleware.isLoggedIn, controllers.getSpecificRedFlag);
@@ -16,10 +16,10 @@ router.get('/red-flags/:id', middleware.isLoggedIn, controllers.getSpecificRedFl
 router.post('/red-flags', middleware.isLoggedIn, middleware.checkUserInput, controllers.createRedFlag);
 
 // EDIT - for editing a particular red-flag location
-router.patch('/red-flags/:id/location', middleware.isLoggedIn, middleware.validateLocation, controllers.editLocationRedFlag);
+router.patch('/red-flags/:id/location', middleware.isLoggedIn, middleware.validateLocation, controllers.editRedFlagLocation);
 
 // EDIT - for editing a particular red-flag record's comment
-router.patch('/red-flags/:id/comment', middleware.isLoggedIn, middleware.validateComment, controllers.editCommentRedFlag);
+router.patch('/red-flags/:id/comment', middleware.isLoggedIn, middleware.validateComment, controllers.editRedFlagComment);
 
 // DELETE - for deleting a red-flag
 router.delete('/red-flags/:id', middleware.isLoggedIn, controllers.deleteRedFlag);
