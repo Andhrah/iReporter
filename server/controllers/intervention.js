@@ -1,9 +1,10 @@
 import db from '../config';
+// eslint-disable-next-line no-unused-vars
 import interventionSchema from '../models';
 
 export const createIntervention = async (req, res) => {
   const {
-    intervention_reasons,
+    interventionReasons,
     location,
     images,
     videos,
@@ -17,7 +18,7 @@ export const createIntervention = async (req, res) => {
   const insertValues = [
     new Date(),
     req.id,
-    `{${intervention_reasons}}`,
+    `{${interventionReasons}}`,
     location,
     'Under Investigation',
     `{${images}}`,
@@ -59,28 +60,26 @@ export const getAllInterventions = async (req, res) => {
   try {
     // querying or requesting information from the database
     const response = await client.query(findAll);
-    if (response.rows.length === 0){
+    if (response.rows.length === 0) {
       return res.status(200).json({
         status: 200,
         error: 'There are no Intervention Record at the moment'
-      })
+      });
     }
     return res.status(200).json({
       status: 200,
       data: response.rows, // All the interventions from the DB
     });
-  } 
-  catch (err) {
+  } catch (err) {
     console.log('>>>>>>>>', err);
     return res.status(500).json({
       status: 500,
       error: 'Oop! intervention does not exist, Please try again',
     });
-  }
-  finally {
+  } finally {
     client.release();
   }
-}
+};
 
 // Get a specific intervention from the Database
 export const getSpecificIntervention = async (req, res) => {
@@ -89,7 +88,7 @@ export const getSpecificIntervention = async (req, res) => {
   const client = await db.connect();
   // SELECT every thing from intervention table where id is req.params
   const findById = 'SELECT * FROM interventions WHERE id = $1';
-  const value = [ id ];
+  const value = [id];
   try {
     // querying or requesting information from the database
     const response = await client.query(findById, value);
@@ -98,22 +97,22 @@ export const getSpecificIntervention = async (req, res) => {
       return res.status(404).json({
         status: 404,
         error: 'Intervention Not Found',
-      })
+      });
     }
     return res.status(200).json({
       status: 200,
       data: response.rows,
-    })
+    });
   } catch (err) {
     console.log('>>>', err);
     return res.status(500).json({
       status: 500,
-      error: 'Oop! intervention does not exist, Please try again'
-    })
+      error: 'Oop! intervention does not exist, Please try again',
+    });
   } finally {
     client.release();
   }
-}
+};
 
 // Edit the location of a specific intervention record in the database.
 export const editLocationIntervention = async (req, res) => {
@@ -191,10 +190,10 @@ export const deleteIntervention = async (req, res) => {
   const client = await db.connect();
   try {
     // DELETE intervention record from intervention table where id is req.params
-    const deleteIntervention = 'DELETE FROM interventions WHERE id = $1';
+    const removeIntervention = 'DELETE FROM interventions WHERE id = $1';
     const value = [id];
     // querying or requesting information from the database
-    const response = await client.query(deleteIntervention, value);
+    const response = await client.query(removeIntervention, value);
     if (response.rowCount < 1) {
       return res.status(404).json({
         status: 404,
