@@ -1,12 +1,10 @@
-import jwt from 'jsonwebtoken';
-
 // All middleware  goes here
 const middlewareObj = {};
 
 middlewareObj.checkSignupInput = (req, res, next) => {
   // checking if the user's input is valid
-  let errors = [];
-  
+  const errors = [];
+
   if (!req.body.firstname || req.body.firstname === '') {
     const error = {
       firstname: 'Firstname is required and should not be empty',
@@ -51,14 +49,17 @@ middlewareObj.checkSignupInput = (req, res, next) => {
     });
   }
   next();
-  errors = [];
 };
 
 middlewareObj.checkSigninInput = (req, res, next) => {
   const errors = [];
-  if (!req.body.email || req.body.email === '') {
+  // login user either with email or username and password
+  const useEmail = !req.body.email && req.body.email === '';
+  const useUsername = !req.body.username && req.body.username === '';
+
+  if (useEmail || useUsername) {
     const error = {
-      email: 'Email is required and should not be empty',
+      email: 'Email/Username is required and should not be empty',
     };
     errors.push(error);
   }
@@ -77,20 +78,38 @@ middlewareObj.checkSigninInput = (req, res, next) => {
   next();
 };
 
-middlewareObj.checkUserInput = (req, res, next) => {
+middlewareObj.checkRedFlagInput = (req, res, next) => {
   //  checking if the user's input is valid
   let errors = [];
 
   const geolocation = /^[\d]{1,2}.[\d]{3,6}, [\d]{1,2}.[\d]{3,6}$/.test(req.body.location);
-  if (!req.body.location || req.body.location === '') {
+  if (!req.body.corruptionMethods || req.body.corruptionMethods === '') {
     const error = {
-      location: 'Location is required ',
+      corruption_methods: 'Corruption methods is required and should not be empty',
     };
     errors.push(error);
   }
-  if (!geolocation) {
+  if (!req.body.entityInvolved || req.body.entityInvolved === '') {
     const error = {
-      location: 'Location should be lat long coordinate eg.(6.605874, 3.349149)',
+      entity_involved: 'Entity Involved is required and should not be empty',
+    };
+    errors.push(error);
+  }
+  if (!req.body.location || req.body.location === '' || !geolocation) {
+    const error = {
+      location: 'Location is required and should be lat long coordinate eg.(6.605874, 3.349149)',
+    };
+    errors.push(error);
+  }
+  if (!req.body.corruptionDate || req.body.corruptionDate === '') {
+    const error = {
+      corruption_date: 'Date of corruption is required and should not be empty',
+    };
+    errors.push(error);
+  }
+  if (!req.body.namesInvolved || req.body.namesInvolved === '') {
+    const error = {
+      names_involved: 'Names of those Involved is required and should not be empty',
     };
     errors.push(error);
   }
@@ -100,7 +119,39 @@ middlewareObj.checkUserInput = (req, res, next) => {
     };
     errors.push(error);
   }
+  if (errors.length !== 0) {
+    return res.status(400).json({
+      status: 400,
+      error: errors,
+    });
+  }
+  next();
+  errors = [];
+};
 
+middlewareObj.checkInterventionInput = (req, res, next) => {
+  //  checking if the user's input is valid
+  let errors = [];
+
+  const geolocation = /^[\d]{1,2}.[\d]{3,6}, [\d]{1,2}.[\d]{3,6}$/.test(req.body.location);
+  if (!req.body.interventionReasons || req.body.interventionReasons === '') {
+    const error = {
+      reasons: 'Intervention reason(s) is required and should not be empty',
+    };
+    errors.push(error);
+  }
+  if (!req.body.location || req.body.location === '' || !geolocation) {
+    const error = {
+      location: 'Location is required and should be lat long coordinate eg.(6.605874, 3.349149)',
+    };
+    errors.push(error);
+  }
+  if (!req.body.comment || req.body.comment === '') {
+    const error = {
+      comment: 'Comment is required',
+    };
+    errors.push(error);
+  }
   if (errors.length !== 0) {
     return res.status(400).json({
       status: 400,
@@ -147,28 +198,6 @@ middlewareObj.validateComment = (req, res, next) => {
     });
   }
   next();
-};
-
-middlewareObj.isLoggedIn = async (req, res, next) => {
-  const token = req.headers.authorization;
-  if (!token) {
-    return res.status(401).json({
-      status: 401,
-      error: 'No token',
-    });
-  }
-  try {
-    const decoded = await jwt.verify(token, process.env.SECRET_KEY);
-    req.id = decoded.id;
-    if (decoded) {
-      return next();
-    }
-  } catch (error) {
-    return res.status(500).json({
-      status: 500,
-      error: 'Error occured, wrong token',
-    });
-  }
 };
 
 export default middlewareObj;

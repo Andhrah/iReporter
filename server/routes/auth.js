@@ -1,7 +1,7 @@
 // requiring express
 import express from 'express';
 import controllers from '../controllers';
-import middleware from '../middleware';
+import middleware from '../middleware/validate';
 
 const router = express.Router();
 

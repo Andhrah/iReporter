@@ -1,95 +1,30 @@
-import pool from '../config';
+import db from '../config';
 
-const createIntervention = async intervention => {
-  const { location, images, video, comment, createdBy } = intervention;
-  const createdOn = new Date();
-  const status = 'Under Investigation';
-  let errors;
-  let response;
-  const db = await pool.connect();
-  const sql =
-    'INSERT INTO interventions(created_on, created_by, location, status, images, videos, comment) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *';
-  const values = [
-    createdOn,
-    createdBy,
-    location,
-    status,
-    images.split(','),
-    video.split(','),
-    comment,
-  ];
+export const interventionSchema = (async () => {
   try {
-    return await db.query(sql, values).then(data => {
-      response = data.rows;
-      return response;
+    // connect to a postgreSQL server and if any error while connecting log it.
+    await db.connect((err, client, release) => {
+      if (err) {
+        return console.log('Could not connect to the server, check your internet connection');
+      }
+      const intervention = `CREATE TABLE IF NOT EXISTS interventions(id serial PRIMARY KEY, 
+      created_on DATE NOT NULL,
+      created_by INT NOT NULL,
+      intervention_reasons text[] NOT NULL,
+      location VARCHAR(255) NOT NULL, 
+      status VARCHAR(255) NOT NULL,
+      images text[],
+      videos text[],
+      comment VARCHAR(1000));`;
+      client.query(intervention, (error, response) => {
+        if (error) {
+          return console.log('Error creating interventions table', error);
+        }
+        console.log('intervention table >>>', response.rows);
+        release();
+      });
     });
   } catch (err) {
-    errors = new Error(err);
-    console.log(errors);
-  } finally {
-    const promise = new Promise((resolve, reject) => {
-      console.log(response);
-      resolve(response);
-      reject(errors);
-      return promise;
-    });
-
-    db.release();
+    console.log('InterventionSchema >>>', err);
   }
-};
-
-const findAll = async () => {
-  let errors;
-  let response;
-  const client = await pool.connect();
-
-  const sql = 'SELECT * FROM interventions';
-  try {
-    return await client.query(sql).then(results => {
-      response = results.rows;
-      return response;
-    });
-  } catch (e) {
-    errors = new Error(e);
-  } finally {
-    const promise = new Promise((resolve, reject) => {
-      resolve(response);
-      reject(errors);
-    });
-
-    client.release();
-    return promise;
-  }
-};
-
-const findById = async id => {
-  let errors;
-  let response;
-  const client = await pool.connect();
-
-  const sql = 'SELECT * FROM interventions WHERE id = $1';
-  const values = [id];
-  try {
-    return await client.query(sql, values).then(results => {
-      response = results.rows;
-      return response;
-    });
-  } catch (err) {
-    errors = new Error(err);
-  } finally {
-    const promise = new Promise((resolve, reject) => {
-      resolve(response);
-      reject(errors);
-    });
-
-    client.release();
-    return promise;
-  }
-};
-
-
-export default {
-  createIntervention,
-  findAll,
-  findById,
-};
+})();

@@ -8,11 +8,11 @@
     "test": "cross-env NODE_ENV=test=test && nyc mocha server/test/**/**.spec.js --compilers js:babel-core/register  --exit",
     "build": "babel server/ -d build/",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "start": "npm run initDB && babel-node server/index.js",
-    "migrate": "babel-node server/migrations/index.js",
-    "seed": "babel-node server/seeders/seed.js",
-    "initDB": "npm run migrate && npm run seed",
-    "start:dev": "nodemon server/index.js --exec babel-node",
+    "start:dev": "npm run initDB && babel-node server/index.js",
+    "seed": "babel-node server/seeders/intervention.js",
+    "seed2": "babel-node server/seeders/red-flag.js",
+    "initDB": "npm run seed && npm run seed2",
+    "start": "nodemon server/index.js --exec babel-node",
     "heroku-postbuild": "npm run build && npm run initDB"
   },
   "repository": {

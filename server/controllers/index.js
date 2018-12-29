@@ -1,39 +1,39 @@
 import {
   signup,
   login,
-} from './users/auth';
+} from './user';
 
 import {
   createRedFlag,
-  getRedFlags,
+  getAllRedFlags,
   getSpecificRedFlag,
-  editLocationRedFlag,
-  editCommentRedFlag,
+  editRedFlagLocation,
+  editRedFlagComment,
   deleteRedFlag,
-} from './incidents/red-flags';
+} from './red-flags';
 
 import {
   createIntervention,
-  getInterventions,
+  getAllInterventions,
   getSpecificIntervention,
-  editLocationIntervention,
-  editCommentIntervention,
+  editInterventionLocation,
+  editInterventionComment,
   deleteIntervention,
-} from './incidents/intervention';
+} from './intervention';
 
 export default {
-  getRedFlags,
+  getAllRedFlags,
   getSpecificRedFlag,
   createRedFlag,
   deleteRedFlag,
-  editLocationRedFlag,
-  editCommentRedFlag,
+  editRedFlagLocation,
+  editRedFlagComment,
   signup,
   login,
   createIntervention,
-  getInterventions,
+  getAllInterventions,
   getSpecificIntervention,
-  editLocationIntervention,
-  editCommentIntervention,
+  editInterventionLocation,
+  editInterventionComment,
   deleteIntervention,
 };

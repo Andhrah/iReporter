@@ -1,92 +1,33 @@
-// import pool from '../config';
 
-// const findByEmail = async email => {
-//   let errors;
-//   let response;
-//   const db = await pool.connect();
+import db from '../config';
 
-//   const sql = 'SELECT email, username FROM users where email = $1';
-//   const values = [email];
-//   try {
-//     return await db.query(sql, values).then(results => {
-//       response = results.rows;
-//     });
-//   } catch (e) {
-//     errors = new Error(e);
-//   } finally {
-//     const promise = new Promise((resolve, reject) => {
-//       resolve(response);
-//       reject(errors);
-//     });
-
-//     db.release();
-//     return promise;
-//   }
-// };
-
-// const findById = async id => {
-//   let errors; let response;
-//   const db = await pool.connect();
-
-//   const sql = 'SELECT * FROM users WHERE id = $1';
-//   const values = [id];
-//   try {
-//     return await db.query(sql, values).then(results => {
-//       response = results.rows;
-//     });
-//   } catch (e) {
-//     errors = new Error(e);
-//   } finally {
-//     const promise = new Promise((resolve, reject) => {
-//       resolve(response);
-//       reject(errors);
-//     });
-
-//     db.release();
-//     return promise;
-//   }
-// };
-// const register = async userObject => {
-//   const {
-//     firstname,
-//     lastname,
-//     othername,
-//     email,
-//     password,
-//     username,
-//     phoneNumber,
-//   } = userObject;
-//   let errors; let response;
-//   const db = await pool.connect();
-
-//   const sql =
-//     'INSERT INTO users (firstname, lastname, othername, email, password, username, phone_number, registered, is_admin) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *';
-//   const values = [
-//     firstname,
-//     lastname,
-//     othername,
-//     email,
-//     password,
-//     username,
-//     phoneNumber,
-//     new Date(),
-//     false,
-//   ];
-//   try {
-//     return await db.query(sql, values).then(results => {
-//       response = results.rows;
-//     });
-//   } catch (err) {
-//     errors = new Error(err);
-//   } finally {
-//     const promise = new Promise((resolve, reject) => {
-//       resolve(response);
-//       reject(errors);
-//     });
-
-//     db.release();
-//     return promise;
-//   }
-// };
-
-// export { findByEmail, findById, register };
+export const userSchema = (async () => {
+  try {
+    await db.connect((err, client, release) => {
+      // connect to a postgreSQL server and if any error while connecting log it.
+      if (err) {
+        return console.log('Could not connect to the server, check your internet connection');
+      }
+      const user = `CREATE TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY, 
+        firstname VARCHAR(255) NOT NULL, 
+        lastname VARCHAR(255) NOT NULL, 
+        othername VARCHAR(255), 
+        email VARCHAR(255) UNIQUE NOT NULL,
+        password VARCHAR(255) NOT NULL,
+        username VARCHAR(255) UNIQUE NOT NULL, 
+        phone_number VARCHAR(255) UNIQUE NOT NULL,
+        registered DATE, 
+        is_admin BOOLEAN NOT NULL
+      );`;
+      client.query(user, (error, response) => {
+        if (error) {
+          console.error('Error creating users table', error);
+        }
+        console.log('user table >>>', response.rows);
+      });
+      release();
+    });
+  } catch (err) {
+    console.log('userSchema >>>', err);
+  }
+})();
