@@ -20,7 +20,7 @@ export const createIntervention = async (req, res) => {
     req.id,
     `{${interventionReasons}}`,
     location,
-    'Under Investigation',
+    'Draft',
     `{${images}}`,
     `{${videos}}`,
     comment,

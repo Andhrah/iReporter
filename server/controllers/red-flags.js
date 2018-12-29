@@ -1,4 +1,5 @@
 import db from '../config';
+// eslint-disable-next-line no-unused-vars
 import redFlag from '../models';
 
 export const createRedFlag = async (req, res) => {
@@ -79,7 +80,7 @@ export const getAllRedFlags = async (req, res) => {
     console.log('>>>>>>>>', err);
     return res.status(500).json({
       status: 500,
-      error: 'Oops! red-flag does not exist, Please try again'
+      error: 'Oops! red-flag does not exist, Please try again',
     });
   } finally {
     client.release();

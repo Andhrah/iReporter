@@ -19,7 +19,7 @@ router.get('/red-flags/:id',
 // CREATE - adds new red-flag record to the DB (data structure)
 router.post('/red-flags',
   authenticate.isLoggedIn,
-  middleware.checkUserInput,
+  middleware.checkRedFlagInput,
   controllers.createRedFlag);
 
 // EDIT - for editing a particular red-flag location
