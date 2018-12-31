@@ -4,14 +4,15 @@
   "description": "iReporter enables any/every citizen to bring any form of corruption to the notice of appropriate authorities and the general public. Users can also report on things that needs government  intervention",
   "main": "index.js",
   "scripts": {
-    "pretest": "cross-env NODE_ENV=test npm run initDB",
-    "test": "cross-env NODE_ENV=test=test && nyc mocha server/test/**/**.spec.js --compilers js:babel-core/register  --exit",
+    "pretest": "cross-env NODE_ENV=test",
+    "test": "cross-env NODE_ENV=test && nyc mocha --timeout 5000 server/test/**/**.spec.js --compilers js:babel-core/register  --exit",
     "build": "babel server/ -d build/",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "start:dev": "npm run initDB && babel-node server/index.js",
+    "start:dev": "cross-env NODE_ENV=development npm run initDB && babel-node server/index.js",
     "seed": "babel-node server/seeders/intervention.js",
     "seed2": "babel-node server/seeders/red-flag.js",
     "initDB": "npm run seed && npm run seed2",
+    "initTestDB": "babel-node server/test/testDb.js && babel-node server/models/index.js",
     "start": "nodemon server/index.js --exec babel-node",
     "heroku-postbuild": "npm run build && npm run initDB"
   },
