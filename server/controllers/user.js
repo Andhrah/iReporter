@@ -55,7 +55,7 @@ export const signup = async (req, res) => {
       password,
       username,
       phoneNumber,
-      new Date(),
+      new Date().toDateString(),
       Boolean(),
     ];
 
@@ -75,7 +75,7 @@ export const signup = async (req, res) => {
       });
     }
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     return res.status(500).json({
       status: 500,
       error: 'Error occured while signing you up, Please Try Again',

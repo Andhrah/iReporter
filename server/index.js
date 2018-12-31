@@ -21,28 +21,7 @@ app.use('/api/v1', redFlagRoutes);
 app.use('/api/v1', interventionRoutes);
 
 
-app.get('*', (req, res) => {
-  res.status(404).json({
-    status: 404,
-    error: '404 Page Not Found',
-  });
-});
-
-app.post('*', (req, res) => {
-  res.status(404).json({
-    status: 404,
-    error: '404 Page Not Found',
-  });
-});
-
-app.patch('*', (req, res) => {
-  res.status(404).json({
-    status: 404,
-    error: '404 Page Not Found',
-  });
-});
-
-app.delete('*', (req, res) => {
+app.all('*', (req, res) => {
   res.status(404).json({
     status: 404,
     error: '404 Page Not Found',
