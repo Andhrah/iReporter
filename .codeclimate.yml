@@ -1,3 +1,7 @@
+version: "2"
+checks:
+  method-lines:
+    enabled: false
 engines:
   duplication:
     enabled: true
@@ -5,4 +9,3 @@ engines:
       languages:
         javascript:
           mass_threshold: 500
-        
