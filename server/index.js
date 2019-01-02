@@ -1,6 +1,7 @@
 // requiring express
 import dotenv from 'dotenv';
 import express from 'express';
+import cors from 'cors';
 import bodyParser from 'body-parser';
 import redFlagRoutes from './routes/red-flag';
 import authRoutes from './routes/auth';
@@ -11,6 +12,7 @@ dotenv.config();
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
