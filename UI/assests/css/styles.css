@@ -21,7 +21,7 @@ body {
 header {
   background-color:rgb(39, 69, 85);
   min-height: 40px;
-  width: 100%
+  width: 100%;
 }
 
 .branding {
@@ -167,97 +167,6 @@ hr {
   padding: 10px;
 }
 
-.grid-container {
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  justify-content: space-between;
-}
-
-.incident-container-all {
-  position: relative;
-  width: 24%;
-  height: 100%;
-  background-color: rgb(238, 238, 238);
-  border-radius: 10px;
-  padding-bottom: 30px;
-  margin-bottom: 10px;
-}
-
-.incident-container-all img {
-  width: 100%;
-  height: 230px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.read-more {
-  text-decoration: none;
-  align-self: center;
-}
-
-.read-more, .btn-container button {
-  padding: 10px 12px;
-  border-radius: 20px;
-  color: rgb(39, 69, 85);
-  cursor: pointer;
-  box-shadow:
-  inset 2px 1px 2px 2px rgba(0, 0, 0, 0.07), 
-  inset -2px -2px 3px rgba(255, 255, 255, 0.767), 
-  inset 2px 2px 0px 0px rgba(255, 255, 255, 0.767);
-  transition: all 0.2s linear;
-}
-
-.read-more {
-  border: 3px solid rgb(39, 69, 85);
-}
-
-.read-more:hover, .btn .edit:hover {
-  background:  rgb(26, 51, 65);
-  color: rgb(238, 238, 238);
-}
-
-.location {
-  color: rgb(39, 69, 85);
-}
-
-.location, .status {
-  margin-left: 2%;
-}
-
-.location span {
-  margin-left: 2%;
-}
-
-.location p, .status p {
-  margin: 0;
-}
-
-.locaton {
-  margin: 0px 2%;
-}
-
-.comment {
-  height: 60%;
-  margin-bottom: 10px;
-}
-
-.comment h4 {
-  text-align: center;
-  color: rgb(39, 69, 85);
-  font-size: 20px;
-  border-bottom: 3px solid rgb(39, 69, 85);
-  border-radius: 15px;
-  padding: 5px 0px;
-  margin: 5px;
-}
-
-.comment p {
-  color: rgb(39, 69, 85);
-  text-align: left;
-  padding: 0px 15px; 
-}
-
 /*********************************************************/
 /* *********SIGN-UP & SIGN-IN ***************************/
 /********************************************************/
@@ -330,6 +239,12 @@ hr {
   width: 100%;
 }
 
+div .error {
+  display: none;
+  color: rgb(204, 10, 10);
+  text-align: center;
+}
+
 .form-container label {
   font-size: 18px;
   line-height: 2rem;
@@ -341,7 +256,7 @@ hr {
 .form-container input {
   width: 100%;
   line-height: 30px;
-  color: gb(39, 69, 85);
+  color: rgb(39, 69, 85);
   margin-bottom: 2%;
   border: 1px solid rgb(39, 69, 85);
   border-radius: 15px;
@@ -483,6 +398,13 @@ hr {
   outline: none;
 }
 
+.other-input {
+  display: none;
+}
+.checkbox-container textarea {
+  width: 100%;
+  height: 100%;
+}
 ::placeholder{
   color: rgb(39, 69, 85);
 }
@@ -537,6 +459,11 @@ hr {
   background-color: rgb(238, 238, 238);
   border-radius: 10px;
   padding-bottom: 2%;
+}
+
+.incident-image-lg {
+  width: 100%;
+  height: 300px;
 }
 
 .incident-image-lg img {
@@ -614,6 +541,7 @@ hr {
   color: rgb(255, 255, 255);
   background-color: rgb(252, 165, 65);
   border: 3px solid rgb(252, 165, 65);
+  outline: none;
 }
 
  .btn .edit:hover {
@@ -624,6 +552,7 @@ hr {
   color: rgb(255, 255, 255);
   background: rgb(204, 10, 10);
   border: 3px solid rgb(204, 10, 10);
+  outline: none;
 }
 
 .btn .delete:hover {
@@ -635,6 +564,48 @@ hr {
 .first-incident-container .h2 {
   text-align: center;
   background-color: rgb(78, 136, 11);
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: rgb(254, 254, 254);
+  text-align: center;
+  color: rgb(39, 69, 85);
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  align-items: center;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* ****************************************************** */
@@ -681,6 +652,113 @@ hr {
 .section-flex .jumbotron .title-container a:hover {
   border-bottom: 3px solid rgb(39, 69, 85);
 }
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.incident-container-all {
+  position: relative;
+  width: 24%;
+  background-color: rgb(238, 238, 238);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.all-red-flags {
+  height: 550px;
+  padding-bottom: 40px;
+}
+
+.homepage {
+  height: 500px;
+}
+
+#image-small {
+  width: 100%;
+  height: 230px;
+}
+
+.incident-container-all img {
+  width: 100%;
+  height: 230px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.read-more {
+  text-decoration: none;
+  align-self: center;
+}
+
+.read-more, .btn-container button {
+  padding: 10px 12px;
+  border-radius: 20px;
+  color: rgb(39, 69, 85);
+  cursor: pointer;
+  box-shadow:
+  inset 2px 1px 2px 2px rgba(0, 0, 0, 0.07), 
+  inset -2px -2px 3px rgba(255, 255, 255, 0.767), 
+  inset 2px 2px 0px 0px rgba(255, 255, 255, 0.767);
+  transition: all 0.2s linear;
+}
+
+.read-more {
+  border: 3px solid rgb(39, 69, 85);
+}
+
+.read-more:hover, .btn .edit:hover {
+  background:  rgb(26, 51, 65);
+  color: rgb(238, 238, 238);
+}
+
+.location {
+  color: rgb(39, 69, 85);
+}
+
+.location, .status {
+  margin-left: 2%;
+}
+
+.location span {
+  margin-left: 2%;
+}
+
+.location p, .status p {
+  margin: 0;
+}
+
+.locaton {
+  margin: 0px 2%;
+}
+
+.comment {
+  height: 38%;
+  margin-bottom: 10px;
+}
+
+.comment h4 {
+  text-align: center;
+  color: rgb(39, 69, 85);
+  font-size: 20px;
+  border-bottom: 3px solid rgb(39, 69, 85);
+  border-radius: 15px;
+  padding: 5px 0px;
+  margin: 5px;
+}
+
+.comment p {
+  color: rgb(39, 69, 85);
+  text-align: left;
+  padding: 0px 15px; 
+}
+
+/* .incident-container-all {
+  height: 550px;
+} */
 
 .all-red-flag-list-container {
   border: 3px solid rgb(247, 172, 10);
@@ -803,6 +881,7 @@ hr {
 
 .profile .edit-profile {
   margin-top: 20px;
+  align-self: center;
 }
 
 #edit-profile-btn {
