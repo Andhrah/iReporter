@@ -1,0 +1,52 @@
+{
+  "name": "ireporter",
+  "version": "1.0.0",
+  "description": "iReporter enables any/every citizen to bring any form of corruption to the notice of appropriate authorities and the general public. Users can also report on things that needs government  intervention",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "cross-env NODE_ENV=test",
+    "test": "cross-env NODE_ENV=test && nyc mocha --timeout 5000 server/test/**/**.spec.js --compilers js:babel-core/register  --exit",
+    "build": "babel server/ -d build/",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "start:dev": "cross-env NODE_ENV=development npm run initDB && babel-node server/index.js",
+    "seed": "babel-node server/seeders/intervention.js",
+    "seed2": "babel-node server/seeders/red-flag.js",
+    "initDB": "npm run seed && npm run seed2",
+    "initTestDB": "babel-node server/test/testDb.js && babel-node server/models/index.js",
+    "start": "nodemon server/index.js --exec babel-node",
+    "heroku-postbuild": "npm run build && npm run initDB"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andraquin/iReporter.git"
+  },
+  "author": "Alexandra Collins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andraquin/iReporter/issues"
+  },
+  "homepage": "https://github.com/Andraquin/iReporter#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-watch": "^2.0.7",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
+    "supertest": "^3.3.0"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "cross-env": "^5.2.0",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "pg": "^7.7.1"
+  }
+}
