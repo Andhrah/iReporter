@@ -34,6 +34,12 @@ router.patch('/red-flags/:id/comment',
   middleware.validateComment,
   controllers.editRedFlagComment);
 
+// EDIT - for editing a particular red-flag record's status
+router.patch('/red-flags/:id/status',
+  authenticate.isLoggedIn,
+  middleware.validateStatus,
+  controllers.editRedFlagStatus);
+
 // DELETE - for deleting a red-flag
 router.delete('/red-flags/:id',
   authenticate.isLoggedIn,

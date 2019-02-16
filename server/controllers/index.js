@@ -9,6 +9,7 @@ import {
   getSpecificRedFlag,
   editRedFlagLocation,
   editRedFlagComment,
+  editRedFlagStatus,
   deleteRedFlag,
 } from './red-flags';
 
@@ -28,6 +29,7 @@ export default {
   deleteRedFlag,
   editRedFlagLocation,
   editRedFlagComment,
+  editRedFlagStatus,
   signup,
   login,
   createIntervention,

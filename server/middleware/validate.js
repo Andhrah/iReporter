@@ -200,4 +200,30 @@ middlewareObj.validateComment = (req, res, next) => {
   next();
 };
 
+middlewareObj.validateStatus = (req, res, next) => {
+  const errors = [];
+
+  if (!req.body.status || req.body.status === '') {
+    const error = {
+      status: 'Status should not be empty',
+    };
+    errors.push(error);
+  }
+
+  if (req.body.status !== 'Draft' || req.body.status !== 'Resolved' || req.body.status !== 'Under Investigation' || req.body.status !== 'Rejected') {
+    const error = {
+      status: 'Status can only be updated to either "Draft", "Resolved", "Under Investigation" or "Rejected"',
+    };
+    errors.push(error);
+  }
+
+  if (errors.length !== 0) {
+    return res.status(400).json({
+      status: 400,
+      error: errors,
+    });
+  }
+  next();
+};
+
 export default middlewareObj;

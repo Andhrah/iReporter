@@ -13,6 +13,7 @@ export const signup = async (req, res) => {
     username,
     email,
     phoneNumber,
+    isAdmin,
   } = req.body;
 
   // before we save the user in the database
@@ -56,7 +57,8 @@ export const signup = async (req, res) => {
       username,
       phoneNumber,
       new Date().toDateString(),
-      Boolean(),
+      // Boolean(true),
+      isAdmin,
     ];
 
     const newUser = await db.query(insertText, userValues);

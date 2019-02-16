@@ -188,6 +188,42 @@ export const editRedFlagComment = async (req, res) => {
   }
 };
 
+export const editRedFlagStatus = async (req, res) => {
+  const { status } = req.body;
+  const { id } = req.params;
+  // connect to a postgreSQL server.
+  const client = await db.connect();
+  try {
+    // UPDATE status record from red-flag table where id is req.params
+    const updateStatus = 'UPDATE red_flags SET status = $1 WHERE id = $2 RETURNING *';
+    const values = [status, id];
+    // querying or requesting information from the database
+    const response = await client.query(updateStatus, values);
+    console.log(response.row);
+    if (response.rowCount < 1) {
+      return res.status(404).json({
+        status: 404,
+        error: 'Red_Flag Not Found',
+      });
+    }
+    return res.status(200).json({
+      status: 200,
+      data: [{
+        id: response.rows[0].id,
+        message: 'Updated Red-Flag record\'s status',
+      }],
+    });
+  } catch (error) {
+    console.log('>>>', error);
+    res.status(500).json({
+      status: 500,
+      error: 'Oop! Failed to update status, Please try again',
+    });
+  } finally {
+    client.release();
+  }
+};
+
 export const deleteRedFlag = async (req, res) => {
   const { id } = req.params;
   // connect to a postgreSQL server.
