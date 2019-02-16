@@ -42,51 +42,60 @@
     <!-- --------------------------------------- -->
     <div class="form-container" id="signup-wrapper">
         <h1>Sign Up</h1>
-      <form action="">
+      <form method="POST">
         
         <div class="form-container-grid">
-            <div class="input-container">
-              <label><span>*</span>First Name</label>
-              <input type="text" class="text-input" />
-            </div>
-    
-            <div class="input-container">
-              <label><span>*</span>Last Name</label>
-              <input type="text" class="text-input" />
-            </div>
-    
-            <div class="input-container">
-              <label>Others Name</label>
-              <input type="text" class="text-input" />
-            </div>
-    
-            <div class="input-container">
-              <label><span>*</span>Email</label>
-              <input type="email" class="text-input" />
-            </div>
-    
-            <div class="input-container">
-              <label><span>*</span>Phone Number</label>
-              <input type="text" class="text-input" />
-            </div>
-    
-            <div class="input-container">
-              <label><span>*</span>Username</label>
-              <input type="text" class="text-input" />
-            </div>
-    
-            <div class="input-container">
-              <label><span>*</span>Password</label>
-              <input type="password" class="text-input" />
-            </div>
-    
-            <div class="input-container">
-              <label><span>*</span>Confirm Password</label>
-              <input type="password" class="text-input" />
-            </div>
+          <div class="error" id="signup-error"></div>
+          <div class="input-container">
+            <label><span>*</span>First Name</label>
+            <input type="text" class="text-input" id="firstname" required/>
+            <div class="error" id="firstname-error"></div>
           </div>
+  
+          <div class="input-container">
+            <label><span>*</span>Last Name</label>
+            <input type="text" class="text-input" id="lastname" required/>
+            <div class="error" id="lastname-error"></div>
+          </div>
+  
+          <div class="input-container">
+            <label>Other Name</label>
+            <input type="text" class="text-input" id="othername" required/>
+            <div class="error" id="othername-error"></div>
+          </div>
+  
+          <div class="input-container">
+            <label><span>*</span>Email</label>
+            <input type="email" class="text-input" id="email" required/>
+            <div class="error" id="email-error"></div>
+          </div>
+  
+          <div class="input-container">
+            <label><span>*</span>Phone Number</label>
+            <input type="number" class="text-input" id="phone-number" required/>
+            <div class="error" id="phone-number-error"></div>
+          </div>
+  
+          <div class="input-container">
+            <label><span>*</span>Username</label>
+            <input type="text" class="text-input" id="username" required/>
+            <div class="error" id="username-error"></div>
+          </div>
+  
+          <div class="input-container">
+            <label><span>*</span>Password</label>
+            <input type="password" class="text-input" id="password" required/>
+            <div class="error" id="password-error"></div>
+          </div>
+    
+          <div class="input-container">
+            <label><span>*</span>Confirm Password</label>
+            <input type="password" class="text-input" id="confirm-password" required/>
+            <div class="error" id="confirm-password-error"></div>
+          </div>
+        </div>
 
-        <button type="submit" class="form-primary-btn">
+        <button type="submit" class="form-primary-btn" id="signup">
           Sign Up
         </button>
 
@@ -111,5 +120,6 @@
 
   </div>
   <script src="./assests/js/main.js"></script>
+  <script src="../client/scripts/signup.js"></script>
 </body>
 </html>

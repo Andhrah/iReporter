@@ -43,50 +43,51 @@
     <div class="report-form-container">
       <h3>Report <span>Red-flag</span> incident or corruption (alleged)</h3>
       <form class="report-form">
-        <p>Type Of Incident/Corruption (choose all that relate)</p>
+        <p>Type Of Incident/Corruption (choose all that relates)</p>
         <div class="first-checkbox-container">
+          <div class="error" id="corruption-method-error"></div>
           <div class="checkbox-container">
-              <input type="checkbox">
-              <label>Corruption at home</label>
-            </div>
-            <div class="checkbox-container">
-              <input type="checkbox">
-              <label>Fake or Ghost worker</label>
-            </div>
+            <input class="corruption-method-input" id="home-corruption" type="checkbox" value="Corruption at home">
+            <label>Corruption at home</label>
+          </div>
+          <div class="checkbox-container">
+            <input class="corruption-method-input" id="ghost-worker" type="checkbox" value="Fake or Ghost worker">
+            <label>Fake or Ghost worker</label>
+          </div>
     
-            <div class="checkbox-container">
-              <input type="checkbox">
-              <label>Bribery</label>
-            </div>
+          <div class="checkbox-container">
+            <input class="corruption-method-input" id="bribery" type="checkbox" value="Bribery">
+            <label>Bribery</label>
+          </div>
     
-            <div class="checkbox-container">
-              <input type="checkbox">
-              <label for="scales">Embbezzlement, Fraud</label>
-            </div>
+          <div class="checkbox-container">
+            <input class="corruption-method-input" id="embezzlement" type="checkbox" value="Embezzlement, Fraud">
+            <label for="scales">Embezzlement, Fraud</label>
+          </div>
     
-            <div class="checkbox-container">
-              <input type="checkbox">
-              <label for="scales">Theft</label>
-            </div>
+          <div class="checkbox-container">
+            <input class="corruption-method-input" id="theft" type="checkbox" value="Theft">
+            <label for="scales">Theft</label>
+          </div>
     
-            <div class="checkbox-container">
-              <input type="checkbox">
-              <label for="scales">Drug dealers (cocaine etc)</label>
-            </div>
+          <div class="checkbox-container">
+            <input class="corruption-method-input" id="drugs" type="checkbox" value="Drug trafficking">
+            <label for="scales">Drug trafficking (cocaine etc)</label>
+          </div>
     
-            <div class="checkbox-container">
-              <input type="checkbox">
-              <label for="scales">Abuse of power</label>
-            </div>
+          <div class="checkbox-container">
+            <input class="corruption-method-input" id="power-abuse" type="checkbox" value="Abuse of power">
+            <label for="scales">Abuse of power</label>
+          </div>
     
-            <div class="checkbox-container">
-              <input type="checkbox">
-              <label>Others</label>
-            </div>
+          <div class="checkbox-container">
+            <input id="others" type="checkbox" value="Others">
+            <label>Others</label>
+          </div>
         </div>
-        <div class="checkbox-container">
+        <div id="other-method-container"class="checkbox-container other-input">
           <label>If others, please specify</label>
-          <input type="text">
+          <input id="other-methods" type="text">
         </div>
 
         <!-- ------------------------------------------------------ -->
@@ -94,74 +95,75 @@
         <!-- ------------------------------------------------------ -->
         <p>Entity or people involved (include all that are involved)</p>
         <div class="first-checkbox-container">
+          <div class="error" id="entity-involved-error"></div>
           <div class="checkbox-container">
-            <input type="checkbox">
+            <input class="entity-involved-input" id="public-hospital" type="checkbox" value="Public/government hospital">
             <label>Public/government hospital</label>
           </div>
 
           <div class="checkbox-container">
-            <input type="checkbox">
+            <input class="entity-involved-input" id="police" type="checkbox" value="Police">
             <label>Police</label>
           </div>
 
           <div class="checkbox-container">
-            <input type="checkbox">
+            <input class="entity-involved-input" id="custom-officer" type="checkbox" value="Custom Officer">
             <label>Custom Officer</label>
           </div>
 
           <div class="checkbox-container">
-            <input type="checkbox">
+            <input class="entity-involved-input" id="judge" type="checkbox" value="Magistrate or Judge">
             <label>Magistrate or Judge</label>
           </div>
 
           <div class="checkbox-container">
-            <input type="checkbox">
+            <input class="entity-involved-input" id="private-hospital" type="checkbox" value="Private hospital">
             <label>Private hospital</label>
           </div>
 
           <div class="checkbox-container">
-            <input type="checkbox">
+            <input class="entity-involved-input" id="public-basic-school" type="checkbox" value="Public/state nusery/primary school">
             <label>Public/state nusery/primary school</label>
           </div>
 
           <div class="checkbox-container">
-            <input type="checkbox">
+            <input class="entity-involved-input" id="public-high-school" type="checkbox" value="Public/state secondary school">
             <label>Public/state secondary school</label>
           </div>
 
           <div class="checkbox-container">
-            <input type="checkbox">
+            <input class="entity-involved-input" id="private-basic-school" type="checkbox" value="Private nusery/primary school">
             <label>Private nusery/primary school</label>
           </div>
           
           <div class="checkbox-container">
-            <input type="checkbox">
+            <input class="entity-involved-input" id="private-high-school" type="checkbox" value="Private secondary school">
             <label>Private secondary school</label>
           </div>
 
           <div class="checkbox-container">
-            <input type="checkbox">
+            <input class="entity-involved-input" id="federal-gov" type="checkbox" value="Federal/national government department">
             <label>Federal/national government department</label>
           </div>
 
           <div class="checkbox-container">
-            <input type="checkbox">
+            <input class="entity-involved-input" id="state-gov" type="checkbox" value="State government department">
             <label>State government department</label>
           </div>
 
           <div class="checkbox-container">
-            <input type="checkbox">
+            <input class="entity-involved-input" id="local-gov" type="checkbox" value="Local government department">
             <label>Local government department</label>
           </div>
 
           <div class="checkbox-container">
-              <input type="checkbox">
+              <input id="other-entity" type="checkbox" value="others">
               <label>Others</label>
           </div>
         </div>
-        <div class="checkbox-container">
+        <div id="other-entity-container" class="checkbox-container other-input">
           <label>If other, please specify</label>
-          <input type="text">
+          <input id="other-entity-involved" type="text">
         </div>
 
         <!-- ---------------------------------------------------------------->
@@ -169,20 +171,23 @@
         <!-- --------------------------------------------------------------->
         <div class="checkbox-container">
           <p>Please describe what happened?</p>
-          <textarea name="" id="" cols="50" rows="10" placeholder="Enter text here"></textarea>
+          <div class="error" id="comment-error"></div>
+          <textarea name="" id="comment" cols="50" rows="10" placeholder="Enter text here"></textarea>
         </div>
 
         <!-- ----------------------------------------------------------------------- -->
         <!-- where it happened -->
         <!-- --------------------------------------------------------------------- -->
         <p>Where did it happen?</p>
+        <div class="error" id="location-error"></div>
         <div class="map">Google Map</div>
         <!-- ----------------------------------------------------- -->
         <!-- when did it happen -->
         <!-- ----------------------------------------------------- -->
         <div class="checkbox-container">
           <label>When did it happen?</label>
-          <input type="text">
+          <div class="error" id="corruption-date-error"></div>
+          <input id="when" type="Date">
         </div>
 
         <!-- ----------------------------------------------------- -->
@@ -190,18 +195,26 @@
         <!-- ----------------------------------------------------- -->
         <div class="checkbox-container">
           <label>Provide name(s) of those involved</label>
-          <textarea name="" id="" cols="50" rows="10"></textarea>
+          <div class="error" id="names-involved-error"></div>
+          <textarea name="" id="names-involved" cols="50" rows="10"></textarea>
         </div>
 
         <!-- ----------------------------------------------------- -->
         <!-- Add image(s) or Video -->
         <!-- ----------------------------------------------------- -->
         <div class="checkbox-container">
-          <p>Add image or video related to the incident/corruption</p>
-          <input type="file" class="custom-file-input">
+          <p>Add image(s) related to the incident/corruption</p>
+          <div class="error" id="image-error"></div>
+          <input id="images" type="file" class="custom-file-input">
+        </div>
+        
+        <div class="checkbox-container">
+          <p>Add video(s) related to the incident/corruption</p>
+          <div class="error" id="video-error"></div>
+          <input id="videos" type="file" class="custom-file-input">
         </div>
 
-        <button class="report-button">Report Red-flag</button>
+        <button type="reset" class="report-button" id="report-red-flag">Report Red-flag</button>
         
       </form>
     </div>
@@ -216,7 +229,8 @@
   </div>
 
   <script src="./assests/js/main.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
-        async defer></script>
+  <script src="../client/scripts/createRedFlag.js"></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" -->
+        <!-- async defer></script> -->
 </body>
 </html>
