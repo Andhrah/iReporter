@@ -14,11 +14,9 @@ router.post('/interventions',
   controllers.createIntervention);
 
 router.get('/interventions',
-  authenticate.isLoggedIn,
   controllers.getAllInterventions);
 
 router.get('/interventions/:id',
-  authenticate.isLoggedIn,
   controllers.getSpecificIntervention);
 
 // EDIT - for editing a particular intervention location record

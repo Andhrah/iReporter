@@ -8,12 +8,10 @@ const router = express.Router();
 
 // INDEX - displays a list of Red-Flag records
 router.get('/red-flags',
-  authenticate.isLoggedIn,
   controllers.getAllRedFlags);
 
 // SHOW - displays more information about a specific red-flag
 router.get('/red-flags/:id',
-  authenticate.isLoggedIn,
   controllers.getSpecificRedFlag);
 
 // CREATE - adds new red-flag record to the DB (data structure)
