@@ -12,6 +12,7 @@ export const interventionSchema = (async () => {
       created_by INT NOT NULL,
       intervention_reasons text[] NOT NULL,
       location VARCHAR(255) NOT NULL, 
+      display_location VARCHAR(255),
       status VARCHAR(255) NOT NULL,
       images text[],
       videos text[],
@@ -22,7 +23,7 @@ export const interventionSchema = (async () => {
         }
         console.log('intervention table >>>', response.rows);
         release();
-      });
+      }); 
     });
   } catch (err) {
     console.log('InterventionSchema >>>', err);
