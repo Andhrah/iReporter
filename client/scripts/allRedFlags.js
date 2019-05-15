@@ -97,7 +97,7 @@ window.onload = () => {
         corruptionMethod.append(redFlag.corruption_methods);
         comment.appendChild(corruptionMethod);
         const commentParagraph = document.createElement('p');
-        commentParagraph.append(redFlag.comment.substring(0,100));
+        commentParagraph.append(redFlag.comment.substring(0, 100));
         comment.appendChild(commentParagraph);
 
         incidentContainer.appendChild(comment);

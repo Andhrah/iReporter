@@ -19,7 +19,7 @@ export const createIntervention = async (req, res) => {
   const insertValues = [
     new Date().toDateString(),
     req.id,
-    `{${interventionReasons}}`,
+    `${interventionReasons}`,
     location,
     displayLocation,
     'Draft',
