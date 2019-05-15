@@ -2,30 +2,39 @@
 const createRedFlag = document.getElementById('report-red-flag');
 
 // get checkboxes in the form
-const corruptionMethodsCheckboxes = document.getElementsByClassName('corruption-method-input'),
-      entityInvolvedCheckboxes = document.getElementsByClassName('entity-involved-input');
+const corruptionMethodsCheckboxes = document.getElementsByClassName('corruption-method-input');
 
-const others = document.getElementById('others'),
-      otherMethods = document.getElementById('other-methods');
+const entityInvolvedCheckboxes = document.getElementsByClassName('entity-involved-input');
 
-const otherEntity = document.getElementById('other-entity'),
-      otherEntityInvolved = document.getElementById('other-entity-involved');
+const others = document.getElementById('others');
+
+const otherMethods = document.getElementById('other-methods');
+
+const otherEntity = document.getElementById('other-entity');
+
+const otherEntityInvolved = document.getElementById('other-entity-involved');
 
 // get other input field value in the form
-const comment = document.getElementById('comment'),
-      corruptionDate = document.getElementById('when'),
-      namesInvolved = document.getElementById('names-involved'),
-      images = document.getElementById('images'),
-      videos = document.getElementById('videos');
+const comment = document.getElementById('comment');
+
+const corruptionDate = document.getElementById('when');
+
+const namesInvolved = document.getElementById('names-involved');
+
+const images = document.getElementById('images');
+
+const videos = document.getElementById('videos');
+
 const userId = localStorage.getItem('userId');
 
 // get div container for displaying error in submitting form
-const corruptionMethodError = document.getElementById('corruption-method-error'),
-      entityInvolvedError = document.getElementById('entity-involved-error');
-      commentError = document.getElementById('comment-error');
-      locationError = document.getElementById('location-error');
-      corruptionDateError = document.getElementById('corruption-date-error');
-      namesInvolvedError = document.getElementById('names-involved-error');
+const corruptionMethodError = document.getElementById('corruption-method-error');
+   
+const entityInvolvedError = document.getElementById('entity-involved-error');
+commentError = document.getElementById('comment-error');
+locationError = document.getElementById('location-error');
+corruptionDateError = document.getElementById('corruption-date-error');
+namesInvolvedError = document.getElementById('names-involved-error');
 
 // add event listener to the checkbox with label of others
 // and if the checkbox is checked, display an input field
@@ -33,8 +42,7 @@ others.addEventListener('click', () => {
   const otherMethodInput = document.getElementById('other-method-container');
   if (others.checked) {
     otherMethodInput.style.display = 'block';
-  }
-  else {
+  } else {
     otherMethodInput.style.display = 'none';
   }
 });
@@ -43,8 +51,7 @@ otherEntity.addEventListener('click', () => {
   const otherEntityInput = document.getElementById('other-entity-container');
   if (otherEntity.checked) {
     otherEntityInput.style.display = 'block';
-  }
-  else {
+  } else {
     otherEntityInput.style.display = 'none';
   }
 });
@@ -57,7 +64,7 @@ createRedFlag.addEventListener('click', (event) => {
   const corruptionMethods = [];
   const entityInvolved = [];
 
-  for(const checkbox of corruptionMethodsCheckboxes) {
+  for (const checkbox of corruptionMethodsCheckboxes) {
     if (checkbox.checked) {
       console.log(checkbox);
       corruptionMethods.push(checkbox.value);
@@ -66,7 +73,7 @@ createRedFlag.addEventListener('click', (event) => {
     }
   }
 
-  for(const checkbox of entityInvolvedCheckboxes) {
+  for (const checkbox of entityInvolvedCheckboxes) {
     if (checkbox.checked) {
       console.log(checkbox);
       entityInvolved.push(checkbox.value);
@@ -93,7 +100,7 @@ createRedFlag.addEventListener('click', (event) => {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem('Authorization'),
+        Authorization: localStorage.getItem('Authorization'),
       },
       body: JSON.stringify({
         createdOn: new Date().toDateString(),
@@ -113,7 +120,7 @@ createRedFlag.addEventListener('click', (event) => {
       // check user's input and return error if its empty
       if (corruptionMethods.length === 0) {
         corruptionMethodError.style.display = 'block';
-        return corruptionMethodError.innerHTML = 'Choose at least one out of the following Corruption Types'
+        return corruptionMethodError.innerHTML = 'Choose at least one out of the following Corruption Types';
       }
       corruptionMethodError.style.display = 'none';
 
@@ -122,7 +129,7 @@ createRedFlag.addEventListener('click', (event) => {
         return entityInvolvedError.innerHTML = 'Choose at least one out of the following Entity or People Involved';
       }
       entityInvolvedError.style.display = 'none';
-      
+
       if (comment.value === '') {
         commentError.style.display = 'block';
         return commentError.innerHTML = 'Description about corruption should not be empty';
@@ -139,7 +146,7 @@ createRedFlag.addEventListener('click', (event) => {
         namesInvolvedError.style.display = 'block';
         return namesInvolvedError.innerHTML = 'Write at least one name Involved or write the word "None"';
       }
-      namesInvolvedError.style.display = 'none'
+      namesInvolvedError.style.display = 'none';
 
       // create red-flag record or make a post request
       const response = await fetch(url, options);
