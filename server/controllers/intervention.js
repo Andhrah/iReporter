@@ -6,20 +6,22 @@ export const createIntervention = async (req, res) => {
   const {
     interventionReasons,
     location,
+    displayLocation,
     images,
     videos,
     comment,
   } = req.body;
 
   const insertText = `INSERT INTO interventions(
-    created_on, created_by, intervention_reasons, location, 
+    created_on, created_by, intervention_reasons, location, display_location,
     status, images, videos, comment) 
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`;
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`;
   const insertValues = [
     new Date().toDateString(),
     req.id,
     `{${interventionReasons}}`,
     location,
+    displayLocation,
     'Draft',
     `{${images}}`,
     `{${videos}}`,
